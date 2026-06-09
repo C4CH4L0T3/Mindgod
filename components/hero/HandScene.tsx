@@ -165,7 +165,7 @@ export const CHIPS = [
   { id: "node", label: "Node.js", from: 20, to: [620, 575] as const },
 ];
 
-function Glyph({ id }: { id: string }) {
+export function Glyph({ id }: { id: string }) {
   switch (id) {
     case "react":
       return (
