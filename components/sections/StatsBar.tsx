@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 12, suffix: "+", label: "Negocios que ya venden en automático" },
-  { value: 14, suffix: "h", label: "Recuperadas por semana, en promedio" },
-  { value: 100, suffix: "%", label: "A tu medida — cero plantillas" },
-  { value: 24, suffix: "h", label: "Máximo para responderte" },
+  { value: 12, suffix: "+", label: "Negocios que ya venden en automático", color: "#7c3aed" },
+  { value: 14, suffix: "h", label: "Recuperadas por semana, en promedio", color: "#ec4899" },
+  { value: 100, suffix: "%", label: "A tu medida — cero plantillas", color: "#f97316" },
+  { value: 24, suffix: "h", label: "Máximo para responderte", color: "#84cc16" },
 ];
 
 function CountUp({ target, suffix, active }: { target: number; suffix: string; active: boolean }) {
@@ -64,7 +64,10 @@ export default function StatsBar() {
               i > 0 ? "border-l border-black/10 max-md:[&:nth-child(3)]:border-l-0" : ""
             } ${i >= 2 ? "max-md:border-t max-md:border-black/10" : ""}`}
           >
-            <span className="display text-4xl text-ink md:text-5xl">
+            <span
+              className="display text-4xl md:text-5xl"
+              style={{ color: s.color }}
+            >
               <CountUp target={s.value} suffix={s.suffix} active={inView} />
             </span>
             <span className="text-[13px] text-stone">{s.label}</span>

@@ -21,6 +21,7 @@ const solutions: OrbitalItem[] = [
     icon: Database,
     relatedIds: [2, 3],
     impact: 90,
+    accent: "#7c3aed",
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ const solutions: OrbitalItem[] = [
     icon: Globe,
     relatedIds: [1, 3],
     impact: 100,
+    accent: "#ec4899",
     featured: true,
   },
   {
@@ -42,6 +44,7 @@ const solutions: OrbitalItem[] = [
     icon: Bot,
     relatedIds: [1, 2],
     impact: 95,
+    accent: "#f97316",
   },
 ];
 
@@ -54,7 +57,7 @@ export default function Services() {
           <h2 className="display max-w-2xl text-[clamp(34px,4.5vw,60px)] leading-[1.05] text-ink">
             Tres soluciones.
             <br />
-            <em className="text-stone">Un solo objetivo: que vendas más.</em>
+            <em className="text-gradient">Un solo objetivo: que vendas más.</em>
           </h2>
         </Reveal>
 
@@ -71,7 +74,7 @@ export default function Services() {
             <h3 className="display text-[clamp(24px,2.8vw,38px)] leading-tight text-ink">
               Mientras tú vendes,
               <br />
-              <em className="text-stone">la máquina trabaja.</em>
+              <em className="text-gradient">la máquina trabaja.</em>
             </h3>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-stone">
               Cada solución que entregamos corre sola: captura, responde,

@@ -11,6 +11,8 @@ export interface OrbitalItem {
   icon: React.ElementType;
   relatedIds: number[];
   impact: number;
+  /* dopamine accent (hex) — colors the node, glow, impact bar and card details */
+  accent: string;
   featured?: boolean;
 }
 
@@ -129,10 +131,10 @@ export default function RadialOrbitalTimeline({
           style={{ perspective: "1000px" }}
         >
           {/* core — the single objective everything orbits around */}
-          <div className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-ink">
-            <div className="absolute h-20 w-20 animate-ping rounded-full border border-black/20 opacity-70"></div>
+          <div className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-spark via-punch to-ember">
+            <div className="absolute h-20 w-20 animate-ping rounded-full border border-punch/40 opacity-70"></div>
             <div
-              className="absolute h-24 w-24 animate-ping rounded-full border border-black/10 opacity-50"
+              className="absolute h-24 w-24 animate-ping rounded-full border border-spark/30 opacity-50"
               style={{ animationDelay: "0.5s" }}
             ></div>
             <div className="h-7 w-7 rounded-full bg-paper/90"></div>
@@ -172,8 +174,7 @@ export default function RadialOrbitalTimeline({
                     isPulsing ? "animate-pulse" : ""
                   }`}
                   style={{
-                    background:
-                      "radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 70%)",
+                    background: `radial-gradient(circle, ${item.accent}33 0%, ${item.accent}00 70%)`,
                     width: `${item.impact * 0.5 + 40}px`,
                     height: `${item.impact * 0.5 + 40}px`,
                     left: `-${(item.impact * 0.5) / 2}px`,
@@ -184,31 +185,59 @@ export default function RadialOrbitalTimeline({
                 <div
                   className={`flex h-10 w-10 transform items-center justify-center rounded-full border-2 transition-all duration-300 ${
                     isExpanded
-                      ? "scale-150 border-ink bg-ink text-paper shadow-lg shadow-black/20"
+                      ? "scale-150 text-white"
                       : isRelated
-                        ? "animate-pulse border-ink bg-black/10 text-ink"
-                        : "border-black/30 bg-paper text-ink"
+                        ? "animate-pulse"
+                        : "bg-paper"
                   }`}
+                  style={
+                    isExpanded
+                      ? {
+                          backgroundColor: item.accent,
+                          borderColor: item.accent,
+                          boxShadow: `0 10px 28px ${item.accent}55`,
+                        }
+                      : isRelated
+                        ? {
+                            borderColor: item.accent,
+                            backgroundColor: `${item.accent}1a`,
+                            color: item.accent,
+                          }
+                        : { borderColor: `${item.accent}66`, color: item.accent }
+                  }
                 >
                   <Icon size={16} />
                 </div>
 
                 <div
                   className={`absolute left-1/2 top-12 -translate-x-1/2 whitespace-nowrap font-mono text-[11px] font-semibold tracking-[0.14em] uppercase transition-all duration-300 ${
-                    isExpanded ? "scale-110 text-ink" : "text-stone"
+                    isExpanded ? "scale-110" : "text-stone"
                   }`}
+                  style={isExpanded ? { color: item.accent } : undefined}
                 >
                   {item.title}
                 </div>
 
                 {isExpanded && (
                   <div className="absolute left-1/2 top-24 w-72 -translate-x-1/2 cursor-default rounded-xl border border-black/15 bg-paper/95 shadow-xl shadow-black/10 backdrop-blur-lg">
-                    <div className="absolute -top-3 left-1/2 h-3 w-px -translate-x-1/2 bg-black/30"></div>
+                    <div
+                      className="absolute -top-3 left-1/2 h-3 w-px -translate-x-1/2"
+                      style={{ backgroundColor: item.accent }}
+                    ></div>
+                    <div
+                      className="absolute inset-x-0 top-0 h-[3px] rounded-t-xl"
+                      style={{
+                        background: `linear-gradient(90deg, ${item.accent}, ${item.accent}33)`,
+                      }}
+                    ></div>
                     <div className="p-5 pb-0">
                       <div className="flex items-center justify-between gap-3">
                         <span className="tag !text-[9px]">{item.tag}</span>
                         {item.featured && (
-                          <span className="whitespace-nowrap rounded-full border border-ink px-2 py-0.5 font-mono text-[9px] tracking-[0.2em] text-ink">
+                          <span
+                            className="whitespace-nowrap rounded-full border px-2 py-0.5 font-mono text-[9px] tracking-[0.2em]"
+                            style={{ borderColor: item.accent, color: item.accent }}
+                          >
                             MÁS SOLICITADO
                           </span>
                         )}
@@ -226,14 +255,20 @@ export default function RadialOrbitalTimeline({
                             <Zap size={10} className="mr-1" />
                             Nivel de impacto
                           </span>
-                          <span className="font-mono text-ink">
+                          <span
+                            className="font-mono"
+                            style={{ color: item.accent }}
+                          >
                             {item.impact}%
                           </span>
                         </div>
                         <div className="h-1 w-full overflow-hidden rounded-full bg-black/10">
                           <div
-                            className="h-full bg-ink"
-                            style={{ width: `${item.impact}%` }}
+                            className="h-full rounded-full"
+                            style={{
+                              width: `${item.impact}%`,
+                              background: `linear-gradient(90deg, ${item.accent}, #ec4899)`,
+                            }}
                           ></div>
                         </div>
                       </div>
@@ -275,7 +310,8 @@ export default function RadialOrbitalTimeline({
 
                       <a
                         href="#contacto"
-                        className="mt-4 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.2em] text-ink underline underline-offset-4 transition-opacity hover:opacity-60"
+                        className="mt-4 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.2em] underline underline-offset-4 transition-opacity hover:opacity-60"
+                        style={{ color: item.accent }}
                         onClick={(e) => e.stopPropagation()}
                       >
                         Hablemos

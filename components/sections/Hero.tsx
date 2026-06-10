@@ -18,7 +18,7 @@ export default function Hero() {
           <h1 className="display text-[clamp(44px,6.5vw,88px)] leading-[1.02] text-ink">
             Tu negocio no descansa.
             <br />
-            <em>Tú sí.</em>
+            <em className="text-gradient">Tú sí.</em>
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-[clamp(14px,1.4vw,18px)] text-stone">
             CRM, página web y automatización con IA para que ningún cliente se

@@ -37,7 +37,7 @@ const techSlugs = [
 ];
 
 const techImages = techSlugs.map(
-  (slug) => `https://cdn.simpleicons.org/${slug}/0a0a0a`
+  (slug) => `https://cdn.simpleicons.org/${slug}`
 );
 
 const steps = [
@@ -45,21 +45,25 @@ const steps = [
     number: "01",
     title: "Diagnóstico",
     body: "Analizamos tu negocio y te decimos exactamente dónde estás perdiendo tiempo y ventas. Gratis y sin compromiso.",
+    color: "#7c3aed",
   },
   {
     number: "02",
     title: "Diseño",
     body: "Diseñamos la solución a tu medida. Sin plantillas, sin módulos que nunca vas a usar.",
+    color: "#ec4899",
   },
   {
     number: "03",
     title: "Implementación",
     body: "Montamos, conectamos y probamos todo. Tú sigues vendiendo como siempre mientras tanto.",
+    color: "#f97316",
   },
   {
     number: "04",
     title: "Optimización",
     body: "Medimos resultados cada mes. Lo que no genera, se ajusta o se elimina.",
+    color: "#84cc16",
   },
 ];
 
@@ -72,15 +76,21 @@ export default function Process() {
           <h2 className="display max-w-2xl text-[clamp(34px,4.5vw,60px)] leading-[1.05] text-ink">
             De la idea al resultado.
             <br />
-            <em className="text-stone">Sin detener tu negocio.</em>
+            <em className="text-gradient">Sin detener tu negocio.</em>
           </h2>
         </Reveal>
 
         <div className="mt-20 grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
             <Reveal key={s.number} delay={i * 110}>
-              <div className="group border-t border-black/10 pt-7 transition-colors duration-500 hover:border-black/60">
-                <span className="font-mono text-xs tracking-[0.2em] text-stone transition-colors duration-500 group-hover:text-ink">
+              <div
+                className="group border-t-2 pt-7 transition-colors duration-500"
+                style={{ borderColor: `${s.color}40` }}
+              >
+                <span
+                  className="font-mono text-xs font-semibold tracking-[0.2em]"
+                  style={{ color: s.color }}
+                >
                   {s.number}
                 </span>
                 <h3 className="mt-5 text-xl font-semibold tracking-[-0.01em] text-ink">
@@ -98,7 +108,7 @@ export default function Process() {
             <h3 className="display text-[clamp(24px,2.8vw,38px)] leading-tight text-ink">
               Nos conectamos
               <br />
-              <em className="text-stone">a tus herramientas.</em>
+              <em className="text-gradient">a tus herramientas.</em>
             </h3>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-stone">
               WhatsApp, Mercado Pago, Shopify, el ecosistema de Google… No te

@@ -25,10 +25,12 @@ export function LiquidButton({
     <a
       href={href}
       className={cn(
-        "relative inline-flex h-12 cursor-pointer items-center justify-center whitespace-nowrap rounded-full px-9 text-[15px] font-medium tracking-[-0.01em] text-ink transition duration-300 hover:scale-105 active:scale-[0.98] md:h-14 md:px-11 md:text-base",
+        "group relative inline-flex h-12 cursor-pointer items-center justify-center whitespace-nowrap rounded-full px-9 text-[15px] font-medium tracking-[-0.01em] text-ink transition duration-300 hover:scale-105 active:scale-[0.98] md:h-14 md:px-11 md:text-base",
         className
       )}
     >
+      {/* aurora halo behind the glass */}
+      <span className="absolute -inset-1 -z-20 rounded-full bg-gradient-to-r from-spark via-punch to-ember opacity-25 blur-md transition-opacity duration-300 group-hover:opacity-60" />
       {/* glass rim */}
       <span
         className={cn(

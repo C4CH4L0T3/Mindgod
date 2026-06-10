@@ -20,7 +20,10 @@
       "PowerShell($slugs = \"whatsapp\",\"instagram\",\"facebook\",\"tiktok\",\"youtube\",\"linkedin\",\"x\",\"telegram\",\"gmail\",\"googleanalytics\",\"googleads\",\"googledrive\",\"googlecalendar\",\"googlemaps\",\"shopify\",\"woocommerce\",\"wordpress\",\"mercadopago\",\"rappi\",\"payu\",\"stripe\",\"paypal\",\"hubspot\",\"salesforce\",\"mailchimp\",\"canva\",\"notion\",\"slack\",\"zoom\",\"openai\",\"claude\",\"anthropic\",\"n8n\",\"zapier\",\"make\",\"airtable\",\"trello\",\"asana\",\"nequi\",\"wompi\",\"siigo\",\"bancolombia\",\"excel\",\"microsoftexcel\"; foreach \\($s in $slugs\\) { try { $r = Invoke-WebRequest -Uri \"https://cdn.simpleicons.org/$s\" -Method Head -UseBasicParsing -TimeoutSec 10; Write-Output \"$s OK\" } catch { Write-Output \"$s MISSING\" } })",
       "PowerShell(Remove-Item *)",
       "PowerShell(Test-Path *)",
-      "PowerShell(git *)"
+      "PowerShell(git *)",
+      "PowerShell(python --version; python \"C:\\\\Users\\\\Emmanuel\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"dopamine colorful playful landing page agency\" --design-system -p \"MindGod\")",
+      "PowerShell(python \"C:\\\\Users\\\\Emmanuel\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"dopamine vibrant gradient\" --domain style -n 5)",
+      "PowerShell(python \"C:\\\\Users\\\\Emmanuel\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"agency creative bold\" --domain color -n 5)"
     ]
   }
 }

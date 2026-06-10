@@ -37,7 +37,7 @@ export default function Contact() {
         <Reveal>
           <p className="tag mb-6 text-center">Trabajemos juntos</p>
           <h2 className="display text-center text-[clamp(56px,10vw,120px)] leading-none text-ink">
-            Hablemos.
+            Hablemos<span className="text-gradient">.</span>
           </h2>
           <p className="mt-7 text-center text-[15px] text-stone">
             30 minutos gratis. Sales con un diagnóstico claro de dónde estás
@@ -93,7 +93,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="mt-6 w-full rounded-full bg-ink py-4 text-[15px] font-medium text-paper transition-opacity duration-300 hover:opacity-80 disabled:opacity-50"
+                className="mt-6 w-full rounded-full bg-gradient-to-r from-spark via-punch to-ember py-4 text-[15px] font-medium text-white shadow-lg shadow-punch/25 transition-all duration-300 hover:brightness-110 hover:shadow-xl hover:shadow-punch/35 active:scale-[0.99] disabled:opacity-50"
               >
                 {loading ? "Enviando…" : "Quiero mi diagnóstico gratis"}
               </button>

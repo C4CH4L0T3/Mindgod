@@ -69,8 +69,8 @@ export default function Intro() {
                     waitTime={650}
                     deleteSpeed={28}
                     cursorChar="_"
-                    cursorClassName="ml-1 text-stone"
-                    className="italic text-stone"
+                    cursorClassName="ml-1 text-punch"
+                    className="text-gradient italic"
                     onComplete={() => setPhase("brand")}
                   />
                 </span>
@@ -83,7 +83,7 @@ export default function Intro() {
                 transition={{ duration: 0.5, ease: EASE }}
                 className="text-center"
               >
-                <p className="display text-[clamp(52px,9vw,120px)] leading-none text-ink">
+                <p className="display text-gradient text-[clamp(52px,9vw,120px)] leading-none">
                   MindGod
                 </p>
                 <p className="tag mt-5">De la mano a la máquina</p>

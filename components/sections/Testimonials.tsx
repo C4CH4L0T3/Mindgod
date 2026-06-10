@@ -75,7 +75,7 @@ export default function Testimonials() {
             <h2 className="display text-[clamp(34px,4.5vw,60px)] leading-[1.05] text-ink">
               Negocios reales.
               <br />
-              <em className="text-stone">Resultados reales.</em>
+              <em className="text-gradient">Resultados reales.</em>
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-stone">
               Empresas de Medellín que ya pasaron de la mano a la máquina.

@@ -12,8 +12,8 @@ export default function Nosotros() {
           <p className="display text-[clamp(26px,3.6vw,48px)] leading-[1.25] text-stone">
             <span className="text-ink">Nacimos en Medellín</span> con una idea
             fija: la tecnología de las grandes corporaciones también es para{" "}
-            <em className="text-ink">tu negocio</em> — sin jerga, sin enredos y
-            sin costos de corporación. Tú lo conoces mejor que nadie;{" "}
+            <em className="text-gradient">tu negocio</em> — sin jerga, sin
+            enredos y sin costos de corporación. Tú lo conoces mejor que nadie;{" "}
             <span className="text-ink">nosotros lo hacemos imparable</span>.
           </p>
         </Reveal>
