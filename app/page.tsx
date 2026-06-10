@@ -1,18 +1,18 @@
+import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
-import HandBackdrop from "@/components/HandBackdrop";
 import Hero from "@/components/sections/Hero";
 import StatsBar from "@/components/sections/StatsBar";
 import Services from "@/components/sections/Services";
 import Process from "@/components/sections/Process";
 import Nosotros from "@/components/sections/Nosotros";
-import Finale from "@/components/sections/Finale";
+import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
-      <HandBackdrop />
+      <Intro />
       <main className="relative z-10">
         <Navbar />
         <Hero />
@@ -20,7 +20,7 @@ export default function Home() {
         <Services />
         <Process />
         <Nosotros />
-        <Finale />
+        <Testimonials />
         <Contact />
         <Footer />
       </main>

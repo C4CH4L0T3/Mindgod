@@ -5,6 +5,8 @@
   --color-ink: #0a0a0a;
   --color-stone: #6e6e66;
   --color-hairline: rgba(0, 0, 0, 0.08);
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-background: #fafaf8;
   --font-sans: var(--font-geist), -apple-system, "SF Pro Display", "SF Pro Text",
     system-ui, sans-serif;
   --font-serif: var(--font-instrument), "Didot", "Bodoni MT", Georgia, serif;
@@ -33,6 +35,12 @@ body {
 button,
 [role="button"] {
   cursor: pointer;
+}
+
+/* ————— smooth cursor: hide the native cursor everywhere while active ————— */
+.smooth-cursor-active,
+.smooth-cursor-active * {
+  cursor: none !important;
 }
 
 :focus-visible {

@@ -10,12 +10,11 @@ export default function Nosotros() {
 
         <Reveal delay={100}>
           <p className="display text-[clamp(26px,3.6vw,48px)] leading-[1.25] text-stone">
-            <span className="text-ink">Nacimos en Medellín</span> con una
-            convicción: las pequeñas y medianas empresas merecen{" "}
-            <em className="text-ink">tecnología de punta</em> — sin
-            complicaciones, sin costos de corporación. Combinamos diseño,
-            ingeniería y estrategia para entregar{" "}
-            <span className="text-ink">soluciones que funcionan</span>.
+            <span className="text-ink">Nacimos en Medellín</span> con una idea
+            fija: la tecnología de las grandes corporaciones también es para{" "}
+            <em className="text-ink">tu negocio</em> — sin jerga, sin enredos y
+            sin costos de corporación. Tú lo conoces mejor que nadie;{" "}
+            <span className="text-ink">nosotros lo hacemos imparable</span>.
           </p>
         </Reveal>
 

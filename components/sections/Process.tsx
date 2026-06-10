@@ -1,25 +1,65 @@
 import Reveal from "@/components/Reveal";
+import { IconCloud } from "@/components/ui/icon-cloud";
+
+// Herramientas que más usan los negocios en Colombia: ventas por WhatsApp y
+// redes, pagos con Mercado Pago/PayPal, ecosistema Google, CRM y automatización.
+const techSlugs = [
+  "whatsapp",
+  "instagram",
+  "facebook",
+  "tiktok",
+  "x",
+  "telegram",
+  "gmail",
+  "googleanalytics",
+  "googleads",
+  "googledrive",
+  "googlecalendar",
+  "googlemaps",
+  "shopify",
+  "woocommerce",
+  "wordpress",
+  "mercadopago",
+  "stripe",
+  "paypal",
+  "hubspot",
+  "salesforce",
+  "mailchimp",
+  "notion",
+  "zoom",
+  "claude",
+  "n8n",
+  "zapier",
+  "make",
+  "airtable",
+  "trello",
+  "asana",
+];
+
+const techImages = techSlugs.map(
+  (slug) => `https://cdn.simpleicons.org/${slug}/0a0a0a`
+);
 
 const steps = [
   {
     number: "01",
     title: "Diagnóstico",
-    body: "Analizamos tu negocio y detectamos dónde la IA puede generar más impacto.",
+    body: "Analizamos tu negocio y te decimos exactamente dónde estás perdiendo tiempo y ventas. Gratis y sin compromiso.",
   },
   {
     number: "02",
     title: "Diseño",
-    body: "Construimos la solución a medida: CRM, sitio o automatización.",
+    body: "Diseñamos la solución a tu medida. Sin plantillas, sin módulos que nunca vas a usar.",
   },
   {
     number: "03",
     title: "Implementación",
-    body: "Desplegamos, conectamos y probamos cada pieza del sistema.",
+    body: "Montamos, conectamos y probamos todo. Tú sigues vendiendo como siempre mientras tanto.",
   },
   {
     number: "04",
     title: "Optimización",
-    body: "Medimos resultados y mejoramos continuamente.",
+    body: "Medimos resultados cada mes. Lo que no genera, se ajusta o se elimina.",
   },
 ];
 
@@ -32,7 +72,7 @@ export default function Process() {
           <h2 className="display max-w-2xl text-[clamp(34px,4.5vw,60px)] leading-[1.05] text-ink">
             De la idea al resultado.
             <br />
-            <em className="text-stone">Sin fricción.</em>
+            <em className="text-stone">Sin detener tu negocio.</em>
           </h2>
         </Reveal>
 
@@ -50,6 +90,28 @@ export default function Process() {
               </div>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mt-24 grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-8">
+          <Reveal className="md:col-span-5">
+            <p className="tag mb-6">Con lo que ya usas</p>
+            <h3 className="display text-[clamp(24px,2.8vw,38px)] leading-tight text-ink">
+              Nos conectamos
+              <br />
+              <em className="text-stone">a tus herramientas.</em>
+            </h3>
+            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-stone">
+              WhatsApp, Mercado Pago, Shopify, el ecosistema de Google… No te
+              obligamos a cambiar de herramientas: conectamos las que ya usas
+              para que trabajen juntas, solas.
+            </p>
+          </Reveal>
+
+          <Reveal delay={120} className="md:col-span-7">
+            <div className="flex justify-center md:justify-end">
+              <IconCloud images={techImages} />
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

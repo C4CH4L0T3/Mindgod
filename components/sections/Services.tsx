@@ -1,26 +1,47 @@
-import Reveal from "@/components/Reveal";
+"use client";
 
-const services = [
+import { Bot, Database, Globe } from "lucide-react";
+import Reveal from "@/components/Reveal";
+import RadialOrbitalTimeline, {
+  type OrbitalItem,
+} from "@/components/ui/radial-orbital-timeline";
+import {
+  AnimatedSpan,
+  Terminal,
+  TypingAnimation,
+} from "@/components/ui/terminal";
+
+const solutions: OrbitalItem[] = [
   {
-    index: "01",
+    id: 1,
     title: "CRM a tu medida",
-    body: "Tu sistema de gestión de clientes desde cero — hecho para tu industria, tu equipo y tu forma de trabajar.",
     tag: "Gestión · Clientes · Pipeline",
-    featured: false,
+    content:
+      "Deja de perder ventas por falta de seguimiento. Cada cliente, cada cotización y cada pendiente en un solo lugar — hecho para tu forma de trabajar, no al revés.",
+    icon: Database,
+    relatedIds: [2, 3],
+    impact: 90,
   },
   {
-    index: "02",
+    id: 2,
     title: "Sitio web que convierte",
-    body: "No solo un sitio bonito. Un sistema de captura de leads conectado a tu CRM, automatizado y optimizado para vender.",
     tag: "Leads · Conversión · Automatización",
+    content:
+      "Una página bonita que no vende es decoración. La tuya captura clientes, los califica y te los entrega en el CRM, listos para cerrar.",
+    icon: Globe,
+    relatedIds: [1, 3],
+    impact: 100,
     featured: true,
   },
   {
-    index: "03",
+    id: 3,
     title: "IA para tu empresa",
-    body: "Procesos repetitivos automatizados con inteligencia artificial: desde atención al cliente hasta análisis de datos en tiempo real.",
     tag: "Automatización · IA · Procesos",
-    featured: false,
+    content:
+      "Tus clientes escriben a las 10 de la noche. La IA les responde en segundos, agenda la cita y te deja la venta servida. Lo repetitivo se automatiza; las decisiones siguen siendo tuyas.",
+    icon: Bot,
+    relatedIds: [1, 2],
+    impact: 95,
   },
 ];
 
@@ -33,45 +54,54 @@ export default function Services() {
           <h2 className="display max-w-2xl text-[clamp(34px,4.5vw,60px)] leading-[1.05] text-ink">
             Tres soluciones.
             <br />
-            <em className="text-stone">Un solo objetivo.</em>
+            <em className="text-stone">Un solo objetivo: que vendas más.</em>
           </h2>
         </Reveal>
 
-        <div className="mt-20">
-          {services.map((s, i) => (
-            <Reveal key={s.index} delay={i * 90}>
-              <a
-                href="#contacto"
-                className="group grid grid-cols-1 gap-4 border-t border-black/10 py-10 transition-colors duration-500 last:border-b hover:bg-black/[0.025] md:grid-cols-12 md:items-center md:gap-8 md:py-14"
-              >
-                <span className="font-mono text-sm text-stone md:col-span-1">
-                  {s.index}
-                </span>
+        <Reveal delay={120}>
+          <RadialOrbitalTimeline items={solutions} />
+          <p className="tag -mt-6 text-center !text-[10px] opacity-70">
+            Toca una solución para explorarla
+          </p>
+        </Reveal>
 
-                <h3 className="display text-[clamp(26px,3.2vw,44px)] leading-tight text-ink transition-transform duration-500 group-hover:translate-x-2 md:col-span-5">
-                  {s.title}
-                  {s.featured && (
-                    <span className="ml-4 inline-block -translate-y-2 font-mono text-[10px] not-italic tracking-[0.2em] text-ink">
-                      MÁS SOLICITADO
-                    </span>
-                  )}
-                </h3>
+        <div className="mt-24 grid grid-cols-1 gap-10 md:grid-cols-12 md:items-center md:gap-8">
+          <Reveal className="md:col-span-5">
+            <p className="tag mb-6">Así se ve por dentro</p>
+            <h3 className="display text-[clamp(24px,2.8vw,38px)] leading-tight text-ink">
+              Mientras tú vendes,
+              <br />
+              <em className="text-stone">la máquina trabaja.</em>
+            </h3>
+            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-stone">
+              Cada solución que entregamos corre sola: captura, responde,
+              organiza y reporta — sin que nadie toque una tecla.
+            </p>
+          </Reveal>
 
-                <div className="md:col-span-5">
-                  <p className="max-w-md text-[15px] leading-relaxed text-stone">
-                    {s.body}
-                  </p>
-                  <p className="tag mt-4 !text-[10px] opacity-70">{s.tag}</p>
-                </div>
-
-                <span className="hidden justify-self-end text-stone opacity-0 transition-all duration-500 group-hover:translate-x-1 group-hover:text-ink group-hover:opacity-100 md:col-span-1 md:block">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M5 12h14M13 6l6 6-6 6" />
-                  </svg>
-                </span>
-              </a>
-            </Reveal>
-          ))}
+          <Reveal delay={120} className="md:col-span-7">
+            <Terminal className="max-w-none font-mono text-ink shadow-[0_1px_0_rgba(0,0,0,0.04),0_24px_60px_-30px_rgba(0,0,0,0.18)]">
+              <TypingAnimation>&gt; mindgod deploy --empresa tu-negocio</TypingAnimation>
+              <AnimatedSpan className="text-green-700">
+                ✔ CRM configurado a tu medida.
+              </AnimatedSpan>
+              <AnimatedSpan className="text-green-700">
+                ✔ Sitio web conectado al pipeline de ventas.
+              </AnimatedSpan>
+              <AnimatedSpan className="text-green-700">
+                ✔ Agentes de IA entrenados con tus procesos.
+              </AnimatedSpan>
+              <AnimatedSpan className="text-green-700">
+                ✔ Leads capturados, calificados y asignados.
+              </AnimatedSpan>
+              <AnimatedSpan className="text-stone">
+                ℹ 14 horas a la semana recuperadas para tu equipo.
+              </AnimatedSpan>
+              <TypingAnimation className="text-stone">
+                Listo. De la mano a la máquina.
+              </TypingAnimation>
+            </Terminal>
+          </Reveal>
         </div>
       </div>
     </section>

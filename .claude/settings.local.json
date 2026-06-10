@@ -10,7 +10,17 @@
       "PowerShell(New-Item *)",
       "PowerShell(npm run *)",
       "PowerShell(npm install *)",
-      "PowerShell(vercel *)"
+      "PowerShell(vercel *)",
+      "PowerShell(git checkout *)",
+      "PowerShell(npm uninstall *)",
+      "WebFetch(domain:magicui.design)",
+      "PowerShell(\\(Invoke-RestMethod -Uri \"https://magicui.design/r/terminal.json\"\\) | ConvertTo-Json -Depth 5 | Out-String -Width 4096)",
+      "PowerShell(\\(Invoke-RestMethod -Uri \"https://magicui.design/r/smooth-cursor.json\"\\) | ConvertTo-Json -Depth 5 | Out-String -Width 4096)",
+      "PowerShell(\\(Invoke-RestMethod -Uri \"https://magicui.design/r/icon-cloud.json\"\\) | ConvertTo-Json -Depth 5 | Out-String -Width 4096)",
+      "PowerShell($slugs = \"whatsapp\",\"instagram\",\"facebook\",\"tiktok\",\"youtube\",\"linkedin\",\"x\",\"telegram\",\"gmail\",\"googleanalytics\",\"googleads\",\"googledrive\",\"googlecalendar\",\"googlemaps\",\"shopify\",\"woocommerce\",\"wordpress\",\"mercadopago\",\"rappi\",\"payu\",\"stripe\",\"paypal\",\"hubspot\",\"salesforce\",\"mailchimp\",\"canva\",\"notion\",\"slack\",\"zoom\",\"openai\",\"claude\",\"anthropic\",\"n8n\",\"zapier\",\"make\",\"airtable\",\"trello\",\"asana\",\"nequi\",\"wompi\",\"siigo\",\"bancolombia\",\"excel\",\"microsoftexcel\"; foreach \\($s in $slugs\\) { try { $r = Invoke-WebRequest -Uri \"https://cdn.simpleicons.org/$s\" -Method Head -UseBasicParsing -TimeoutSec 10; Write-Output \"$s OK\" } catch { Write-Output \"$s MISSING\" } })",
+      "PowerShell(Remove-Item *)",
+      "PowerShell(Test-Path *)",
+      "PowerShell(git *)"
     ]
   }
 }

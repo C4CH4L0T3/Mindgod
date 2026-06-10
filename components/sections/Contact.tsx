@@ -4,7 +4,7 @@ import { useState } from "react";
 import Reveal from "@/components/Reveal";
 
 const interestOptions = [
-  { value: "", label: "¿Qué te interesa?" },
+  { value: "", label: "¿Qué necesita tu negocio?" },
   { value: "crm", label: "CRM personalizado" },
   { value: "web", label: "Sitio web" },
   { value: "ia", label: "Solución de IA" },
@@ -40,7 +40,8 @@ export default function Contact() {
             Hablemos.
           </h2>
           <p className="mt-7 text-center text-[15px] text-stone">
-            Una llamada gratuita de 30 minutos. Sin compromisos.
+            30 minutos gratis. Sales con un diagnóstico claro de dónde estás
+            perdiendo tiempo y ventas — trabajes con nosotros o no.
           </p>
         </Reveal>
 
@@ -94,7 +95,7 @@ export default function Contact() {
                 disabled={loading}
                 className="mt-6 w-full rounded-full bg-ink py-4 text-[15px] font-medium text-paper transition-opacity duration-300 hover:opacity-80 disabled:opacity-50"
               >
-                {loading ? "Enviando…" : "Enviar mensaje"}
+                {loading ? "Enviando…" : "Quiero mi diagnóstico gratis"}
               </button>
 
               <p className="mt-2 text-center text-[13px] text-stone">
@@ -124,9 +125,10 @@ export default function Contact() {
                 <circle cx="12" cy="12" r="10" />
                 <path d="M8 12.5l2.5 2.5L16 9.5" />
               </svg>
-              <h3 className="display text-3xl text-ink">Mensaje enviado.</h3>
+              <h3 className="display text-3xl text-ink">Hecho.</h3>
               <p className="text-[15px] text-stone">
-                Nos pondremos en contacto en menos de 24 horas.
+                Te respondemos en menos de 24 horas. Mientras tanto, sigue
+                vendiendo — de eso nos vamos a encargar juntos.
               </p>
             </div>
           )}

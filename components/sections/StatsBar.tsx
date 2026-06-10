@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 12, suffix: "+", label: "Empresas automatizadas" },
-  { value: 3, suffix: "", label: "Soluciones de IA propias" },
-  { value: 100, suffix: "%", label: "Enfoque en resultados" },
-  { value: 24, suffix: "h", label: "Tiempo de respuesta" },
+  { value: 12, suffix: "+", label: "Negocios que ya venden en automático" },
+  { value: 14, suffix: "h", label: "Recuperadas por semana, en promedio" },
+  { value: 100, suffix: "%", label: "A tu medida — cero plantillas" },
+  { value: 24, suffix: "h", label: "Máximo para responderte" },
 ];
 
 function CountUp({ target, suffix, active }: { target: number; suffix: string; active: boolean }) {

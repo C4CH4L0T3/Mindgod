@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
 const geist = Geist({
   variable: "--font-geist",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mindgod.co"),
   title: "MindGod — De la mano a la máquina",
   description:
-    "Agencia de inteligencia artificial en Medellín. CRM a medida, webs que convierten y automatización con IA. Empieza humano. Termina inevitable.",
+    "Agencia de inteligencia artificial en Medellín. CRM a medida, páginas que venden y automatización con IA para que ningún cliente se quede sin respuesta — y tú recuperes tus horas.",
   icons: {
     icon: "/images/logo.png",
     apple: "/images/logo.png",
@@ -46,7 +47,10 @@ export default function RootLayout({
       lang="es"
       className={`${geist.variable} ${geistMono.variable} ${instrument.variable}`}
     >
-      <body className="min-h-full antialiased bg-paper text-ink">{children}</body>
+      <body className="min-h-full antialiased bg-paper text-ink">
+        <SmoothCursor />
+        {children}
+      </body>
     </html>
   );
 }
