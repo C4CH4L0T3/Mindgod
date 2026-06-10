@@ -21,7 +21,7 @@ const solutions: OrbitalItem[] = [
     icon: Database,
     relatedIds: [2, 3],
     impact: 90,
-    accent: "#7c3aed",
+    accent: "#0a0a0a",
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const solutions: OrbitalItem[] = [
     icon: Globe,
     relatedIds: [1, 3],
     impact: 100,
-    accent: "#ec4899",
+    accent: "#404040",
     featured: true,
   },
   {
@@ -44,7 +44,7 @@ const solutions: OrbitalItem[] = [
     icon: Bot,
     relatedIds: [1, 2],
     impact: 95,
-    accent: "#f97316",
+    accent: "#737373",
   },
 ];
 
@@ -85,16 +85,16 @@ export default function Services() {
           <Reveal delay={120} className="md:col-span-7">
             <Terminal className="max-w-none font-mono text-ink shadow-[0_1px_0_rgba(0,0,0,0.04),0_24px_60px_-30px_rgba(0,0,0,0.18)]">
               <TypingAnimation>&gt; mindgod deploy --empresa tu-negocio</TypingAnimation>
-              <AnimatedSpan className="text-green-700">
+              <AnimatedSpan className="text-ink">
                 ✔ CRM configurado a tu medida.
               </AnimatedSpan>
-              <AnimatedSpan className="text-green-700">
+              <AnimatedSpan className="text-ink">
                 ✔ Sitio web conectado al pipeline de ventas.
               </AnimatedSpan>
-              <AnimatedSpan className="text-green-700">
+              <AnimatedSpan className="text-ink">
                 ✔ Agentes de IA entrenados con tus procesos.
               </AnimatedSpan>
-              <AnimatedSpan className="text-green-700">
+              <AnimatedSpan className="text-ink">
                 ✔ Leads capturados, calificados y asignados.
               </AnimatedSpan>
               <AnimatedSpan className="text-stone">

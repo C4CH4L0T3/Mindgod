@@ -93,7 +93,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="mt-6 w-full rounded-full bg-gradient-to-r from-spark via-punch to-ember py-4 text-[15px] font-medium text-white shadow-lg shadow-punch/25 transition-all duration-300 hover:brightness-110 hover:shadow-xl hover:shadow-punch/35 active:scale-[0.99] disabled:opacity-50"
+                className="mt-6 w-full rounded-full bg-gradient-to-r from-neutral-950 via-neutral-700 to-neutral-950 py-4 text-[15px] font-medium text-white shadow-lg shadow-black/20 transition-all duration-300 hover:brightness-125 hover:shadow-xl hover:shadow-black/30 active:scale-[0.99] disabled:opacity-50"
               >
                 {loading ? "Enviando…" : "Quiero mi diagnóstico gratis"}
               </button>

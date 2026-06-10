@@ -131,10 +131,10 @@ export default function RadialOrbitalTimeline({
           style={{ perspective: "1000px" }}
         >
           {/* core — the single objective everything orbits around */}
-          <div className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-spark via-punch to-ember">
-            <div className="absolute h-20 w-20 animate-ping rounded-full border border-punch/40 opacity-70"></div>
+          <div className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-neutral-950 via-neutral-600 to-neutral-300">
+            <div className="absolute h-20 w-20 animate-ping rounded-full border border-black/20 opacity-70"></div>
             <div
-              className="absolute h-24 w-24 animate-ping rounded-full border border-spark/30 opacity-50"
+              className="absolute h-24 w-24 animate-ping rounded-full border border-black/10 opacity-50"
               style={{ animationDelay: "0.5s" }}
             ></div>
             <div className="h-7 w-7 rounded-full bg-paper/90"></div>
@@ -267,7 +267,7 @@ export default function RadialOrbitalTimeline({
                             className="h-full rounded-full"
                             style={{
                               width: `${item.impact}%`,
-                              background: `linear-gradient(90deg, ${item.accent}, #ec4899)`,
+                              background: `linear-gradient(90deg, ${item.accent}, #d4d4d4)`,
                             }}
                           ></div>
                         </div>

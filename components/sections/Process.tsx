@@ -37,7 +37,7 @@ const techSlugs = [
 ];
 
 const techImages = techSlugs.map(
-  (slug) => `https://cdn.simpleicons.org/${slug}`
+  (slug) => `https://cdn.simpleicons.org/${slug}/0a0a0a`
 );
 
 const steps = [
@@ -45,25 +45,25 @@ const steps = [
     number: "01",
     title: "Diagnóstico",
     body: "Analizamos tu negocio y te decimos exactamente dónde estás perdiendo tiempo y ventas. Gratis y sin compromiso.",
-    color: "#7c3aed",
+    color: "#0a0a0a",
   },
   {
     number: "02",
     title: "Diseño",
     body: "Diseñamos la solución a tu medida. Sin plantillas, sin módulos que nunca vas a usar.",
-    color: "#ec4899",
+    color: "#525252",
   },
   {
     number: "03",
     title: "Implementación",
     body: "Montamos, conectamos y probamos todo. Tú sigues vendiendo como siempre mientras tanto.",
-    color: "#f97316",
+    color: "#737373",
   },
   {
     number: "04",
     title: "Optimización",
     body: "Medimos resultados cada mes. Lo que no genera, se ajusta o se elimina.",
-    color: "#84cc16",
+    color: "#a3a3a3",
   },
 ];
 

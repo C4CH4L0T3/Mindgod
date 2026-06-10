@@ -29,8 +29,8 @@ export function LiquidButton({
         className
       )}
     >
-      {/* aurora halo behind the glass */}
-      <span className="absolute -inset-1 -z-20 rounded-full bg-gradient-to-r from-spark via-punch to-ember opacity-25 blur-md transition-opacity duration-300 group-hover:opacity-60" />
+      {/* silver halo behind the glass */}
+      <span className="absolute -inset-1 -z-20 rounded-full bg-gradient-to-r from-neutral-400 via-white to-neutral-400 opacity-30 blur-md transition-opacity duration-300 group-hover:opacity-70" />
       {/* glass rim */}
       <span
         className={cn(

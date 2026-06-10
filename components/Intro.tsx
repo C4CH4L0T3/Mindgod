@@ -69,7 +69,7 @@ export default function Intro() {
                     waitTime={650}
                     deleteSpeed={28}
                     cursorChar="_"
-                    cursorClassName="ml-1 text-punch"
+                    cursorClassName="ml-1 text-stone"
                     className="text-gradient italic"
                     onComplete={() => setPhase("brand")}
                   />

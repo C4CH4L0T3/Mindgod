@@ -7,11 +7,11 @@
   --color-hairline: rgba(0, 0, 0, 0.08);
   --color-border: rgba(0, 0, 0, 0.1);
   --color-background: #fafaf8;
-  /* dopamine accents — violet → magenta → tangerine aurora trio (+ acid for spice) */
-  --color-spark: #7c3aed;
-  --color-punch: #ec4899;
-  --color-ember: #f97316;
-  --color-acid: #84cc16;
+  /* metallic scale — graphite → steel → silver → chrome */
+  --color-graphite: #171717;
+  --color-steel: #525252;
+  --color-silver: #a3a3a3;
+  --color-chrome: #e5e5e5;
   --font-sans: var(--font-geist), -apple-system, "SF Pro Display", "SF Pro Text",
     system-ui, sans-serif;
   --font-serif: var(--font-instrument), "Didot", "Bodoni MT", Georgia, serif;
@@ -33,8 +33,8 @@ body {
 }
 
 ::selection {
-  background: #ec4899;
-  color: #ffffff;
+  background: #0a0a0a;
+  color: #fafaf8;
 }
 
 button,
@@ -59,13 +59,15 @@ button,
   }
 }
 
+/* liquid silver — a metallic sheen sweeping across the text */
 .text-gradient {
   background-image: linear-gradient(
     100deg,
-    #7c3aed,
-    #ec4899 45%,
-    #f97316 80%,
-    #7c3aed
+    #0a0a0a,
+    #737373 35%,
+    #d4d4d4 52%,
+    #737373 68%,
+    #0a0a0a
   );
   background-size: 250% 250%;
   -webkit-background-clip: text;
@@ -105,8 +107,8 @@ button,
 .hover-lift:hover {
   transform: translateY(-4px);
   box-shadow:
-    0 12px 32px rgba(124, 58, 237, 0.14),
-    0 4px 12px rgba(236, 72, 153, 0.08);
+    0 12px 32px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 @media (prefers-reduced-motion: reduce) {

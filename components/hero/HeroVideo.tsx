@@ -67,14 +67,14 @@ export default function HeroVideo() {
       />
       {/* paper veil so the ink typography stays readable over the footage */}
       <div className="absolute inset-0 bg-paper/40" />
-      {/* aurora — slow-drifting color fields over the footage */}
-      <div className="aurora-blob left-[-12%] top-[-14%] h-[46vw] w-[46vw] bg-spark/25" />
+      {/* glass fog — slow-drifting silver fields over the footage */}
+      <div className="aurora-blob left-[-12%] top-[-14%] h-[46vw] w-[46vw] bg-white/50" />
       <div
-        className="aurora-blob right-[-14%] top-[18%] h-[40vw] w-[40vw] bg-punch/25"
+        className="aurora-blob right-[-14%] top-[18%] h-[40vw] w-[40vw] bg-neutral-300/40"
         style={{ animationDelay: "-4s" }}
       />
       <div
-        className="aurora-blob bottom-[-18%] left-[22%] h-[44vw] w-[44vw] bg-ember/20"
+        className="aurora-blob bottom-[-18%] left-[22%] h-[44vw] w-[44vw] bg-neutral-400/30"
         style={{ animationDelay: "-8s" }}
       />
       {/* dissolve into the page background before the next section */}
