@@ -37,7 +37,7 @@ export default function Contact() {
         <Reveal>
           <p className="tag mb-6 text-center">Trabajemos juntos</p>
           <h2 className="display text-center text-[clamp(56px,10vw,120px)] leading-none text-ink">
-            Hablemos<span className="text-gradient">.</span>
+            Hablemos<span className="text-[#0071e3]">.</span>
           </h2>
           <p className="mt-7 text-center text-[15px] text-stone">
             30 minutos gratis. Sales con un diagnóstico claro de dónde estás
@@ -93,7 +93,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="mt-6 w-full rounded-full bg-gradient-to-r from-neutral-950 via-neutral-700 to-neutral-950 py-4 text-[15px] font-medium text-white shadow-lg shadow-black/20 transition-all duration-300 hover:brightness-125 hover:shadow-xl hover:shadow-black/30 active:scale-[0.99] disabled:opacity-50"
+                className="mt-6 w-full rounded-full bg-[#0071e3] py-4 text-[15px] font-medium text-white shadow-lg shadow-[#0071e3]/25 transition-all duration-300 hover:bg-[#0077ed] hover:shadow-xl hover:shadow-[#0071e3]/35 active:scale-[0.99] disabled:opacity-50"
               >
                 {loading ? "Enviando…" : "Quiero mi diagnóstico gratis"}
               </button>
@@ -104,7 +104,7 @@ export default function Contact() {
                   href="https://wa.me/573000000000"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-ink underline decoration-black/30 underline-offset-4 transition-colors hover:decoration-ink"
+                  className="text-[#0071e3] underline decoration-[#0071e3]/30 underline-offset-4 transition-colors hover:decoration-[#0071e3]"
                 >
                   WhatsApp
                 </a>

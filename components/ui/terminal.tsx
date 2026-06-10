@@ -281,9 +281,10 @@ export const Terminal = ({
     >
       <div className="border-border flex flex-col gap-y-2 border-b p-4">
         <div className="flex flex-row gap-x-2">
-          <div className="h-2 w-2 rounded-full bg-neutral-700"></div>
-          <div className="h-2 w-2 rounded-full bg-neutral-500"></div>
-          <div className="h-2 w-2 rounded-full bg-neutral-300"></div>
+          {/* macOS traffic lights — exact Apple hues */}
+          <div className="h-2 w-2 rounded-full bg-[#ff5f57]"></div>
+          <div className="h-2 w-2 rounded-full bg-[#febc2e]"></div>
+          <div className="h-2 w-2 rounded-full bg-[#28c840]"></div>
         </div>
       </div>
       <pre className="p-4">

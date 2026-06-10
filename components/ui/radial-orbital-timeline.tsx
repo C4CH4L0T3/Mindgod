@@ -310,8 +310,7 @@ export default function RadialOrbitalTimeline({
 
                       <a
                         href="#contacto"
-                        className="mt-4 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.2em] underline underline-offset-4 transition-opacity hover:opacity-60"
-                        style={{ color: item.accent }}
+                        className="mt-4 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#0071e3] underline underline-offset-4 transition-opacity hover:opacity-60"
                         onClick={(e) => e.stopPropagation()}
                       >
                         Hablemos

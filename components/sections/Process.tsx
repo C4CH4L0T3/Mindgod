@@ -37,7 +37,7 @@ const techSlugs = [
 ];
 
 const techImages = techSlugs.map(
-  (slug) => `https://cdn.simpleicons.org/${slug}/0a0a0a`
+  (slug) => `https://cdn.simpleicons.org/${slug}`
 );
 
 const steps = [

@@ -85,16 +85,16 @@ export default function Services() {
           <Reveal delay={120} className="md:col-span-7">
             <Terminal className="max-w-none font-mono text-ink shadow-[0_1px_0_rgba(0,0,0,0.04),0_24px_60px_-30px_rgba(0,0,0,0.18)]">
               <TypingAnimation>&gt; mindgod deploy --empresa tu-negocio</TypingAnimation>
-              <AnimatedSpan className="text-ink">
+              <AnimatedSpan className="text-green-700">
                 ✔ CRM configurado a tu medida.
               </AnimatedSpan>
-              <AnimatedSpan className="text-ink">
+              <AnimatedSpan className="text-green-700">
                 ✔ Sitio web conectado al pipeline de ventas.
               </AnimatedSpan>
-              <AnimatedSpan className="text-ink">
+              <AnimatedSpan className="text-green-700">
                 ✔ Agentes de IA entrenados con tus procesos.
               </AnimatedSpan>
-              <AnimatedSpan className="text-ink">
+              <AnimatedSpan className="text-green-700">
                 ✔ Leads capturados, calificados y asignados.
               </AnimatedSpan>
               <AnimatedSpan className="text-stone">

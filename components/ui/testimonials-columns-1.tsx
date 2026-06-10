@@ -53,7 +53,7 @@ export const TestimonialsColumn = (props: {
                         src={image}
                         alt={name}
                         loading="lazy"
-                        className="h-10 w-10 rounded-full grayscale ring-2 ring-offset-2 ring-offset-paper"
+                        className="h-10 w-10 rounded-full ring-2 ring-offset-2 ring-offset-paper"
                         style={{ "--tw-ring-color": `${accent}66` } as React.CSSProperties}
                       />
                       <div className="flex flex-col">
