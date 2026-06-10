@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Reveal from "@/components/Reveal";
+import { SplineScene } from "@/components/ui/splite";
+import { Spotlight } from "@/components/ui/spotlight";
 
 const interestOptions = [
   { value: "", label: "¿Qué necesita tu negocio?" },
@@ -33,10 +35,35 @@ export default function Contact() {
 
   return (
     <section id="contacto" className="scroll-mt-14 py-32 md:py-48">
-      <div className="mx-auto max-w-xl px-6">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14">
+          {/* the machine, awake and waiting */}
+          <Reveal className="order-last lg:order-first">
+            <div className="relative h-[340px] overflow-hidden rounded-2xl bg-black/[0.96] sm:h-[440px] lg:h-full lg:min-h-[620px]">
+              <Spotlight
+                className="-top-40 left-0 md:-top-20 md:left-60"
+                fill="white"
+              />
+              <div className="pointer-events-none relative z-10 p-8">
+                <p className="tag !text-white/50">Atención 24/7</p>
+                <h3 className="display mt-3 text-2xl text-white sm:text-3xl">
+                  La máquina ya está
+                  <br />
+                  <em className="text-white/70">despierta.</em>
+                </h3>
+              </div>
+              <SplineScene
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+          </Reveal>
+
+          {/* the conversation */}
+          <div>
         <Reveal>
           <p className="tag mb-6 text-center">Trabajemos juntos</p>
-          <h2 className="display text-center text-[clamp(56px,10vw,120px)] leading-none text-ink">
+          <h2 className="display text-center text-[clamp(56px,9vw,110px)] leading-none text-ink">
             Hablemos<span className="text-[#0071e3]">.</span>
           </h2>
           <p className="mt-7 text-center text-[15px] text-stone">
@@ -133,6 +160,8 @@ export default function Contact() {
             </div>
           )}
         </Reveal>
+          </div>
+        </div>
       </div>
     </section>
   );
