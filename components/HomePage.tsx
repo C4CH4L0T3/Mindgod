@@ -10,6 +10,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/Footer";
+import StickyCta from "@/components/StickyCta";
 import type { Lang } from "@/lib/copy";
 
 /* Una sola página, dos idiomas: "/" (es) y "/en" montan este árbol. */
@@ -27,8 +28,9 @@ export default function HomePage({ lang }: { lang: Lang }) {
         <Nosotros lang={lang} />
         <Testimonials />
         <Faq lang={lang} />
-        <Contact />
+        <Contact lang={lang} />
         <Footer lang={lang} />
+        <StickyCta lang={lang} />
       </main>
     </>
   );

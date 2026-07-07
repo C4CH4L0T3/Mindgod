@@ -89,6 +89,20 @@ export interface Copy {
     titleB: string;
     items: { q: string; a: string }[];
   };
+  contact: {
+    tag: string;
+    title: string;
+    sub: string;
+    capacity: string;
+    namePlaceholder: string;
+    businessPlaceholder: string;
+    bottleneckLabel: string;
+    bottleneckOptions: string[];
+    cta: string;
+    note: string;
+    wa: { greeting: string; business: string; bottleneck: string; closing: string };
+    spline: { tag: string; titleA: string; titleB: string };
+  };
   footer: { links: NavLink[]; location: string; tagline: string };
 }
 
@@ -364,6 +378,35 @@ export const copy: Record<Lang, Copy> = {
           a: "La entrenamos con tu tono y tus respuestas reales, y lo delicado siempre puede pasar a un humano. Tus clientes notan una sola cosa: que ahora les responden al instante.",
         },
       ],
+    },
+    contact: {
+      tag: "Último paso",
+      title: "Aplica.",
+      sub: "Tu Radiografía: 30 minutos con el fundador. Sales sabiendo exactamente dónde pierdes tiempo y ventas — trabajes con nosotros o no.",
+      // TODO: capacidad real mensual (ej. "8 radiografías al mes").
+      capacity: "Cupos limitados por mes",
+      namePlaceholder: "Nombre completo",
+      businessPlaceholder: "Tu negocio (ej. inmobiliaria, clínica, tienda)",
+      bottleneckLabel: "¿Dónde pierdes más hoy?",
+      bottleneckOptions: [
+        "Leads sin respuesta",
+        "Seguimiento de ventas",
+        "Horas en tareas manuales",
+        "No estoy seguro — para eso es la Radiografía",
+      ],
+      cta: "Aplicar por WhatsApp",
+      note: "Se abre WhatsApp con tu aplicación lista — la envías tú, sin compromiso.",
+      wa: {
+        greeting: "Hola, soy",
+        business: "Mi negocio",
+        bottleneck: "Mi mayor fuga",
+        closing: "Quiero aplicar a la Radiografía de 30 minutos.",
+      },
+      spline: {
+        tag: "Atención 24/7",
+        titleA: "La máquina ya está",
+        titleB: "despierta.",
+      },
     },
     footer: {
       links: [
@@ -647,6 +690,35 @@ export const copy: Record<Lang, Copy> = {
           a: "We train it on your tone and your real answers, and anything delicate can always hand off to a human. Your clients notice exactly one thing: they get answered instantly now.",
         },
       ],
+    },
+    contact: {
+      tag: "Last step",
+      title: "Apply.",
+      sub: "Your Radiografía: 30 minutes with the founder. You leave knowing exactly where you're losing time and sales — whether you work with us or not.",
+      // TODO: real monthly capacity (e.g. "8 radiografías a month").
+      capacity: "Limited spots per month",
+      namePlaceholder: "Full name",
+      businessPlaceholder: "Your business (e.g. real estate, clinic, store)",
+      bottleneckLabel: "Where do you lose the most today?",
+      bottleneckOptions: [
+        "Unanswered leads",
+        "Sales follow-up",
+        "Hours on manual tasks",
+        "Not sure — that's what the Radiografía is for",
+      ],
+      cta: "Apply via WhatsApp",
+      note: "WhatsApp opens with your application ready — you hit send, no commitment.",
+      wa: {
+        greeting: "Hi, I'm",
+        business: "My business",
+        bottleneck: "My biggest leak",
+        closing: "I want to apply for the 30-minute Radiografía.",
+      },
+      spline: {
+        tag: "On call 24/7",
+        titleA: "The machine is already",
+        titleB: "awake.",
+      },
     },
     footer: {
       links: [

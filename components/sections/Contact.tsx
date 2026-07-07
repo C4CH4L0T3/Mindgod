@@ -4,21 +4,15 @@ import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
+import { copy, type Lang } from "@/lib/copy";
 
 // TODO: reemplazar con el número real de WhatsApp del negocio (formato
 // internacional sin "+", ej. "57300XXXXXXX"). Los leads llegan ahí directo.
 const WHATSAPP_NUMBER = "573000000000";
 
-const interestOptions = [
-  { value: "", label: "¿Qué necesita tu negocio?" },
-  { value: "CRM personalizado", label: "CRM personalizado" },
-  { value: "Sitio web", label: "Sitio web" },
-  { value: "Solución de IA", label: "Solución de IA" },
-  { value: "Otro", label: "Otro" },
-];
-
-export default function Contact() {
-  const [form, setForm] = useState({ name: "", business: "", interest: "" });
+export default function Contact({ lang }: { lang: Lang }) {
+  const t = copy[lang].contact;
+  const [form, setForm] = useState({ name: "", business: "", bottleneck: "" });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -26,15 +20,15 @@ export default function Contact() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // The form is the qualification; the lead lands directly in WhatsApp with
-  // the answers prefilled — nothing is stored, nothing gets lost.
+  // The form IS the qualification; the application lands directly in
+  // WhatsApp with the answers prefilled — nothing stored, nothing lost.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const lines = [
-      `Hola, soy ${form.name.trim()}.`,
-      form.business.trim() && `Mi negocio: ${form.business.trim()}.`,
-      `Me interesa: ${form.interest}.`,
-      "Quiero mi diagnóstico gratis de 30 minutos.",
+      `${t.wa.greeting} ${form.name.trim()}.`,
+      form.business.trim() && `${t.wa.business}: ${form.business.trim()}.`,
+      `${t.wa.bottleneck}: ${form.bottleneck}.`,
+      t.wa.closing,
     ].filter(Boolean);
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
       lines.join("\n")
@@ -54,11 +48,11 @@ export default function Contact() {
                 fill="white"
               />
               <div className="pointer-events-none relative z-10 p-8">
-                <p className="tag !text-white/50">Atención 24/7</p>
+                <p className="tag !text-white/50">{t.spline.tag}</p>
                 <h3 className="display mt-3 text-2xl text-white sm:text-3xl">
-                  La máquina ya está
+                  {t.spline.titleA}
                   <br />
-                  <em className="text-white/70">despierta.</em>
+                  <em className="text-white/70">{t.spline.titleB}</em>
                 </h3>
               </div>
               <SplineScene
@@ -68,66 +62,67 @@ export default function Contact() {
             </div>
           </Reveal>
 
-          {/* the conversation */}
+          {/* the application */}
           <div>
-        <Reveal>
-          <p className="tag mb-6 text-center">Trabajemos juntos</p>
-          <h2 className="display text-center text-[clamp(56px,9vw,110px)] leading-none text-ink">
-            Hablemos<span className="text-[#0071e3]">.</span>
-          </h2>
-          <p className="mt-7 text-center text-[15px] text-stone">
-            30 minutos gratis. Sales con un diagnóstico claro de dónde estás
-            perdiendo tiempo y ventas — trabajes con nosotros o no.
-          </p>
-        </Reveal>
+            <Reveal>
+              <p className="tag mb-6 text-center">{t.tag}</p>
+              <h2 className="display text-center text-[clamp(56px,9vw,110px)] leading-none text-ink">
+                {t.title.replace(/\.$/, "")}
+                <span className="text-accent">.</span>
+              </h2>
+              <p className="mt-7 text-center text-[15px] leading-relaxed text-stone">
+                {t.sub}
+              </p>
+              <p className="tag mt-4 text-center !text-[10px]">{t.capacity}</p>
+            </Reveal>
 
-        <Reveal delay={150}>
-          <form onSubmit={handleSubmit} className="mt-16 flex flex-col gap-7">
-            <input
-              type="text"
-              name="name"
-              required
-              placeholder="Nombre completo"
-              value={form.name}
-              onChange={handleChange}
-              className="field"
-            />
-            <input
-              type="text"
-              name="business"
-              placeholder="Tu negocio (ej. inmobiliaria, clínica, tienda)"
-              value={form.business}
-              onChange={handleChange}
-              className="field"
-            />
-            <select
-              name="interest"
-              required
-              value={form.interest}
-              onChange={handleChange}
-              className="field cursor-pointer"
-              style={{ color: form.interest ? "#0a0a0a" : "#9c9c94" }}
-            >
-              {interestOptions.map((opt) => (
-                <option key={opt.value} value={opt.value} disabled={!opt.value}>
-                  {opt.label}
-                </option>
-              ))}
-            </select>
+            <Reveal delay={150}>
+              <form onSubmit={handleSubmit} className="mt-14 flex flex-col gap-7">
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder={t.namePlaceholder}
+                  value={form.name}
+                  onChange={handleChange}
+                  className="field"
+                />
+                <input
+                  type="text"
+                  name="business"
+                  placeholder={t.businessPlaceholder}
+                  value={form.business}
+                  onChange={handleChange}
+                  className="field"
+                />
+                <select
+                  name="bottleneck"
+                  required
+                  value={form.bottleneck}
+                  onChange={handleChange}
+                  className="field cursor-pointer"
+                  style={{ color: form.bottleneck ? "#0a0a0a" : "#9c9c94" }}
+                >
+                  <option value="" disabled>
+                    {t.bottleneckLabel}
+                  </option>
+                  {t.bottleneckOptions.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
 
-            <button
-              type="submit"
-              className="mt-6 w-full rounded-full bg-[#0071e3] py-4 text-[15px] font-medium text-white shadow-lg shadow-[#0071e3]/25 transition-all duration-300 hover:bg-[#0077ed] hover:shadow-xl hover:shadow-[#0071e3]/35 active:scale-[0.99]"
-            >
-              Continuar en WhatsApp
-            </button>
+                <button
+                  type="submit"
+                  className="mt-6 w-full rounded-full bg-accent py-4 text-[15px] font-medium text-white shadow-lg shadow-accent/25 transition-all duration-300 hover:opacity-90 hover:shadow-xl hover:shadow-accent/35 active:scale-[0.99]"
+                >
+                  {t.cta}
+                </button>
 
-            <p className="mt-2 text-center text-[13px] text-stone">
-              Se abre WhatsApp con tu mensaje listo — lo envías tú, sin
-              compromiso.
-            </p>
-          </form>
-        </Reveal>
+                <p className="mt-2 text-center text-[13px] text-stone">{t.note}</p>
+              </form>
+            </Reveal>
           </div>
         </div>
       </div>
