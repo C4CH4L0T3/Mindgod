@@ -65,6 +65,17 @@ export interface Copy {
     steps: { number: string; title: string; body: string }[];
     tools: { tag: string; titleA: string; titleB: string; body: string };
   };
+  fit: {
+    tag: string;
+    titleA: string;
+    titleB: string;
+    forTitle: string;
+    forItems: string[];
+    againstTitle: string;
+    againstItems: string[];
+    close: string;
+    closeCta: string;
+  };
   footer: { links: NavLink[]; location: string; tagline: string };
 }
 
@@ -254,6 +265,27 @@ export const copy: Record<Lang, Copy> = {
         titleB: "a tus herramientas.",
         body: "WhatsApp, Mercado Pago, Shopify, el ecosistema de Google… No te obligamos a cambiar de herramientas: conectamos las que ya usas para que trabajen juntas, solas.",
       },
+    },
+    fit: {
+      tag: "Filtro honesto",
+      titleA: "No trabajamos con todos.",
+      titleB: "Y eso te conviene.",
+      forTitle: "Es para ti si…",
+      forItems: [
+        "Tu negocio ya vende y te llegan clientes cada semana.",
+        "Pierdes ventas por demoras, olvidos o falta de manos.",
+        "Quieres un sistema que quede tuyo — no depender de una agencia para siempre.",
+        "Puedes dedicarle dos horas a tu Radiografía y a decidir en serio.",
+      ],
+      againstTitle: "No es para ti si…",
+      againstItems: [
+        "Todavía no tienes clientes ni flujo de leads.",
+        "Buscas la opción más barata, no la que recupera más plata.",
+        "Quieres “una página bonita” sin cambiar cómo operas.",
+        "Esperas resultados mágicos de un día para otro.",
+      ],
+      close: "Si te viste en la primera lista, la Radiografía es tuya.",
+      closeCta: "Aplica ahora",
     },
     footer: {
       links: [
@@ -450,6 +482,27 @@ export const copy: Record<Lang, Copy> = {
         titleB: "your existing tools.",
         body: "WhatsApp, Mercado Pago, Shopify, the Google ecosystem… We don't force a switch: we connect the tools you already use so they work together, on their own.",
       },
+    },
+    fit: {
+      tag: "An honest filter",
+      titleA: "We don't work with everyone.",
+      titleB: "That's good for you.",
+      forTitle: "This is for you if…",
+      forItems: [
+        "Your business already sells and clients reach out every week.",
+        "You lose sales to slow replies, missed follow-ups, or too few hands.",
+        "You want a system you own — not a lifetime dependency on an agency.",
+        "You can give your Radiografía two hours and a serious decision.",
+      ],
+      againstTitle: "It's not for you if…",
+      againstItems: [
+        "You don't have clients or lead flow yet.",
+        "You're shopping for the cheapest option, not the one that recovers the most money.",
+        "You want “a pretty website” without changing how you operate.",
+        "You expect magic overnight.",
+      ],
+      close: "Saw yourself in the first list? The Radiografía is yours.",
+      closeCta: "Apply now",
     },
     footer: {
       links: [

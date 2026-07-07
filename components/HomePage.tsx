@@ -4,6 +4,7 @@ import Hero from "@/components/sections/Hero";
 import Leaks from "@/components/sections/Leaks";
 import Offers from "@/components/sections/Offers";
 import Method from "@/components/sections/Method";
+import Fit from "@/components/sections/Fit";
 import Nosotros from "@/components/sections/Nosotros";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
@@ -21,6 +22,7 @@ export default function HomePage({ lang }: { lang: Lang }) {
         <Leaks lang={lang} />
         <Offers lang={lang} />
         <Method lang={lang} />
+        <Fit lang={lang} />
         <Nosotros />
         <Testimonials />
         <Contact />
