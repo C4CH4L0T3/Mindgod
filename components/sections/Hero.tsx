@@ -9,6 +9,7 @@ import {
   useTransform,
 } from "motion/react";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
+import { copy, type Lang } from "@/lib/copy";
 import manos from "@/public/images/manos.jpg";
 
 /*
@@ -28,13 +29,13 @@ import manos from "@/public/images/manos.jpg";
 const ENTER = {
   photo: "350ms",
   line1: "650ms",
-  line2: "760ms",
-  line3: "870ms",
+  line2: "780ms",
   support: "1000ms",
   cta: "1150ms",
 } as const;
 
-export default function Hero() {
+export default function Hero({ lang }: { lang: Lang }) {
+  const t = copy[lang].hero;
   const [entered, setEntered] = useState(false);
   const reduceMotion = useReducedMotion();
 
@@ -91,7 +92,7 @@ export default function Hero() {
               <div className="hero-float">
                 <Image
                   src={manos}
-                  alt="Una mano humana y una mano robótica a punto de tocarse"
+                  alt={t.photoAlt}
                   priority
                   placeholder="blur"
                   sizes="(max-width: 768px) 86vw, 46vw"
@@ -108,25 +109,21 @@ export default function Hero() {
             className="tag hero-enter mb-7 md:hidden"
             style={{ "--enter-delay": ENTER.line1 } as React.CSSProperties}
           >
-            Agencia de IA · Medellín
+            {t.tag}
           </p>
-          <h1 className="display text-[clamp(38px,3.6vw,52px)] leading-[1.06] text-ink">
+          <h1 className="display text-[clamp(36px,3.4vw,50px)] leading-[1.08] text-ink">
             <span className="hero-enter block" style={{ "--enter-delay": ENTER.line1 } as React.CSSProperties}>
-              Sitios web
+              {t.line1}
             </span>
             <span className="hero-enter block" style={{ "--enter-delay": ENTER.line2 } as React.CSSProperties}>
-              de alto nivel,
-            </span>
-            <span className="hero-enter block" style={{ "--enter-delay": ENTER.line3 } as React.CSSProperties}>
-              <em className="text-gradient">construidos con IA.</em>
+              <em className="text-gradient">{t.line2}</em>
             </span>
           </h1>
           <p
-            className="hero-enter mt-6 max-w-xs text-[15px] leading-relaxed text-stone"
+            className="hero-enter mt-6 max-w-sm text-[15px] leading-relaxed text-stone"
             style={{ "--enter-delay": ENTER.support } as React.CSSProperties}
           >
-            Diseño que se siente caro. Inteligencia que vende sola, a toda
-            hora.
+            {t.support}
           </p>
         </div>
 
@@ -135,8 +132,10 @@ export default function Hero() {
           className="hero-enter order-3 mb-14 mt-12 flex flex-col items-center gap-4 md:absolute md:bottom-12 md:right-6 md:mb-0 md:mt-0 md:items-end"
           style={{ "--enter-delay": ENTER.cta } as React.CSSProperties}
         >
-          <LiquidButton href="#contacto">Únete a la revolución</LiquidButton>
-          <p className="tag !text-[10px]">Diagnóstico gratis · 30 minutos</p>
+          <LiquidButton href="#contacto" className="text-accent">
+            {t.cta}
+          </LiquidButton>
+          <p className="tag !text-[10px]">{t.ctaNote}</p>
         </div>
 
         {/* quiet signature, bottom-left */}
@@ -144,7 +143,7 @@ export default function Hero() {
           className="hero-enter hidden md:absolute md:bottom-14 md:left-6 md:block"
           style={{ "--enter-delay": ENTER.cta } as React.CSSProperties}
         >
-          <p className="tag">Agencia de IA · Medellín</p>
+          <p className="tag">{t.tag}</p>
         </div>
       </div>
     </section>

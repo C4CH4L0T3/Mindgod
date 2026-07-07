@@ -14,6 +14,15 @@ export interface Copy {
   meta: { title: string; description: string };
   nav: { links: NavLink[]; cta: string };
   intro: { born: string; words: string[]; tagline: string };
+  hero: {
+    tag: string;
+    line1: string;
+    line2: string;
+    support: string;
+    cta: string;
+    ctaNote: string;
+    photoAlt: string;
+  };
   footer: { links: NavLink[]; location: string; tagline: string };
 }
 
@@ -36,6 +45,18 @@ export const copy: Record<Lang, Copy> = {
       born: "Nacimos 🪐 para",
       words: ["Crear", "Optimizar", "Transformar"],
       tagline: "De la mano a la máquina",
+    },
+    hero: {
+      tag: "Socio de IA · Medellín",
+      line1: "Vendes bien a mano.",
+      line2: "Por eso pierdes plata.",
+      support:
+        "Instalamos sitio, CRM y agentes de IA como un solo sistema. Cada lead respondido en segundos.",
+      cta: "Aplica a tu Radiografía",
+      // TODO: reemplazar "Cupos limitados" con la capacidad real mensual
+      // (ej. "8 radiografías al mes") — urgencia honesta o ninguna.
+      ctaNote: "30 min · Sin costo · Cupos limitados",
+      photoAlt: "Una mano humana y una mano robótica a punto de tocarse",
     },
     footer: {
       links: [
@@ -66,6 +87,17 @@ export const copy: Record<Lang, Copy> = {
       born: "Born 🪐 to",
       words: ["Create", "Optimize", "Transform"],
       tagline: "From hand to machine",
+    },
+    hero: {
+      tag: "AI Partner · Medellín",
+      line1: "You sell well by hand.",
+      line2: "That's why you lose money.",
+      support:
+        "We install your site, CRM, and AI agents as one system. Every lead answered in seconds.",
+      cta: "Apply for your Radiografía",
+      // TODO: replace "Limited spots" with real monthly capacity
+      ctaNote: "30 min · Free · Limited spots",
+      photoAlt: "A human hand and a robotic hand about to touch",
     },
     footer: {
       links: [

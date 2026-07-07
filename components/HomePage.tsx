@@ -17,7 +17,7 @@ export default function HomePage({ lang }: { lang: Lang }) {
       <Intro lang={lang} />
       <main className="relative z-10">
         <Navbar lang={lang} />
-        <Hero />
+        <Hero lang={lang} />
         <StatsBar />
         <Services />
         <Process />
