@@ -31,6 +31,13 @@ export default function Intro() {
     return () => clearTimeout(timeout);
   }, [phase]);
 
+  // Let the hero start its entrance in sync with the curtain lift
+  useEffect(() => {
+    if (phase === "done") {
+      window.dispatchEvent(new Event("mindgod:intro-done"));
+    }
+  }, [phase]);
+
   // Lock scroll while the intro is up (html + body for iOS Safari)
   useEffect(() => {
     if (phase === "done") return;
@@ -46,6 +53,7 @@ export default function Intro() {
     <AnimatePresence>
       {phase !== "done" && (
         <motion.div
+          data-intro-curtain
           className="fixed inset-0 z-[200] flex items-center justify-center bg-paper px-6"
           exit={{ y: "-100%" }}
           transition={{ duration: 0.7, ease: EASE }}
