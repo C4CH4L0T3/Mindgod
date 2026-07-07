@@ -6,9 +6,8 @@ import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
 import { copy, type Lang } from "@/lib/copy";
 
-// TODO: reemplazar con el número real de WhatsApp del negocio (formato
-// internacional sin "+", ej. "57300XXXXXXX"). Los leads llegan ahí directo.
-const WHATSAPP_NUMBER = "573000000000";
+// Número de WhatsApp del negocio — los leads llegan ahí directo.
+const WHATSAPP_NUMBER = "573053364176";
 
 export default function Contact({ lang }: { lang: Lang }) {
   const t = copy[lang].contact;
