@@ -23,7 +23,7 @@ export default function HomePage({ lang }: { lang: Lang }) {
         <Offers lang={lang} />
         <Method lang={lang} />
         <Fit lang={lang} />
-        <Nosotros />
+        <Nosotros lang={lang} />
         <Testimonials />
         <Contact />
         <Footer lang={lang} />

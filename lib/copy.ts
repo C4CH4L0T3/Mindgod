@@ -76,6 +76,13 @@ export interface Copy {
     close: string;
     closeCta: string;
   };
+  about: {
+    tag: string;
+    statement: { text: string; style?: "ink" | "em" }[];
+    founder: { tag: string; name: string; role: string; note: string };
+    honest: { tag: string; title: string; body: string };
+    marks: string[];
+  };
   footer: { links: NavLink[]; location: string; tagline: string };
 }
 
@@ -286,6 +293,34 @@ export const copy: Record<Lang, Copy> = {
       ],
       close: "Si te viste en la primera lista, la Radiografía es tuya.",
       closeCta: "Aplica ahora",
+    },
+    about: {
+      tag: "Quiénes somos",
+      statement: [
+        { text: "Nacimos en Medellín", style: "ink" },
+        {
+          text: " con una idea fija: la tecnología de las grandes corporaciones también es para ",
+        },
+        { text: "tu negocio", style: "em" },
+        {
+          text: " — sin jerga, sin enredos y sin costos de corporación. Tú lo conoces mejor que nadie; ",
+        },
+        { text: "nosotros lo hacemos imparable", style: "ink" },
+        { text: "." },
+      ],
+      founder: {
+        tag: "El fundador",
+        // TODO: nombre y foto reales del fundador (public/images/founder.jpg)
+        name: "[TODO: Nombre del fundador]",
+        role: "Fundador · MindGod",
+        note: "“Monté MindGod porque veía negocios buenos perder ventas por cosas que una máquina resuelve en segundos. En tu Radiografía hablas conmigo — no con un vendedor.”",
+      },
+      honest: {
+        tag: "Sin humo",
+        title: "Cero testimonios inventados.",
+        body: "Somos un estudio nuevo con estándares viejos: no publicamos testimonios que no existen ni cifras que no medimos. Publicamos el método, lo garantizamos por escrito y dejamos que los resultados hablen cuando existan — con nombre y apellido.",
+      },
+      marks: ["Medellín · Colombia", "IA aplicada al negocio real"],
     },
     footer: {
       links: [
@@ -503,6 +538,34 @@ export const copy: Record<Lang, Copy> = {
       ],
       close: "Saw yourself in the first list? The Radiografía is yours.",
       closeCta: "Apply now",
+    },
+    about: {
+      tag: "Who we are",
+      statement: [
+        { text: "Born in Medellín", style: "ink" },
+        {
+          text: " with one fixed idea: big-corporation technology belongs to ",
+        },
+        { text: "your business", style: "em" },
+        {
+          text: " too — no jargon, no tangles, no corporate price tag. You know it better than anyone; ",
+        },
+        { text: "we make it unstoppable", style: "ink" },
+        { text: "." },
+      ],
+      founder: {
+        tag: "The founder",
+        // TODO: real founder name and photo (public/images/founder.jpg)
+        name: "[TODO: Founder name]",
+        role: "Founder · MindGod",
+        note: "“I started MindGod because I kept watching good businesses lose sales to things a machine solves in seconds. On your Radiografía call you talk to me — not to a salesperson.”",
+      },
+      honest: {
+        tag: "No smoke",
+        title: "Zero invented testimonials.",
+        body: "We're a new studio with old-school standards: we don't publish testimonials that don't exist or numbers we didn't measure. We publish the method, guarantee it in writing, and let results speak when they exist — with first and last names.",
+      },
+      marks: ["Medellín · Colombia", "AI applied to real business"],
     },
     footer: {
       links: [
