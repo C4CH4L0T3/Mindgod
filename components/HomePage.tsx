@@ -2,7 +2,7 @@ import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
 import Leaks from "@/components/sections/Leaks";
-import Services from "@/components/sections/Services";
+import Offers from "@/components/sections/Offers";
 import Method from "@/components/sections/Method";
 import Nosotros from "@/components/sections/Nosotros";
 import Testimonials from "@/components/sections/Testimonials";
@@ -19,7 +19,7 @@ export default function HomePage({ lang }: { lang: Lang }) {
         <Navbar lang={lang} />
         <Hero lang={lang} />
         <Leaks lang={lang} />
-        <Services />
+        <Offers lang={lang} />
         <Method lang={lang} />
         <Nosotros />
         <Testimonials />

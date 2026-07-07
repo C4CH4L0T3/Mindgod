@@ -16,12 +16,28 @@ export interface OrbitalItem {
   featured?: boolean;
 }
 
+export interface OrbitalLabels {
+  featured: string;
+  impact: string;
+  related: string;
+  cta: string;
+}
+
+const DEFAULT_LABELS: OrbitalLabels = {
+  featured: "BUQUE INSIGNIA",
+  impact: "Nivel de impacto",
+  related: "Sistemas conectados",
+  cta: "Aplicar",
+};
+
 interface RadialOrbitalTimelineProps {
   items: OrbitalItem[];
+  labels?: OrbitalLabels;
 }
 
 export default function RadialOrbitalTimeline({
   items,
+  labels = DEFAULT_LABELS,
 }: RadialOrbitalTimelineProps) {
   const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>(
     {}
@@ -238,7 +254,7 @@ export default function RadialOrbitalTimeline({
                             className="whitespace-nowrap rounded-full border px-2 py-0.5 font-mono text-[9px] tracking-[0.2em]"
                             style={{ borderColor: item.accent, color: item.accent }}
                           >
-                            MÁS SOLICITADO
+                            {labels.featured}
                           </span>
                         )}
                       </div>
@@ -253,7 +269,7 @@ export default function RadialOrbitalTimeline({
                         <div className="mb-1 flex items-center justify-between text-[11px]">
                           <span className="flex items-center text-stone">
                             <Zap size={10} className="mr-1" />
-                            Nivel de impacto
+                            {labels.impact}
                           </span>
                           <span
                             className="font-mono"
@@ -278,7 +294,7 @@ export default function RadialOrbitalTimeline({
                           <div className="mb-2 flex items-center">
                             <LinkIcon size={10} className="mr-1 text-stone" />
                             <h4 className="font-mono text-[10px] uppercase tracking-[0.16em] text-stone">
-                              Soluciones conectadas
+                              {labels.related}
                             </h4>
                           </div>
                           <div className="flex flex-wrap gap-1.5">
@@ -310,10 +326,10 @@ export default function RadialOrbitalTimeline({
 
                       <a
                         href="#contacto"
-                        className="mt-4 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#0071e3] underline underline-offset-4 transition-opacity hover:opacity-60"
+                        className="mt-4 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.2em] text-accent underline underline-offset-4 transition-opacity hover:opacity-60"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        Hablemos
+                        {labels.cta}
                         <ArrowRight size={10} />
                       </a>
                     </div>

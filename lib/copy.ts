@@ -27,6 +27,36 @@ export interface Copy {
     tag: string;
     items: { title: string; body: string }[];
   };
+  offers: {
+    tag: string;
+    titleA: string;
+    titleB: string;
+    subtitle: string;
+    orbitalHint: string;
+    orbitalLabels: { featured: string; impact: string; related: string; cta: string };
+    items: {
+      name: string;
+      tag: string;
+      orbital: string;
+      outcome: string;
+      includes: string[];
+      forWho: string;
+      notForWho: string;
+      priceAnchor: string;
+      price: string;
+    }[];
+    cardCta: string;
+    guarantee: { tag: string; title: string; body: string };
+    inside: {
+      tag: string;
+      titleA: string;
+      titleB: string;
+      body: string;
+      cmd: string;
+      lines: string[];
+      done: string;
+    };
+  };
   method: {
     tag: string;
     titleA: string;
@@ -47,7 +77,7 @@ export const copy: Record<Lang, Copy> = {
     },
     nav: {
       links: [
-        { label: "Sistemas", href: "#servicios" },
+        { label: "Sistemas", href: "#sistemas" },
         { label: "Método", href: "#metodo" },
         { label: "Nosotros", href: "#nosotros" },
       ],
@@ -89,6 +119,106 @@ export const copy: Record<Lang, Copy> = {
         },
       ],
     },
+    offers: {
+      tag: "Lo que instalamos",
+      titleA: "No vendemos servicios.",
+      titleB: "Instalamos sistemas.",
+      subtitle:
+        "Tres formas de pasar de la mano a la máquina — según dónde estés.",
+      orbitalHint: "Toca un sistema para explorarlo",
+      orbitalLabels: {
+        featured: "BUQUE INSIGNIA",
+        impact: "Nivel de impacto",
+        related: "Sistemas conectados",
+        cta: "Aplicar",
+      },
+      items: [
+        {
+          name: "La Primera Pieza",
+          tag: "Punto de partida",
+          orbital:
+            "Tu primera automatización: la recepción. La IA responde, califica y agenda por WhatsApp — en segundos, a toda hora.",
+          outcome: "Ningún lead vuelve a esperar.",
+          includes: [
+            "Agente de IA en tu WhatsApp, entrenado con tu negocio",
+            "Respuesta y calificación en menos de 60 segundos",
+            "Agenda conectada a tu calendario",
+            "Panel simple: qué llegó, qué se agendó, qué se perdió",
+          ],
+          forWho: "Para negocios que pierden leads por demora en responder.",
+          notForWho:
+            "No es para quien quiere “probar la IA” sin leads reales que atender.",
+          priceAnchor:
+            "Suma lo que vale un solo cliente que se fue por no recibir respuesta. Eso cuesta no tenerla — cada semana.",
+          // TODO: precio real. Mientras tanto, se define en la Radiografía.
+          price: "Inversión: se define en tu Radiografía.",
+        },
+        {
+          name: "El Sistema Completo",
+          tag: "Hecho para ti",
+          orbital:
+            "Sitio que convierte + CRM a tu medida + agentes de IA — instalados como una sola máquina de ventas, con tu equipo entrenado.",
+          outcome: "Tu operación comercial completa, corriendo sola.",
+          includes: [
+            "Sitio diseñado para convertir, conectado al pipeline",
+            "CRM a la medida de tu forma de vender",
+            "Agentes de IA: recepción, seguimiento y recordatorios",
+            "Reportes automáticos cada semana",
+            "Equipo entrenado y acompañamiento de arranque",
+          ],
+          forWho:
+            "Para negocios con demanda real que se ahogan en el seguimiento manual.",
+          notForWho:
+            "No es para quien aún no tiene flujo de clientes, ni para quien busca “una página bonita”.",
+          priceAnchor:
+            "Antes del precio, haz la cuenta: ¿cuánto vale un mes de leads sin respuesta y seguimientos caídos? El sistema cuesta menos.",
+          // TODO: precio real del buque insignia.
+          price: "Inversión: se define en tu Radiografía.",
+        },
+        {
+          name: "Socio de Afinación",
+          tag: "Solo post-instalación",
+          orbital:
+            "Medición mensual, ajustes y nuevas automatizaciones sobre tu sistema instalado. Lo que no genera, se cambia.",
+          outcome: "El sistema mejora cada mes.",
+          includes: [
+            "Revisión mensual contra tu Radiografía",
+            "Ajustes y nuevas automatizaciones incluidas",
+            "Reporte claro: qué generó, qué se afinó",
+            "Prioridad de soporte",
+          ],
+          forWho:
+            "Para quien ya tiene un sistema MindGod instalado y quiere que mejore solo.",
+          notForWho:
+            "No se vende por separado: sin instalación no hay qué afinar.",
+          priceAnchor:
+            "Un sistema sin afinar se degrada; uno afinado se compone. La diferencia paga la mensualidad.",
+          // TODO: mensualidad real.
+          price: "Mensualidad: se define en tu Radiografía.",
+        },
+      ],
+      cardCta: "Aplica a tu Radiografía",
+      guarantee: {
+        tag: "Garantía",
+        title: "La garantía de los 60 segundos.",
+        body: "Si un lead escribe y tu sistema no responde en menos de 60 segundos, afinamos gratis hasta que lo haga. Garantizamos lo que controlamos: velocidad, entrega y funcionamiento. No te prometemos ventas — promesas así las hace quien no piensa quedarse a medirlas.",
+      },
+      inside: {
+        tag: "Así se ve por dentro",
+        titleA: "Mientras tú vendes,",
+        titleB: "la máquina trabaja.",
+        body: "Cada sistema que entregamos corre solo: captura, responde, organiza y reporta — sin que nadie toque una tecla.",
+        cmd: "> mindgod deploy --sistema completo",
+        lines: [
+          "✔ CRM configurado a tu medida.",
+          "✔ Sitio conectado al pipeline de ventas.",
+          "✔ Agentes de IA entrenados con tus procesos.",
+          "✔ Leads capturados, calificados y asignados.",
+          "ℹ Cada lead respondido en menos de 60 segundos.",
+        ],
+        done: "Listo. De la mano a la máquina.",
+      },
+    },
     method: {
       tag: "Nuestro método",
       titleA: "El Método",
@@ -127,7 +257,7 @@ export const copy: Record<Lang, Copy> = {
     },
     footer: {
       links: [
-        { label: "Sistemas", href: "#servicios" },
+        { label: "Sistemas", href: "#sistemas" },
         { label: "Método", href: "#metodo" },
         { label: "Nosotros", href: "#nosotros" },
         { label: "Contacto", href: "#contacto" },
@@ -144,7 +274,7 @@ export const copy: Record<Lang, Copy> = {
     },
     nav: {
       links: [
-        { label: "Systems", href: "#servicios" },
+        { label: "Systems", href: "#sistemas" },
         { label: "Method", href: "#metodo" },
         { label: "About", href: "#nosotros" },
       ],
@@ -183,6 +313,106 @@ export const copy: Record<Lang, Copy> = {
           body: "Every hour copying data between WhatsApp, spreadsheets, and invoices is an hour nobody sells.",
         },
       ],
+    },
+    offers: {
+      tag: "What we install",
+      titleA: "We don't sell services.",
+      titleB: "We install systems.",
+      subtitle:
+        "Three ways to go from hand to machine — depending on where you are.",
+      orbitalHint: "Tap a system to explore it",
+      orbitalLabels: {
+        featured: "FLAGSHIP",
+        impact: "Impact level",
+        related: "Connected systems",
+        cta: "Apply",
+      },
+      items: [
+        {
+          name: "La Primera Pieza",
+          tag: "The starting point",
+          orbital:
+            "Your first automation: reception. AI answers, qualifies, and books over WhatsApp — in seconds, around the clock.",
+          outcome: "No lead ever waits again.",
+          includes: [
+            "AI agent on your WhatsApp, trained on your business",
+            "Answer and qualification in under 60 seconds",
+            "Booking wired to your calendar",
+            "A simple panel: what came in, what got booked, what slipped",
+          ],
+          forWho: "For businesses losing leads to slow replies.",
+          notForWho:
+            "Not for “trying out AI” without real leads to attend to.",
+          priceAnchor:
+            "Add up what one client who walked away over a slow reply is worth. That's the cost of not having it — every week.",
+          // TODO: real price. Until then it's quoted in the Radiografía.
+          price: "Investment: defined in your Radiografía.",
+        },
+        {
+          name: "El Sistema Completo",
+          tag: "Built around you",
+          orbital:
+            "Converting site + custom CRM + AI agents — installed as one sales machine, with your team trained.",
+          outcome: "Your entire sales operation, running on its own.",
+          includes: [
+            "A site designed to convert, wired to the pipeline",
+            "A CRM shaped to how you actually sell",
+            "AI agents: reception, follow-up, and reminders",
+            "Automatic weekly reports",
+            "Team trained, launch support included",
+          ],
+          forWho:
+            "For businesses with real demand drowning in manual follow-up.",
+          notForWho:
+            "Not for businesses without client flow yet, or anyone shopping for “a pretty website”.",
+          priceAnchor:
+            "Before the price, run the math: what does one month of unanswered leads and dropped follow-ups cost you? The system costs less.",
+          // TODO: real flagship price.
+          price: "Investment: defined in your Radiografía.",
+        },
+        {
+          name: "Socio de Afinación",
+          tag: "Post-install only",
+          orbital:
+            "Monthly measurement, tuning, and new automations on your installed system. What doesn't produce gets changed.",
+          outcome: "The system gets better every month.",
+          includes: [
+            "Monthly review against your Radiografía",
+            "Tuning and new automations included",
+            "A clear report: what produced, what got tuned",
+            "Priority support",
+          ],
+          forWho:
+            "For owners with a MindGod system installed who want it improving on its own.",
+          notForWho:
+            "Not sold separately: without an install there's nothing to tune.",
+          priceAnchor:
+            "An untuned system decays; a tuned one compounds. The difference pays the retainer.",
+          // TODO: real monthly price.
+          price: "Monthly: defined in your Radiografía.",
+        },
+      ],
+      cardCta: "Apply for your Radiografía",
+      guarantee: {
+        tag: "Guarantee",
+        title: "The 60-second guarantee.",
+        body: "If a lead writes and your system doesn't answer in under 60 seconds, we tune it for free until it does. We guarantee what we control: speed, delivery, and uptime. We won't promise you revenue — promises like that come from people who don't plan to stick around and measure.",
+      },
+      inside: {
+        tag: "What it looks like inside",
+        titleA: "While you sell,",
+        titleB: "the machine works.",
+        body: "Every system we deliver runs on its own: it captures, answers, organizes, and reports — without anyone touching a key.",
+        cmd: "> mindgod deploy --system complete",
+        lines: [
+          "✔ CRM configured to fit you.",
+          "✔ Site wired to the sales pipeline.",
+          "✔ AI agents trained on your processes.",
+          "✔ Leads captured, qualified, and assigned.",
+          "ℹ Every lead answered in under 60 seconds.",
+        ],
+        done: "Done. From hand to machine.",
+      },
     },
     // Step names stay in Spanish in both languages — they're the named
     // mechanism, not generic labels.
@@ -223,7 +453,7 @@ export const copy: Record<Lang, Copy> = {
     },
     footer: {
       links: [
-        { label: "Systems", href: "#servicios" },
+        { label: "Systems", href: "#sistemas" },
         { label: "Method", href: "#metodo" },
         { label: "About", href: "#nosotros" },
         { label: "Contact", href: "#contacto" },
