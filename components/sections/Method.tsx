@@ -1,5 +1,6 @@
 import Reveal from "@/components/Reveal";
 import { IconCloud } from "@/components/ui/icon-cloud";
+import { copy, type Lang } from "@/lib/copy";
 
 // Herramientas que más usan los negocios en Colombia: ventas por WhatsApp y
 // redes, pagos con Mercado Pago/PayPal, ecosistema Google, CRM y automatización.
@@ -40,56 +41,36 @@ const techImages = techSlugs.map(
   (slug) => `https://cdn.simpleicons.org/${slug}`
 );
 
-const steps = [
-  {
-    number: "01",
-    title: "Diagnóstico",
-    body: "Analizamos tu negocio y te decimos exactamente dónde estás perdiendo tiempo y ventas. Gratis y sin compromiso.",
-    color: "#0a0a0a",
-  },
-  {
-    number: "02",
-    title: "Diseño",
-    body: "Diseñamos la solución a tu medida. Sin plantillas, sin módulos que nunca vas a usar.",
-    color: "#525252",
-  },
-  {
-    number: "03",
-    title: "Implementación",
-    body: "Montamos, conectamos y probamos todo. Tú sigues vendiendo como siempre mientras tanto.",
-    color: "#737373",
-  },
-  {
-    number: "04",
-    title: "Optimización",
-    body: "Medimos resultados cada mes. Lo que no genera, se ajusta o se elimina.",
-    color: "#a3a3a3",
-  },
-];
+const stepColors = ["#0a0a0a", "#525252", "#737373", "#a3a3a3"];
 
-export default function Process() {
+export default function Method({ lang }: { lang: Lang }) {
+  const t = copy[lang].method;
+
   return (
-    <section id="proceso" className="scroll-mt-14 py-32 md:py-44">
+    <section id="metodo" className="scroll-mt-14 py-32 md:py-44">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <p className="tag mb-6">Cómo trabajamos</p>
+          <p className="tag mb-6">{t.tag}</p>
           <h2 className="display max-w-2xl text-[clamp(34px,4.5vw,60px)] leading-[1.05] text-ink">
-            De la idea al resultado.
+            {t.titleA}
             <br />
-            <em className="text-gradient">Sin detener tu negocio.</em>
+            <em className="text-gradient">{t.titleB}</em>
           </h2>
+          <p className="mt-6 max-w-md text-[15px] leading-relaxed text-stone">
+            {t.subtitle}
+          </p>
         </Reveal>
 
         <div className="mt-20 grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((s, i) => (
+          {t.steps.map((s, i) => (
             <Reveal key={s.number} delay={i * 110}>
               <div
                 className="group border-t-2 pt-7 transition-colors duration-500"
-                style={{ borderColor: `${s.color}40` }}
+                style={{ borderColor: `${stepColors[i]}40` }}
               >
                 <span
                   className="font-mono text-xs font-semibold tracking-[0.2em]"
-                  style={{ color: s.color }}
+                  style={{ color: stepColors[i] }}
                 >
                   {s.number}
                 </span>
@@ -104,16 +85,14 @@ export default function Process() {
 
         <div className="mt-24 grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-8">
           <Reveal className="md:col-span-5">
-            <p className="tag mb-6">Con lo que ya usas</p>
+            <p className="tag mb-6">{t.tools.tag}</p>
             <h3 className="display text-[clamp(24px,2.8vw,38px)] leading-tight text-ink">
-              Nos conectamos
+              {t.tools.titleA}
               <br />
-              <em className="text-gradient">a tus herramientas.</em>
+              <em className="text-gradient">{t.tools.titleB}</em>
             </h3>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-stone">
-              WhatsApp, Mercado Pago, Shopify, el ecosistema de Google… No te
-              obligamos a cambiar de herramientas: conectamos las que ya usas
-              para que trabajen juntas, solas.
+              {t.tools.body}
             </p>
           </Reveal>
 

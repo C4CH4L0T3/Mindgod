@@ -27,6 +27,14 @@ export interface Copy {
     tag: string;
     items: { title: string; body: string }[];
   };
+  method: {
+    tag: string;
+    titleA: string;
+    titleB: string;
+    subtitle: string;
+    steps: { number: string; title: string; body: string }[];
+    tools: { tag: string; titleA: string; titleB: string; body: string };
+  };
   footer: { links: NavLink[]; location: string; tagline: string };
 }
 
@@ -40,7 +48,7 @@ export const copy: Record<Lang, Copy> = {
     nav: {
       links: [
         { label: "Sistemas", href: "#servicios" },
-        { label: "Método", href: "#proceso" },
+        { label: "Método", href: "#metodo" },
         { label: "Nosotros", href: "#nosotros" },
       ],
       cta: "Aplicar",
@@ -81,10 +89,46 @@ export const copy: Record<Lang, Copy> = {
         },
       ],
     },
+    method: {
+      tag: "Nuestro método",
+      titleA: "El Método",
+      titleB: "Mano → Máquina™.",
+      subtitle: "Cuatro fases. Un sistema instalado sin detener tu negocio.",
+      steps: [
+        {
+          number: "01",
+          title: "Radiografía",
+          body: "Mapeamos dónde tu negocio pierde plata y horas: leads sin respuesta, seguimientos caídos, datos digitados tres veces. Sales con la lista de fugas — trabajes con nosotros o no.",
+        },
+        {
+          number: "02",
+          title: "Plano",
+          body: "Diseñamos el sistema que tapa esas fugas — y nada más. Sin plantillas, sin módulos que nunca vas a usar.",
+        },
+        {
+          number: "03",
+          // TODO: cuando exista un plazo de entrega real, ponerlo aquí
+          // (ej. "en 4 semanas") en vez de "en semanas, no meses".
+          title: "Instalación",
+          body: "Montamos, conectamos y probamos todo mientras sigues vendiendo. En semanas, no meses.",
+        },
+        {
+          number: "04",
+          title: "Afinación",
+          body: "Medimos cada mes contra las fugas de tu Radiografía. Lo que no genera, se ajusta o se elimina.",
+        },
+      ],
+      tools: {
+        tag: "Con lo que ya usas",
+        titleA: "Nos conectamos",
+        titleB: "a tus herramientas.",
+        body: "WhatsApp, Mercado Pago, Shopify, el ecosistema de Google… No te obligamos a cambiar de herramientas: conectamos las que ya usas para que trabajen juntas, solas.",
+      },
+    },
     footer: {
       links: [
         { label: "Sistemas", href: "#servicios" },
-        { label: "Método", href: "#proceso" },
+        { label: "Método", href: "#metodo" },
         { label: "Nosotros", href: "#nosotros" },
         { label: "Contacto", href: "#contacto" },
       ],
@@ -101,7 +145,7 @@ export const copy: Record<Lang, Copy> = {
     nav: {
       links: [
         { label: "Systems", href: "#servicios" },
-        { label: "Method", href: "#proceso" },
+        { label: "Method", href: "#metodo" },
         { label: "About", href: "#nosotros" },
       ],
       cta: "Apply",
@@ -140,10 +184,47 @@ export const copy: Record<Lang, Copy> = {
         },
       ],
     },
+    // Step names stay in Spanish in both languages — they're the named
+    // mechanism, not generic labels.
+    method: {
+      tag: "Our method",
+      titleA: "The Mano → Máquina",
+      titleB: "Method™.",
+      subtitle: "Four phases. One system, installed without stopping your business.",
+      steps: [
+        {
+          number: "01",
+          title: "Radiografía",
+          body: "We map where your business leaks money and hours: unanswered leads, dropped follow-ups, data typed three times. You leave with the leak list — whether you hire us or not.",
+        },
+        {
+          number: "02",
+          title: "Plano",
+          body: "We design the system that plugs those leaks — and nothing else. No templates, no modules you'll never use.",
+        },
+        {
+          number: "03",
+          // TODO: replace with the real delivery window when defined.
+          title: "Instalación",
+          body: "We build, connect, and test everything while you keep selling. Weeks, not months.",
+        },
+        {
+          number: "04",
+          title: "Afinación",
+          body: "We measure every month against the leaks in your Radiografía. Whatever doesn't produce gets tuned or cut.",
+        },
+      ],
+      tools: {
+        tag: "With what you already use",
+        titleA: "We plug into",
+        titleB: "your existing tools.",
+        body: "WhatsApp, Mercado Pago, Shopify, the Google ecosystem… We don't force a switch: we connect the tools you already use so they work together, on their own.",
+      },
+    },
     footer: {
       links: [
         { label: "Systems", href: "#servicios" },
-        { label: "Method", href: "#proceso" },
+        { label: "Method", href: "#metodo" },
         { label: "About", href: "#nosotros" },
         { label: "Contact", href: "#contacto" },
       ],
