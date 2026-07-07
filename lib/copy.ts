@@ -83,6 +83,12 @@ export interface Copy {
     honest: { tag: string; title: string; body: string };
     marks: string[];
   };
+  faq: {
+    tag: string;
+    titleA: string;
+    titleB: string;
+    items: { q: string; a: string }[];
+  };
   footer: { links: NavLink[]; location: string; tagline: string };
 }
 
@@ -322,11 +328,49 @@ export const copy: Record<Lang, Copy> = {
       },
       marks: ["Medellín · Colombia", "IA aplicada al negocio real"],
     },
+    faq: {
+      tag: "Preguntas directas",
+      titleA: "Lo que preguntarías",
+      titleB: "antes de escribirnos.",
+      items: [
+        {
+          q: "¿Cuánto cuesta?",
+          // TODO: cuando existan precios/rangos reales, ponerlos aquí.
+          a: "Menos que el problema. Cada sistema se cotiza sobre tu Radiografía: primero medimos cuánto te cuesta operar a mano y contra eso ves el precio. Sin costos ocultos y sin mensualidades obligatorias — la Afinación es opcional y solo existe después de instalar.",
+        },
+        {
+          q: "¿En cuánto tiempo está funcionando?",
+          // TODO: plazo real de entrega cuando esté definido.
+          a: "Semanas, no meses. El plazo exacto sale del Plano y queda por escrito — y la fecha de entrega hace parte de lo que garantizamos.",
+        },
+        {
+          q: "No sé nada de tecnología.",
+          a: "Perfecto: no tienes que saber. Entregamos todo montado y probado, entrenamos a tu equipo y te hablamos en cristiano. Si algo no se entiende, es problema nuestro, no tuyo.",
+        },
+        {
+          q: "¿Y si el sistema no funciona?",
+          a: "Garantizamos lo que controlamos: si un lead escribe y el sistema no responde en menos de 60 segundos, afinamos gratis hasta que lo haga. Lo que no te vamos a prometer son ventas — eso lo promete quien no piensa quedarse a medirlas.",
+        },
+        {
+          q: "¿Tengo que cambiar mis herramientas?",
+          a: "No. Nos conectamos a lo que ya usas — WhatsApp, tu calendario, Mercado Pago, Shopify, hasta tu Excel. El sistema se adapta a tu forma de trabajar, no al revés.",
+        },
+        {
+          q: "¿Por qué no un freelancer más barato?",
+          a: "Puedes — y te hará una página o un bot sueltos. Nosotros instalamos un sistema completo, con garantía por escrito y medición mensual. Lo barato sale caro cuando cada lead perdido vale plata.",
+        },
+        {
+          q: "¿La IA va a sonar como robot con mis clientes?",
+          a: "La entrenamos con tu tono y tus respuestas reales, y lo delicado siempre puede pasar a un humano. Tus clientes notan una sola cosa: que ahora les responden al instante.",
+        },
+      ],
+    },
     footer: {
       links: [
         { label: "Sistemas", href: "#sistemas" },
         { label: "Método", href: "#metodo" },
         { label: "Nosotros", href: "#nosotros" },
+        { label: "FAQ", href: "#faq" },
         { label: "Contacto", href: "#contacto" },
       ],
       location: "© 2026 · Medellín, Colombia",
@@ -567,11 +611,49 @@ export const copy: Record<Lang, Copy> = {
       },
       marks: ["Medellín · Colombia", "AI applied to real business"],
     },
+    faq: {
+      tag: "Straight questions",
+      titleA: "What you'd ask",
+      titleB: "before writing to us.",
+      items: [
+        {
+          q: "How much does it cost?",
+          // TODO: real prices/ranges when defined.
+          a: "Less than the problem. Every system is quoted off your Radiografía: first we measure what running by hand costs you, and you see the price against that. No hidden fees, no forced retainers — Afinación is optional and only exists after an install.",
+        },
+        {
+          q: "How fast is it up and running?",
+          // TODO: real delivery window when defined.
+          a: "Weeks, not months. The exact timeline comes out of the Plano and goes in writing — and the delivery date is part of what we guarantee.",
+        },
+        {
+          q: "I know nothing about technology.",
+          a: "Perfect: you don't have to. We deliver everything built and tested, train your team, and speak plainly. If something isn't clear, that's our problem, not yours.",
+        },
+        {
+          q: "What if the system doesn't work?",
+          a: "We guarantee what we control: if a lead writes and the system doesn't answer in under 60 seconds, we tune it for free until it does. What we won't promise is revenue — that promise comes from people who don't plan to stay and measure.",
+        },
+        {
+          q: "Do I have to switch tools?",
+          a: "No. We plug into what you already use — WhatsApp, your calendar, Mercado Pago, Shopify, even your spreadsheet. The system adapts to how you work, not the other way around.",
+        },
+        {
+          q: "Why not a cheaper freelancer?",
+          a: "You can — and you'll get a standalone page or bot. We install a complete system, with a written guarantee and monthly measurement. Cheap gets expensive when every lost lead is worth money.",
+        },
+        {
+          q: "Will the AI sound like a robot to my clients?",
+          a: "We train it on your tone and your real answers, and anything delicate can always hand off to a human. Your clients notice exactly one thing: they get answered instantly now.",
+        },
+      ],
+    },
     footer: {
       links: [
         { label: "Systems", href: "#sistemas" },
         { label: "Method", href: "#metodo" },
         { label: "About", href: "#nosotros" },
+        { label: "FAQ", href: "#faq" },
         { label: "Contact", href: "#contacto" },
       ],
       location: "© 2026 · Medellín, Colombia",

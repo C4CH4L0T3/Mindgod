@@ -7,6 +7,7 @@ import Method from "@/components/sections/Method";
 import Fit from "@/components/sections/Fit";
 import Nosotros from "@/components/sections/Nosotros";
 import Testimonials from "@/components/sections/Testimonials";
+import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/Footer";
 import type { Lang } from "@/lib/copy";
@@ -25,6 +26,7 @@ export default function HomePage({ lang }: { lang: Lang }) {
         <Fit lang={lang} />
         <Nosotros lang={lang} />
         <Testimonials />
+        <Faq lang={lang} />
         <Contact />
         <Footer lang={lang} />
       </main>
