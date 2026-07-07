@@ -1,7 +1,7 @@
 import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
-import StatsBar from "@/components/sections/StatsBar";
+import Leaks from "@/components/sections/Leaks";
 import Services from "@/components/sections/Services";
 import Process from "@/components/sections/Process";
 import Nosotros from "@/components/sections/Nosotros";
@@ -18,7 +18,7 @@ export default function HomePage({ lang }: { lang: Lang }) {
       <main className="relative z-10">
         <Navbar lang={lang} />
         <Hero lang={lang} />
-        <StatsBar />
+        <Leaks lang={lang} />
         <Services />
         <Process />
         <Nosotros />

@@ -23,6 +23,10 @@ export interface Copy {
     ctaNote: string;
     photoAlt: string;
   };
+  leaks: {
+    tag: string;
+    items: { title: string; body: string }[];
+  };
   footer: { links: NavLink[]; location: string; tagline: string };
 }
 
@@ -57,6 +61,25 @@ export const copy: Record<Lang, Copy> = {
       // (ej. "8 radiografías al mes") — urgencia honesta o ninguna.
       ctaNote: "30 min · Sin costo · Cupos limitados",
       photoAlt: "Una mano humana y una mano robótica a punto de tocarse",
+    },
+    // TODO: cuando existan métricas reales de clientes (leads respondidos,
+    // horas ahorradas, ventas recuperadas), este strip vuelve a ser numérico.
+    leaks: {
+      tag: "Las tres fugas",
+      items: [
+        {
+          title: "Leads sin respuesta",
+          body: "Un lead que espera horas compra donde le respondieron en segundos.",
+        },
+        {
+          title: "Seguimientos olvidados",
+          body: "Las ventas se cierran en el seguimiento — el que nadie tiene tiempo de hacer.",
+        },
+        {
+          title: "Horas digitadas",
+          body: "Cada hora copiando datos entre WhatsApp, Excel y facturas es una hora en la que nadie vende.",
+        },
+      ],
     },
     footer: {
       links: [
@@ -98,6 +121,24 @@ export const copy: Record<Lang, Copy> = {
       // TODO: replace "Limited spots" with real monthly capacity
       ctaNote: "30 min · Free · Limited spots",
       photoAlt: "A human hand and a robotic hand about to touch",
+    },
+    // TODO: swap back to real numbers once real client metrics exist.
+    leaks: {
+      tag: "The three leaks",
+      items: [
+        {
+          title: "Unanswered leads",
+          body: "A lead kept waiting for hours buys from whoever answered in seconds.",
+        },
+        {
+          title: "Forgotten follow-ups",
+          body: "Sales close in the follow-up — the one nobody has time to do.",
+        },
+        {
+          title: "Hours of typing",
+          body: "Every hour copying data between WhatsApp, spreadsheets, and invoices is an hour nobody sells.",
+        },
+      ],
     },
     footer: {
       links: [
