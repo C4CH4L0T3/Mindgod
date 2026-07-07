@@ -23,7 +23,10 @@
       "PowerShell(git *)",
       "PowerShell(python --version; python \"C:\\\\Users\\\\Emmanuel\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"dopamine colorful playful landing page agency\" --design-system -p \"MindGod\")",
       "PowerShell(python \"C:\\\\Users\\\\Emmanuel\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"dopamine vibrant gradient\" --domain style -n 5)",
-      "PowerShell(python \"C:\\\\Users\\\\Emmanuel\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"agency creative bold\" --domain color -n 5)"
+      "PowerShell(python \"C:\\\\Users\\\\Emmanuel\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"agency creative bold\" --domain color -n 5)",
+      "PowerShell($r = Invoke-WebRequest -Uri \"https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260417_061226_74f0749c-a22d-42b3-895e-5d6203bc741c.mp4\" -Method Head -UseBasicParsing; $r.Headers[\"Content-Length\"]; $r.Headers[\"Content-Type\"])",
+      "PowerShell(pip index *)",
+      "PowerShell(pip install *)"
     ]
   }
 }

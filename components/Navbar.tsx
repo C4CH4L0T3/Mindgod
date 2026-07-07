@@ -1,16 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { copy, type Lang } from "@/lib/copy";
 
-const links = [
-  { label: "Servicios", href: "#servicios" },
-  { label: "Proceso", href: "#proceso" },
-  { label: "Nosotros", href: "#nosotros" },
-];
-
-export default function Navbar() {
+export default function Navbar({ lang }: { lang: Lang }) {
+  const t = copy[lang].nav;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  // switching language reloads the page on purpose: it's a different route
+  const langHref = lang === "es" ? "/en" : "/";
+  const langLabel = lang === "es" ? "EN" : "ES";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -36,7 +36,7 @@ export default function Navbar() {
         </a>
 
         <nav className="hidden items-center gap-9 md:flex">
-          {links.map((l) => (
+          {t.links.map((l) => (
             <a
               key={l.href}
               href={l.href}
@@ -47,30 +47,48 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <a
-          href="#contacto"
-          className="hidden rounded-full bg-ink px-4.5 py-1.5 text-[13px] font-medium text-paper transition-opacity duration-300 hover:opacity-80 md:inline-flex"
-        >
-          Hablemos
-        </a>
+        <div className="hidden items-center gap-5 md:flex">
+          <a
+            href={langHref}
+            aria-label={lang === "es" ? "Switch to English" : "Cambiar a español"}
+            className="font-mono text-[11px] tracking-[0.18em] text-stone transition-colors duration-300 hover:text-ink"
+          >
+            {langLabel}
+          </a>
+          <a
+            href="#contacto"
+            className="inline-flex rounded-full bg-accent px-4.5 py-1.5 text-[13px] font-medium text-white transition-opacity duration-300 hover:opacity-85"
+          >
+            {t.cta}
+          </a>
+        </div>
 
         {/* mobile */}
-        <button
-          onClick={() => setOpen(!open)}
-          aria-label="Menú"
-          className="flex h-8 w-8 flex-col items-center justify-center gap-[5px] md:hidden"
-        >
-          <span
-            className={`h-px w-4.5 bg-ink transition-transform duration-300 ${
-              open ? "translate-y-[3px] rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`h-px w-4.5 bg-ink transition-transform duration-300 ${
-              open ? "-translate-y-[3px] -rotate-45" : ""
-            }`}
-          />
-        </button>
+        <div className="flex items-center gap-5 md:hidden">
+          <a
+            href={langHref}
+            aria-label={lang === "es" ? "Switch to English" : "Cambiar a español"}
+            className="font-mono text-[11px] tracking-[0.18em] text-stone"
+          >
+            {langLabel}
+          </a>
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label={lang === "es" ? "Menú" : "Menu"}
+            className="flex h-8 w-8 flex-col items-center justify-center gap-[5px]"
+          >
+            <span
+              className={`h-px w-4.5 bg-ink transition-transform duration-300 ${
+                open ? "translate-y-[3px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`h-px w-4.5 bg-ink transition-transform duration-300 ${
+                open ? "-translate-y-[3px] -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </div>
       </div>
 
       <div
@@ -80,7 +98,7 @@ export default function Navbar() {
       >
         <div className="min-h-0">
           <nav className="flex flex-col gap-1 px-6 py-4">
-            {[...links, { label: "Contacto", href: "#contacto" }].map((l) => (
+            {[...t.links, { label: t.cta, href: "#contacto" }].map((l) => (
               <a
                 key={l.href}
                 href={l.href}

@@ -1,29 +1,16 @@
-import Intro from "@/components/Intro";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/sections/Hero";
-import StatsBar from "@/components/sections/StatsBar";
-import Services from "@/components/sections/Services";
-import Process from "@/components/sections/Process";
-import Nosotros from "@/components/sections/Nosotros";
-import Testimonials from "@/components/sections/Testimonials";
-import Contact from "@/components/sections/Contact";
-import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+import HomePage from "@/components/HomePage";
+import { copy } from "@/lib/copy";
+
+export const metadata: Metadata = {
+  title: copy.es.meta.title,
+  description: copy.es.meta.description,
+  alternates: {
+    canonical: "/",
+    languages: { es: "/", en: "/en", "x-default": "/" },
+  },
+};
 
 export default function Home() {
-  return (
-    <>
-      <Intro />
-      <main className="relative z-10">
-        <Navbar />
-        <Hero />
-        <StatsBar />
-        <Services />
-        <Process />
-        <Nosotros />
-        <Testimonials />
-        <Contact />
-        <Footer />
-      </main>
-    </>
-  );
+  return <HomePage lang="es" />;
 }

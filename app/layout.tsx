@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
 const geist = Geist({
   variable: "--font-geist",
@@ -48,7 +47,6 @@ export default function RootLayout({
       className={`${geist.variable} ${geistMono.variable} ${instrument.variable}`}
     >
       <body className="min-h-full antialiased bg-paper text-ink">
-        <SmoothCursor />
         {children}
       </body>
     </html>

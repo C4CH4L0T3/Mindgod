@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Typewriter } from "@/components/ui/typewriter";
+import { copy, type Lang } from "@/lib/copy";
 
 /*
  * Intro — full-screen opening curtain.
@@ -10,16 +11,29 @@ import { Typewriter } from "@/components/ui/typewriter";
  *   1. "Nacimos 🪐 para" + typewriter cycles Crear / Optimizar / Transformar
  *   2. The brand resolves: MindGod
  *   3. The curtain lifts and hands over to the page
+ *
+ * Plays once per session: repeat visits (and reduced motion) skip straight
+ * to the page — the theater welcomes, it never taxes.
  */
 
 const EASE = [0.16, 1, 0.3, 1] as const;
+const SEEN_KEY = "mindgod:intro-seen";
 
-export default function Intro() {
+export default function Intro({ lang }: { lang: Lang }) {
+  const t = copy[lang].intro;
   const [phase, setPhase] = useState<"typing" | "brand" | "done">("typing");
+  const [skipped, setSkipped] = useState(false);
 
-  // Respect reduced motion: skip straight to the site
+  // Skip for returning visitors this session, and for reduced motion
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let seen = false;
+    try {
+      seen = sessionStorage.getItem(SEEN_KEY) === "1";
+    } catch {
+      /* storage blocked — play the intro */
+    }
+    if (seen || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setSkipped(true);
       setPhase("done");
     }
   }, []);
@@ -34,6 +48,11 @@ export default function Intro() {
   // Let the hero start its entrance in sync with the curtain lift
   useEffect(() => {
     if (phase === "done") {
+      try {
+        sessionStorage.setItem(SEEN_KEY, "1");
+      } catch {
+        /* ignore */
+      }
       window.dispatchEvent(new Event("mindgod:intro-done"));
     }
   }, [phase]);
@@ -48,6 +67,9 @@ export default function Intro() {
       document.body.style.overflow = "";
     };
   }, [phase]);
+
+  // Unmounting the whole tree (not just the child) skips the exit animation
+  if (skipped) return null;
 
   return (
     <AnimatePresence>
@@ -66,11 +88,11 @@ export default function Intro() {
                 transition={{ duration: 0.25, ease: EASE }}
                 className="display text-center text-[clamp(32px,5.5vw,68px)] leading-tight text-ink"
               >
-                Nacimos 🪐 para{" "}
+                {t.born}{" "}
                 {/* own line on phones so the layout never reflows while typing */}
                 <span className="mt-1 block min-h-[1.3em] sm:mt-0 sm:inline sm:min-h-0">
                   <Typewriter
-                    text={["Crear", "Optimizar", "Transformar"]}
+                    text={t.words}
                     loop={false}
                     speed={55}
                     initialDelay={250}
@@ -94,7 +116,7 @@ export default function Intro() {
                 <p className="display text-gradient text-[clamp(52px,9vw,120px)] leading-none">
                   MindGod
                 </p>
-                <p className="tag mt-5">De la mano a la máquina</p>
+                <p className="tag mt-5">{t.tagline}</p>
               </motion.div>
             )}
           </AnimatePresence>

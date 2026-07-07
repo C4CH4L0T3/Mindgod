@@ -1,11 +1,8 @@
-const links = [
-  { label: "Servicios", href: "#servicios" },
-  { label: "Proceso", href: "#proceso" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Contacto", href: "#contacto" },
-];
+import { copy, type Lang } from "@/lib/copy";
 
-export default function Footer() {
+export default function Footer({ lang }: { lang: Lang }) {
+  const t = copy[lang].footer;
+
   return (
     <footer className="border-t border-black/10 bg-paper">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-14 md:flex-row md:items-center md:justify-between">
@@ -13,13 +10,11 @@ export default function Footer() {
           <span className="text-[15px] font-semibold tracking-[-0.02em] text-ink">
             MindGod
           </span>
-          <span className="text-[13px] text-stone">
-            © 2026 · Medellín, Colombia
-          </span>
+          <span className="text-[13px] text-stone">{t.location}</span>
         </div>
 
         <nav className="flex flex-wrap gap-7">
-          {links.map((l) => (
+          {t.links.map((l) => (
             <a
               key={l.href}
               href={l.href}
@@ -36,9 +31,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-black/[0.06] py-6 text-center">
-        <span className="tag !text-[10px] opacity-70">
-          De la mano a la máquina
-        </span>
+        <span className="tag !text-[10px] opacity-70">{t.tagline}</span>
       </div>
     </footer>
   );
