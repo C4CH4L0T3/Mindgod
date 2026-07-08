@@ -41,7 +41,8 @@ const techImages = techSlugs.map(
   (slug) => `https://cdn.simpleicons.org/${slug}`
 );
 
-const stepColors = ["#0a0a0a", "#525252", "#737373", "#a3a3a3"];
+/* progresión emocional: confianza → premium → energía → resultado */
+const stepColors = ["#0071e3", "#7c3aed", "#e11d90", "#10b981"];
 
 export default function Method({ lang }: { lang: Lang }) {
   const t = copy[lang].method;

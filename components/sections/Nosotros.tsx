@@ -44,7 +44,7 @@ export default function Nosotros({ lang }: { lang: Lang }) {
               <div className="flex items-center gap-5">
                 {/* TODO: foto real del fundador — reemplazar este placeholder
                     por <Image src="/images/founder.jpg" …/> */}
-                <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-neutral-950 via-neutral-600 to-neutral-300">
+                <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent via-violet to-magenta">
                   <span className="display text-2xl text-paper">M</span>
                 </div>
                 <div>

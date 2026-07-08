@@ -24,7 +24,7 @@ export default function Fit({ lang }: { lang: Lang }) {
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
           <Reveal delay={100}>
-            <div className="h-full rounded-2xl border-2 border-ink bg-paper p-8 md:p-10">
+            <div className="h-full rounded-2xl border-2 border-emerald bg-emerald/[0.05] p-8 md:p-10">
               <h3 className="text-xl font-semibold tracking-[-0.01em] text-ink">
                 {t.forTitle}
               </h3>
@@ -37,7 +37,7 @@ export default function Fit({ lang }: { lang: Lang }) {
                     <Check
                       size={16}
                       strokeWidth={2.5}
-                      className="mt-[4px] shrink-0 text-ink"
+                      className="mt-[4px] shrink-0 text-emerald"
                     />
                     {item}
                   </li>
@@ -60,7 +60,7 @@ export default function Fit({ lang }: { lang: Lang }) {
                     <X
                       size={16}
                       strokeWidth={2.5}
-                      className="mt-[4px] shrink-0 text-silver"
+                      className="mt-[4px] shrink-0 text-rose"
                     />
                     {item}
                   </li>

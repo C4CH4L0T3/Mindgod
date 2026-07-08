@@ -22,10 +22,36 @@ import { copy, type Lang } from "@/lib/copy";
  *   4. Terminal: el sistema visto por dentro.
  */
 
+/* identidad de color por sistema:
+   esmeralda = punto de partida (dinero, "adelante")
+   violeta   = buque insignia (premium, IA)
+   azul      = afinación continua (confianza, estabilidad) */
 const orbitalMeta = [
-  { icon: Bot, accent: "#737373", impact: 85 },
-  { icon: Database, accent: "#0a0a0a", impact: 100, featured: true },
-  { icon: ShieldCheck, accent: "#525252", impact: 90 },
+  { icon: Bot, accent: "#10b981", impact: 85 },
+  { icon: Database, accent: "#7c3aed", impact: 100, featured: true },
+  { icon: ShieldCheck, accent: "#0071e3", impact: 90 },
+];
+
+/* clases literales por carta (Tailwind necesita verlas completas) */
+const cardStyles = [
+  {
+    card: "border border-emerald/40 bg-emerald/[0.04]",
+    check: "text-emerald",
+    tag: "!text-emerald",
+    cta: "border border-emerald text-emerald hover:bg-emerald/10",
+  },
+  {
+    card: "border-2 border-violet bg-violet/[0.05] shadow-[0_24px_60px_-30px_rgba(124,58,237,0.45)]",
+    check: "text-violet",
+    tag: "!text-violet",
+    cta: "btn-gradient",
+  },
+  {
+    card: "border border-accent/40 bg-accent/[0.04]",
+    check: "text-accent",
+    tag: "!text-accent",
+    cta: "border border-accent text-accent hover:bg-accent/10",
+  },
 ];
 
 export default function Offers({ lang }: { lang: Lang }) {
@@ -69,19 +95,16 @@ export default function Offers({ lang }: { lang: Lang }) {
         <div className="mt-20 grid grid-cols-1 items-stretch gap-6 lg:grid-cols-3">
           {t.items.map((item, i) => {
             const featured = Boolean(orbitalMeta[i].featured);
+            const s = cardStyles[i];
             return (
               <Reveal key={item.name} delay={i * 110} className="h-full">
                 <article
-                  className={`flex h-full flex-col rounded-2xl p-8 ${
-                    featured
-                      ? "border-2 border-ink bg-paper shadow-[0_24px_60px_-30px_rgba(0,0,0,0.35)]"
-                      : "border border-black/15 bg-paper"
-                  }`}
+                  className={`flex h-full flex-col rounded-2xl p-8 ${s.card}`}
                 >
                   <div className="flex items-center justify-between gap-3">
-                    <span className="tag !text-[10px]">{item.tag}</span>
+                    <span className={`tag !text-[10px] ${s.tag}`}>{item.tag}</span>
                     {featured && (
-                      <span className="whitespace-nowrap rounded-full border border-ink px-2.5 py-0.5 font-mono text-[9px] tracking-[0.2em] text-ink">
+                      <span className="whitespace-nowrap rounded-full border border-violet px-2.5 py-0.5 font-mono text-[9px] tracking-[0.2em] text-violet">
                         {t.orbitalLabels.featured}
                       </span>
                     )}
@@ -101,7 +124,7 @@ export default function Offers({ lang }: { lang: Lang }) {
                       >
                         <Check
                           size={15}
-                          className="mt-[3px] shrink-0 text-ink"
+                          className={`mt-[3px] shrink-0 ${s.check}`}
                           strokeWidth={2.5}
                         />
                         {line}
@@ -123,11 +146,7 @@ export default function Offers({ lang }: { lang: Lang }) {
                     </p>
                     <a
                       href="#contacto"
-                      className={`mt-6 inline-flex w-full items-center justify-center rounded-full py-3 text-[14px] font-medium transition-all duration-300 ${
-                        featured
-                          ? "bg-accent text-white shadow-lg shadow-accent/25 hover:opacity-90"
-                          : "border border-black/20 text-ink hover:border-ink"
-                      }`}
+                      className={`mt-6 inline-flex w-full items-center justify-center rounded-full py-3 text-[14px] font-medium transition-all duration-300 ${s.cta}`}
                     >
                       {t.cardCta}
                     </a>
@@ -140,9 +159,9 @@ export default function Offers({ lang }: { lang: Lang }) {
 
         {/* the 60-second guarantee */}
         <Reveal delay={120}>
-          <div className="mt-16 rounded-2xl border border-black/15 bg-paper p-8 md:flex md:items-center md:gap-10 md:p-10">
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-ink max-md:mb-5">
-              <ShieldCheck size={24} className="text-ink" />
+          <div className="mt-16 rounded-2xl border border-emerald/50 bg-emerald/[0.05] p-8 md:flex md:items-center md:gap-10 md:p-10">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-emerald max-md:mb-5">
+              <ShieldCheck size={24} className="text-emerald" />
             </div>
             <div>
               <p className="tag mb-3">{t.guarantee.tag}</p>

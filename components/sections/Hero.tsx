@@ -7,7 +7,6 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { copy, type Lang } from "@/lib/copy";
 
 /*
@@ -82,6 +81,19 @@ export default function Hero({ lang }: { lang: Lang }) {
         entered ? "hero-in" : ""
       }`}
     >
+      {/* ——— layer 0: aurora — color ambiental que respira ——— */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
+        <span className="aurora-blob left-[6%] top-[16%] h-[36vw] w-[36vw] bg-accent/20" />
+        <span
+          className="aurora-blob right-[4%] top-[28%] h-[32vw] w-[32vw] bg-violet/20"
+          style={{ animationDelay: "-4s" }}
+        />
+        <span
+          className="aurora-blob bottom-[6%] left-[28%] h-[30vw] w-[30vw] bg-amber/15"
+          style={{ animationDelay: "-8s" }}
+        />
+      </div>
+
       {/* ——— layer 1: watermark typography ——— */}
       <motion.div
         aria-hidden="true"
@@ -133,10 +145,13 @@ export default function Hero({ lang }: { lang: Lang }) {
           className="hero-enter mt-11 flex flex-col items-center gap-4"
           style={{ "--enter-delay": ENTER.cta } as React.CSSProperties}
         >
-          <LiquidButton href="#contacto" className="text-accent">
+          <a
+            href="#contacto"
+            className="btn-gradient inline-flex h-12 items-center justify-center whitespace-nowrap rounded-full px-9 text-[15px] font-medium tracking-[-0.01em] md:h-14 md:px-11 md:text-base"
+          >
             {t.cta}
-          </LiquidButton>
-          <p className="tag !text-[10px]">{t.ctaNote}</p>
+          </a>
+          <p className="tag !text-[10px] !text-amber">{t.ctaNote}</p>
         </div>
       </div>
 
@@ -152,13 +167,13 @@ export default function Hero({ lang }: { lang: Lang }) {
               /* eslint-disable-next-line @next/next/no-img-element */
               <img
                 key={`${slug}-${i}`}
-                src={`https://cdn.simpleicons.org/${slug}/9c9c94`}
+                src={`https://cdn.simpleicons.org/${slug}`}
                 alt=""
                 aria-hidden="true"
                 width={26}
                 height={26}
                 loading="lazy"
-                className="mx-7 inline-block h-[26px] w-[26px] opacity-70 md:mx-9"
+                className="mx-7 inline-block h-[26px] w-[26px] opacity-90 md:mx-9"
               />
             ))}
           </div>

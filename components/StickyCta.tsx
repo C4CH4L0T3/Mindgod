@@ -37,7 +37,7 @@ export default function StickyCta({ lang }: { lang: Lang }) {
     >
       <a
         href="#contacto"
-        className="flex w-full items-center justify-center rounded-full bg-accent py-3.5 text-[15px] font-medium text-white shadow-xl shadow-accent/30"
+        className="btn-gradient flex w-full items-center justify-center rounded-full py-3.5 text-[15px] font-medium"
       >
         {t.cta}
       </a>

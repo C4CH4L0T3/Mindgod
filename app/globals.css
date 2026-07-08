@@ -7,8 +7,20 @@
   --color-hairline: rgba(0, 0, 0, 0.08);
   --color-border: rgba(0, 0, 0, 0.1);
   --color-background: #fafaf8;
-  /* único acento no monocromo — solo para CTAs y foco */
+  /* ————— sistema de color psicológico —————
+     Cada color tiene UN trabajo emocional (no decoración):
+     azul     = confianza (B2B: reduce ansiedad, credibilidad)
+     violeta  = premium / innovación (categoría IA)
+     esmeralda= seguridad, dinero, "adelante" (garantía, calificar)
+     ámbar    = urgencia honesta (cupos, escasez)
+     rosa/naranja = pérdida (aversión a la pérdida: las fugas duelen) */
   --color-accent: #0071e3;
+  --color-violet: #7c3aed;
+  --color-magenta: #e11d90;
+  --color-emerald: #10b981;
+  --color-amber: #f59e0b;
+  --color-rose: #f43f5e;
+  --color-wa: #16a34a;
   /* metallic scale — graphite → steel → silver → chrome */
   --color-graphite: #171717;
   --color-steel: #525252;
@@ -35,7 +47,7 @@ body {
 }
 
 ::selection {
-  background: #0a0a0a;
+  background: #7c3aed;
   color: #fafaf8;
 }
 
@@ -71,21 +83,56 @@ button,
   }
 }
 
-/* liquid silver — a metallic sheen sweeping across the text */
+/* aurora — un barrido de color vivo atravesando el texto clave */
 .text-gradient {
   background-image: linear-gradient(
     100deg,
-    #0a0a0a,
-    #737373 35%,
-    #d4d4d4 52%,
-    #737373 68%,
-    #0a0a0a
+    #0071e3,
+    #7c3aed 30%,
+    #e11d90 52%,
+    #f59e0b 74%,
+    #0071e3
   );
   background-size: 250% 250%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   animation: gradient-shift 8s ease-in-out infinite;
+}
+
+/* CTA principal — gradiente aislado del resto de la página (efecto von
+   Restorff: lo distinto es lo que se recuerda y se clickea) */
+.btn-gradient {
+  background-image: linear-gradient(120deg, #0071e3, #7c3aed 55%, #e11d90);
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease-in-out infinite;
+  color: #fff;
+  box-shadow:
+    0 10px 30px -8px rgba(124, 58, 237, 0.55),
+    0 4px 12px rgba(0, 113, 227, 0.25);
+  transition:
+    transform 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 16px 40px -10px rgba(124, 58, 237, 0.65),
+    0 6px 16px rgba(0, 113, 227, 0.3);
+}
+
+.btn-gradient:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-gradient {
+    animation: none;
+  }
+  .btn-gradient:hover {
+    transform: none;
+  }
 }
 
 @keyframes aurora-drift {

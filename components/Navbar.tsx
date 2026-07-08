@@ -57,7 +57,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
           </a>
           <a
             href="#contacto"
-            className="inline-flex rounded-full bg-accent px-4.5 py-1.5 text-[13px] font-medium text-white transition-opacity duration-300 hover:opacity-85"
+            className="btn-gradient inline-flex rounded-full px-4.5 py-1.5 text-[13px] font-medium"
           >
             {t.cta}
           </a>

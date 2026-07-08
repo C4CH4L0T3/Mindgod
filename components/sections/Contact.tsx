@@ -72,7 +72,9 @@ export default function Contact({ lang }: { lang: Lang }) {
               <p className="mt-7 text-center text-[15px] leading-relaxed text-stone">
                 {t.sub}
               </p>
-              <p className="tag mt-4 text-center !text-[10px]">{t.capacity}</p>
+              <p className="tag mt-4 text-center !text-[10px] !text-amber">
+                {t.capacity}
+              </p>
             </Reveal>
 
             <Reveal delay={150}>
@@ -112,9 +114,11 @@ export default function Contact({ lang }: { lang: Lang }) {
                   ))}
                 </select>
 
+                {/* verde WhatsApp: el color del botón coincide con el destino
+                    de la acción — cero sorpresa, cero fricción */}
                 <button
                   type="submit"
-                  className="mt-6 w-full rounded-full bg-accent py-4 text-[15px] font-medium text-white shadow-lg shadow-accent/25 transition-all duration-300 hover:opacity-90 hover:shadow-xl hover:shadow-accent/35 active:scale-[0.99]"
+                  className="mt-6 w-full rounded-full bg-wa py-4 text-[15px] font-medium text-white shadow-lg shadow-wa/30 transition-all duration-300 hover:bg-[#15803d] hover:shadow-xl hover:shadow-wa/40 active:scale-[0.99]"
                 >
                   {t.cta}
                 </button>
