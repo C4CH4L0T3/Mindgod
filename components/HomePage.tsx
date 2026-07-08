@@ -11,6 +11,7 @@ import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/Footer";
 import StickyCta from "@/components/StickyCta";
+import ScrollProgress from "@/components/ScrollProgress";
 import type { Lang } from "@/lib/copy";
 
 /* Una sola página, dos idiomas: "/" (es) y "/en" montan este árbol. */
@@ -19,6 +20,7 @@ export default function HomePage({ lang }: { lang: Lang }) {
     <>
       <Intro lang={lang} />
       <main className="relative z-10">
+        <ScrollProgress />
         <Navbar lang={lang} />
         <Hero lang={lang} />
         <Leaks lang={lang} />

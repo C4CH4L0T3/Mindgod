@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { preconnect } from "react-dom";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
@@ -41,6 +42,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // los orígenes externos abren conexión desde el primer byte
+  preconnect("https://cdn.simpleicons.org");
+  preconnect("https://prod.spline.design");
   return (
     <html
       lang="es"

@@ -16,6 +16,7 @@ export interface Copy {
   intro: { born: string; words: string[]; tagline: string };
   hero: {
     tag: string;
+    live: string;
     line1: string;
     line2: string;
     support: string;
@@ -128,6 +129,7 @@ export const copy: Record<Lang, Copy> = {
     },
     hero: {
       tag: "Socio de IA · Medellín",
+      live: "Sistema en línea · responde en <60 s",
       line1: "Vendes bien a mano.",
       line2: "Por eso pierdes plata.",
       support:
@@ -441,6 +443,7 @@ export const copy: Record<Lang, Copy> = {
     },
     hero: {
       tag: "AI Partner · Medellín",
+      live: "System online · replies in <60s",
       line1: "You sell well by hand.",
       line2: "That's why you lose money.",
       support:

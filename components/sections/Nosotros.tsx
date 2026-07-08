@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import TiltCard from "@/components/ui/tilt-card";
 import { copy, type Lang } from "@/lib/copy";
 
 /*
@@ -38,7 +39,8 @@ export default function Nosotros({ lang }: { lang: Lang }) {
 
         <div className="mt-20 grid grid-cols-1 gap-6 md:grid-cols-2">
           {/* el fundador da la cara */}
-          <Reveal delay={120}>
+          <Reveal delay={120} className="h-full">
+            <TiltCard className="h-full">
             <div className="flex h-full flex-col rounded-2xl border border-black/15 bg-paper p-8 md:p-10">
               <p className="tag mb-8">{t.founder.tag}</p>
               <div className="flex items-center gap-5">
@@ -58,10 +60,12 @@ export default function Nosotros({ lang }: { lang: Lang }) {
                 {t.founder.note}
               </p>
             </div>
+            </TiltCard>
           </Reveal>
 
           {/* cero humo */}
-          <Reveal delay={220}>
+          <Reveal delay={220} className="h-full">
+            <TiltCard className="h-full">
             <div className="flex h-full flex-col rounded-2xl border border-black/15 bg-paper p-8 md:p-10">
               <p className="tag mb-8">{t.honest.tag}</p>
               <h3 className="display text-[clamp(22px,2.4vw,32px)] leading-tight text-ink">
@@ -79,6 +83,7 @@ export default function Nosotros({ lang }: { lang: Lang }) {
                 ))}
               </div>
             </div>
+            </TiltCard>
           </Reveal>
         </div>
       </div>

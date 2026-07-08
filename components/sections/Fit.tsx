@@ -1,5 +1,6 @@
 import { ArrowRight, Check, X } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import TiltCard from "@/components/ui/tilt-card";
 import { copy, type Lang } from "@/lib/copy";
 
 /*
@@ -23,7 +24,8 @@ export default function Fit({ lang }: { lang: Lang }) {
         </Reveal>
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
-          <Reveal delay={100}>
+          <Reveal delay={100} className="h-full">
+            <TiltCard className="h-full">
             <div className="h-full rounded-2xl border-2 border-ink bg-paper p-8 md:p-10">
               <h3 className="text-xl font-semibold tracking-[-0.01em] text-ink">
                 {t.forTitle}
@@ -44,9 +46,11 @@ export default function Fit({ lang }: { lang: Lang }) {
                 ))}
               </ul>
             </div>
+            </TiltCard>
           </Reveal>
 
-          <Reveal delay={200}>
+          <Reveal delay={200} className="h-full">
+            <TiltCard className="h-full">
             <div className="h-full rounded-2xl border border-black/15 bg-paper p-8 md:p-10">
               <h3 className="text-xl font-semibold tracking-[-0.01em] text-stone">
                 {t.againstTitle}
@@ -67,6 +71,7 @@ export default function Fit({ lang }: { lang: Lang }) {
                 ))}
               </ul>
             </div>
+            </TiltCard>
           </Reveal>
         </div>
 

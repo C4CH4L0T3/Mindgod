@@ -2,6 +2,7 @@
 
 import { Bot, Check, Database, ShieldCheck } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import TiltCard from "@/components/ui/tilt-card";
 import RadialOrbitalTimeline, {
   type OrbitalItem,
 } from "@/components/ui/radial-orbital-timeline";
@@ -96,6 +97,7 @@ export default function Offers({ lang }: { lang: Lang }) {
             const s = cardStyles[i];
             return (
               <Reveal key={item.name} delay={i * 110} className="h-full">
+                <TiltCard className="h-full">
                 <article
                   className={`flex h-full flex-col rounded-2xl p-8 ${s.card}`}
                 >
@@ -150,6 +152,7 @@ export default function Offers({ lang }: { lang: Lang }) {
                     </a>
                   </div>
                 </article>
+                </TiltCard>
               </Reveal>
             );
           })}
