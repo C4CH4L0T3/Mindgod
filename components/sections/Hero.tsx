@@ -10,6 +10,7 @@ import {
   useTransform,
 } from "motion/react";
 import Magnetic from "@/components/ui/magnetic";
+import Globe from "@/components/ui/globe";
 import { copy, type Lang } from "@/lib/copy";
 
 /*
@@ -141,6 +142,18 @@ export default function Hero({ lang }: { lang: Lang }) {
           className="aurora-blob right-[6%] bottom-[14%] h-[30vw] w-[30vw] bg-violet/[0.07]"
           style={{ animationDelay: "-6s" }}
         />
+      </div>
+
+      {/* ——— layer 0.5: el planeta — horizonte al pie del hero ———
+          Medellín marcada en zafiro, arcos hacia el mundo. Asoma desde el
+          borde inferior como un amanecer detrás del CTA. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 flex justify-center"
+      >
+        <div className="hero-bg-enter h-[min(120vw,940px)] w-[min(120vw,940px)] translate-y-[60%] opacity-95 [mask-image:linear-gradient(to_top,black_78%,transparent_100%)]">
+          <Globe className="h-full w-full" />
+        </div>
       </div>
 
       {/* ——— layer 1: watermark con doble parallax ——— */}
