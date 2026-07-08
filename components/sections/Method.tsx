@@ -1,5 +1,6 @@
 import Reveal from "@/components/Reveal";
 import { IconCloud } from "@/components/ui/icon-cloud";
+import TracingBeam from "@/components/ui/tracing-beam";
 import { copy, type Lang } from "@/lib/copy";
 
 // Herramientas que más usan los negocios en Colombia: ventas por WhatsApp y
@@ -62,26 +63,30 @@ export default function Method({ lang }: { lang: Lang }) {
           </p>
         </Reveal>
 
-        <div className="mt-20 grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
-          {t.steps.map((s, i) => (
-            <Reveal key={s.number} delay={i * 110}>
-              <div
-                className="group border-t-2 pt-7 transition-colors duration-500"
-                style={{ borderColor: `${stepColors[i]}40` }}
-              >
-                <span
-                  className="font-mono text-xs font-semibold tracking-[0.2em]"
-                  style={{ color: stepColors[i] }}
-                >
-                  {s.number}
-                </span>
-                <h3 className="mt-5 text-xl font-semibold tracking-[-0.01em] text-ink">
-                  {s.title}
-                </h3>
-                <p className="mt-3 text-[14px] leading-relaxed text-stone">{s.body}</p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-20">
+          <TracingBeam>
+            <div className="grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
+              {t.steps.map((s, i) => (
+                <Reveal key={s.number} delay={i * 110}>
+                  <div
+                    className="group border-t-2 pt-7 transition-colors duration-500"
+                    style={{ borderColor: `${stepColors[i]}40` }}
+                  >
+                    <span
+                      className="font-mono text-xs font-semibold tracking-[0.2em]"
+                      style={{ color: stepColors[i] }}
+                    >
+                      {s.number}
+                    </span>
+                    <h3 className="mt-5 text-xl font-semibold tracking-[-0.01em] text-ink">
+                      {s.title}
+                    </h3>
+                    <p className="mt-3 text-[14px] leading-relaxed text-stone">{s.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </TracingBeam>
         </div>
 
         <div className="mt-24 grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-8">

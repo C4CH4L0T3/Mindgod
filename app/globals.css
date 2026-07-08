@@ -31,7 +31,13 @@
 
 html {
   background-color: #fafaf8;
-  scroll-behavior: smooth;
+}
+
+/* fallback nativo cuando Lenis no corre (reduced motion lo apaga) */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -254,6 +260,47 @@ button,
     transform: none;
     filter: none;
     transition: none;
+  }
+}
+
+/* ————— meteoros (panel oscuro del contacto) ————— */
+@keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(215deg) translateX(-560px);
+    opacity: 0;
+  }
+}
+
+.meteor {
+  position: absolute;
+  height: 2px;
+  width: 2px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  animation: meteor linear infinite;
+}
+
+.meteor::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 74px;
+  height: 1px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.55), transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .meteor {
+    display: none;
   }
 }
 

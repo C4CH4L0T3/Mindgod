@@ -1,5 +1,6 @@
 import Reveal from "@/components/Reveal";
 import TiltCard from "@/components/ui/tilt-card";
+import IgniteText from "@/components/ui/ignite-text";
 import { copy, type Lang } from "@/lib/copy";
 
 /*
@@ -18,23 +19,11 @@ export default function Nosotros({ lang }: { lang: Lang }) {
             <p className="tag mb-10">{t.tag}</p>
           </Reveal>
 
-          <Reveal delay={100}>
-            <p className="display text-[clamp(26px,3.6vw,48px)] leading-[1.25] text-stone">
-              {t.statement.map((seg, i) =>
-                seg.style === "ink" ? (
-                  <span key={i} className="text-ink">
-                    {seg.text}
-                  </span>
-                ) : seg.style === "em" ? (
-                  <em key={i} className="text-gradient">
-                    {seg.text}
-                  </em>
-                ) : (
-                  <span key={i}>{seg.text}</span>
-                )
-              )}
-            </p>
-          </Reveal>
+          {/* el manifiesto se enciende palabra a palabra con el scroll */}
+          <IgniteText
+            segments={t.statement}
+            className="display text-[clamp(26px,3.6vw,48px)] leading-[1.25] text-stone"
+          />
         </div>
 
         <div className="mt-20 grid grid-cols-1 gap-6 md:grid-cols-2">

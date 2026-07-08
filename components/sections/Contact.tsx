@@ -4,6 +4,7 @@ import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
+import Meteors from "@/components/ui/meteors";
 import { copy, type Lang } from "@/lib/copy";
 
 // Número de WhatsApp del negocio — los leads llegan ahí directo.
@@ -33,6 +34,19 @@ export default function Contact({ lang }: { lang: Lang }) {
       lines.join("\n")
     )}`;
     window.open(url, "_blank", "noopener,noreferrer");
+
+    // micro-celebración en colores de la casa (aplicar debe sentirse bien)
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      import("canvas-confetti").then(({ default: confetti }) => {
+        confetti({
+          particleCount: 90,
+          spread: 75,
+          startVelocity: 32,
+          origin: { y: 0.75 },
+          colors: ["#1d4ed8", "#6d28d9", "#047857", "#fafaf8"],
+        });
+      });
+    }
   };
 
   return (
@@ -46,6 +60,7 @@ export default function Contact({ lang }: { lang: Lang }) {
                 className="-top-40 left-0 md:-top-20 md:left-60"
                 fill="white"
               />
+              <Meteors number={12} />
               <div className="pointer-events-none relative z-10 p-8">
                 <p className="tag !text-white/50">{t.spline.tag}</p>
                 <h3 className="display mt-3 text-2xl text-white sm:text-3xl">

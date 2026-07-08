@@ -1,3 +1,4 @@
+import Globe from "@/components/ui/globe";
 import { copy, type Lang } from "@/lib/copy";
 
 export default function Footer({ lang }: { lang: Lang }) {
@@ -5,6 +6,15 @@ export default function Footer({ lang }: { lang: Lang }) {
 
   return (
     <footer className="border-t border-black/10 bg-paper">
+      {/* el planeta, con Medellín marcada en zafiro — arrástralo */}
+      <div className="relative mx-auto flex max-w-6xl justify-center overflow-hidden px-6 pt-16">
+        <div className="relative h-[260px] w-[260px] sm:h-[320px] sm:w-[320px] [mask-image:linear-gradient(to_bottom,black_55%,transparent_96%)]">
+          <Globe className="h-full w-full" />
+        </div>
+        <span className="tag pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 !text-[10px]">
+          {t.location.replace("© 2026 · ", "")}
+        </span>
+      </div>
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-14 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col gap-2">
           <span className="text-[15px] font-semibold tracking-[-0.02em] text-ink">
