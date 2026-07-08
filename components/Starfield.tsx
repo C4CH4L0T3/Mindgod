@@ -7,12 +7,17 @@ import { useEffect, useRef } from "react";
  *
  *   · ~200 estrellas en tres capas de profundidad que titilan (seno con
  *     fase propia) y derivan lentamente hacia arriba.
+ *   · Nebulosas: nubes de gas zafiro/violeta/esmeralda que respiran y
+ *     derivan a velocidad geológica detrás de las estrellas.
  *   · Parallax doble: el mouse y el scroll mueven cada capa según su
  *     profundidad — el fondo se siente tridimensional.
  *   · Cada pocos segundos, una estrella fugaz cruza la pantalla.
+ *   · Y muy, muy de vez en cuando: una SUPERNOVA. Destello, onda
+ *     expansiva, rayos de luz — 4 segundos y no vuelve en minutos.
+ *     El que la ve, la vio.
  *
  * Un rAF, sin layout, sin React re-renders. Bajo prefers-reduced-motion
- * se dibuja un cielo estático una sola vez.
+ * se dibuja un cielo estático una sola vez (sin fugaces ni supernovas).
  */
 
 const STAR_COLORS = ["#f4f4f0", "#f4f4f0", "#f4f4f0", "#93c5fd", "#c4b5fd"];
@@ -28,6 +33,17 @@ type Star = {
 };
 
 type Shooter = { x: number; y: number; vx: number; vy: number; life: number };
+
+type Nova = { x: number; y: number; t0: number; dur: number };
+
+/* nebulosas: posición relativa, radio relativo al viewport, color y fase */
+const NEBULAS = [
+  { fx: 0.22, fy: 0.3, fr: 0.34, rgb: "59, 130, 246", phase: 0 },
+  { fx: 0.78, fy: 0.62, fr: 0.3, rgb: "139, 92, 246", phase: 2.1 },
+  { fx: 0.55, fy: 0.12, fr: 0.24, rgb: "16, 185, 129", phase: 4.2 },
+];
+
+const easeOutCubic = (p: number) => 1 - Math.pow(1 - p, 3);
 
 export default function Starfield() {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -49,6 +65,10 @@ export default function Starfield() {
     let stars: Star[] = [];
     const shooters: Shooter[] = [];
     let nextShooter = performance.now() + 2500;
+
+    // supernova: la primera a los 40–70s; después una cada 2.5–5 minutos
+    let nova: Nova | null = null;
+    let nextNova = performance.now() + 40_000 + Math.random() * 30_000;
 
     const mouse = { x: 0, y: 0 };
     let mx = 0;
@@ -97,6 +117,28 @@ export default function Starfield() {
       mx += (mouse.x - mx) * 0.04;
       my += (mouse.y - my) * 0.04;
       const sy = window.scrollY;
+
+      // ——— nebulosas: gas que respira a velocidad geológica ———
+      for (const n of NEBULAS) {
+        const breathe = reduce ? 1 : 1 + 0.08 * Math.sin(t * 0.11 + n.phase);
+        const cx =
+          n.fx * w +
+          (reduce ? 0 : Math.sin(t * 0.05 + n.phase) * 40) -
+          mx * 18;
+        const cy =
+          n.fy * h +
+          (reduce ? 0 : Math.cos(t * 0.04 + n.phase) * 30) -
+          sy * 0.04 -
+          my * 12;
+        const r = Math.min(w, h) * n.fr * breathe;
+        const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+        grad.addColorStop(0, `rgba(${n.rgb}, 0.075)`);
+        grad.addColorStop(0.55, `rgba(${n.rgb}, 0.03)`);
+        grad.addColorStop(1, `rgba(${n.rgb}, 0)`);
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = grad;
+        ctx.fillRect(cx - r, cy - r, r * 2, r * 2);
+      }
 
       for (const s of stars) {
         const drift = reduce ? 0 : t * 2.2 * s.depth; // deriva ascendente
@@ -147,6 +189,76 @@ export default function Starfield() {
         m.y += m.vy;
         m.life -= 0.016;
         if (m.life <= 0 || m.x < -160 || m.y > h + 60) shooters.splice(i, 1);
+      }
+
+      // ——— supernova: el evento que casi nadie ve dos veces ———
+      if (!reduce && !nova && now > nextNova) {
+        nova = {
+          x: w * (0.15 + Math.random() * 0.7),
+          y: h * (0.12 + Math.random() * 0.5),
+          t0: now,
+          dur: 4200,
+        };
+      }
+      if (nova) {
+        const p = (now - nova.t0) / nova.dur;
+        if (p >= 1) {
+          nova = null;
+          nextNova = now + 150_000 + Math.random() * 150_000;
+        } else {
+          // el destello sube casi instantáneo y decae lento
+          const flash = p < 0.1 ? p / 0.1 : Math.pow(1 - (p - 0.1) / 0.9, 1.7);
+          const reach = Math.min(w, h) * 0.34;
+
+          // halo
+          const glowR = 24 + easeOutCubic(p) * reach;
+          const glow = ctx.createRadialGradient(
+            nova.x, nova.y, 0, nova.x, nova.y, glowR
+          );
+          glow.addColorStop(0, `rgba(244, 244, 240, ${0.55 * flash})`);
+          glow.addColorStop(0.25, `rgba(147, 197, 253, ${0.3 * flash})`);
+          glow.addColorStop(0.6, `rgba(139, 92, 246, ${0.1 * flash})`);
+          glow.addColorStop(1, "rgba(139, 92, 246, 0)");
+          ctx.globalAlpha = 1;
+          ctx.fillStyle = glow;
+          ctx.fillRect(nova.x - glowR, nova.y - glowR, glowR * 2, glowR * 2);
+
+          // onda expansiva
+          const ringR = easeOutCubic(p) * reach;
+          ctx.globalAlpha = (1 - p) * 0.45;
+          ctx.strokeStyle = "rgba(147, 197, 253, 1)";
+          ctx.lineWidth = 1.6 * (1 - p) + 0.3;
+          ctx.beginPath();
+          ctx.arc(nova.x, nova.y, ringR, 0, Math.PI * 2);
+          ctx.stroke();
+
+          // rayos de difracción
+          const rayLen = glowR * 1.15;
+          ctx.globalAlpha = flash * 0.6;
+          for (const ang of [0, Math.PI / 2, Math.PI / 4, -Math.PI / 4]) {
+            const dx = Math.cos(ang) * rayLen;
+            const dy = Math.sin(ang) * rayLen;
+            const ray = ctx.createLinearGradient(
+              nova.x - dx, nova.y - dy, nova.x + dx, nova.y + dy
+            );
+            ray.addColorStop(0, "rgba(244, 244, 240, 0)");
+            ray.addColorStop(0.5, `rgba(244, 244, 240, ${0.7 * flash})`);
+            ray.addColorStop(1, "rgba(244, 244, 240, 0)");
+            ctx.strokeStyle = ray;
+            ctx.lineWidth = ang % (Math.PI / 2) === 0 ? 1.2 : 0.6;
+            ctx.beginPath();
+            ctx.moveTo(nova.x - dx, nova.y - dy);
+            ctx.lineTo(nova.x + dx, nova.y + dy);
+            ctx.stroke();
+          }
+
+          // núcleo
+          ctx.globalAlpha = flash;
+          ctx.fillStyle = "#f4f4f0";
+          ctx.beginPath();
+          ctx.arc(nova.x, nova.y, 1.6 + 2.6 * flash, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
       ctx.globalAlpha = 1;
     };
