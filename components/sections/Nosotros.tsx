@@ -36,7 +36,7 @@ export default function Nosotros({ lang }: { lang: Lang }) {
                 {/* TODO: foto real del fundador — reemplazar este placeholder
                     por <Image src="/images/founder.jpg" …/> */}
                 <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-neutral-950 via-accent to-violet">
-                  <span className="display text-2xl text-paper">M</span>
+                  <span className="display text-2xl text-ink">E</span>
                 </div>
                 <div>
                   <p className="text-[16px] font-semibold tracking-[-0.01em] text-ink">

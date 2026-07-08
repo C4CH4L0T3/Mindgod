@@ -332,8 +332,8 @@ export const copy: Record<Lang, Copy> = {
       ],
       founder: {
         tag: "El fundador",
-        // TODO: nombre y foto reales del fundador (public/images/founder.jpg)
-        name: "[TODO: Nombre del fundador]",
+        // TODO: foto real del fundador (public/images/founder.jpg)
+        name: "Emmanuel",
         role: "Fundador · MindGod",
         note: "“Monté MindGod porque veía negocios buenos perder ventas por cosas que una máquina resuelve en segundos. En tu Radiografía hablas conmigo — no con un vendedor.”",
       },
@@ -645,8 +645,8 @@ export const copy: Record<Lang, Copy> = {
       ],
       founder: {
         tag: "The founder",
-        // TODO: real founder name and photo (public/images/founder.jpg)
-        name: "[TODO: Founder name]",
+        // TODO: real founder photo (public/images/founder.jpg)
+        name: "Emmanuel",
         role: "Founder · MindGod",
         note: "“I started MindGod because I kept watching good businesses lose sales to things a machine solves in seconds. On your Radiografía call you talk to me — not to a salesperson.”",
       },
