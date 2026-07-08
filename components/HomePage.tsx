@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import StickyCta from "@/components/StickyCta";
 import ScrollProgress from "@/components/ScrollProgress";
 import SmoothScroll from "@/components/SmoothScroll";
+import Starfield from "@/components/Starfield";
 import type { Lang } from "@/lib/copy";
 
 /* Una sola página, dos idiomas: "/" (es) y "/en" montan este árbol. */
@@ -21,6 +22,7 @@ export default function HomePage({ lang }: { lang: Lang }) {
     <>
       <Intro lang={lang} />
       <SmoothScroll />
+      <Starfield />
       <main className="relative z-10">
         <ScrollProgress />
         <Navbar lang={lang} />
