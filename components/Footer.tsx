@@ -25,9 +25,17 @@ export default function Footer({ lang }: { lang: Lang }) {
           ))}
         </nav>
 
-        {/* TODO: agregar redes cuando existan perfiles reales, ej.:
-            <a href="https://linkedin.com/company/..." ...>LinkedIn</a>
-            <a href="https://instagram.com/..." ...>Instagram</a> */}
+        <div className="flex gap-6">
+          {/* TODO: agregar LinkedIn cuando exista el perfil */}
+          <a
+            href="https://instagram.com/mindgod.agcy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[13px] text-stone transition-colors duration-300 hover:text-ink"
+          >
+            Instagram
+          </a>
+        </div>
       </div>
 
       <div className="border-t border-white/[0.06] py-6 text-center">
