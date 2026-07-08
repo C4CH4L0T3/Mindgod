@@ -21,7 +21,7 @@ export interface Copy {
     support: string;
     cta: string;
     ctaNote: string;
-    photoAlt: string;
+    stripLabel: string;
   };
   leaks: {
     tag: string;
@@ -136,7 +136,7 @@ export const copy: Record<Lang, Copy> = {
       // TODO: reemplazar "Cupos limitados" con la capacidad real mensual
       // (ej. "8 radiografías al mes") — urgencia honesta o ninguna.
       ctaNote: "30 min · Sin costo · Cupos limitados",
-      photoAlt: "Una mano humana y una mano robótica a punto de tocarse",
+      stripLabel: "Instalamos sobre las herramientas que ya usas",
     },
     // TODO: cuando existan métricas reales de clientes (leads respondidos,
     // horas ahorradas, ventas recuperadas), este strip vuelve a ser numérico.
@@ -448,7 +448,7 @@ export const copy: Record<Lang, Copy> = {
       cta: "Apply for your Radiografía",
       // TODO: replace "Limited spots" with real monthly capacity
       ctaNote: "30 min · Free · Limited spots",
-      photoAlt: "A human hand and a robotic hand about to touch",
+      stripLabel: "We install on the tools you already use",
     },
     // TODO: swap back to real numbers once real client metrics exist.
     leaks: {

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import {
   motion,
   useReducedMotion,
@@ -10,29 +9,46 @@ import {
 } from "motion/react";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { copy, type Lang } from "@/lib/copy";
-import manos from "@/public/images/manos.jpg";
 
 /*
- * Hero — three layers on a near-white canvas:
+ * Hero — patrón de los líderes del mercado (Morningside, LeftClick):
+ * tipografía centrada, una sola promesa, un solo CTA y una franja de
+ * confianza inmediatamente debajo. Sin foto: el titular carga el peso.
  *
- *   1. Watermark: "MindGod" gigante, casi invisible, textura detrás de todo.
- *   2. Focal: la foto B/N — mano humana y mano robótica a punto de tocarse.
- *      "De la mano a la máquina", literal.
- *   3. Contenido: titular a la izquierda, una línea de apoyo, un solo CTA
- *      anclado abajo a la derecha.
+ *   1. Watermark "MindGod" gigante detrás, con parallax lento.
+ *   2. Stack central: tag → titular → apoyo → CTA.
+ *   3. Marquee de herramientas — nuestra versión honesta del carrusel de
+ *      logos de clientes (no tenemos clientes que mostrar; no los inventamos).
  *
  * La entrada se coreografía tras la cortina del intro (evento
- * "mindgod:intro-done"); el parallax al hacer scroll mueve el watermark más
- * lento que la foto para crear profundidad. Todo via transform/opacity.
+ * "mindgod:intro-done"). Todo via transform/opacity.
  */
 
 const ENTER = {
-  photo: "350ms",
-  line1: "650ms",
-  line2: "780ms",
-  support: "1000ms",
-  cta: "1150ms",
+  tag: "350ms",
+  line1: "500ms",
+  line2: "630ms",
+  support: "820ms",
+  cta: "980ms",
+  strip: "1200ms",
 } as const;
+
+// Las herramientas sobre las que instalamos — reconocibles para un dueño
+// de negocio en LatAm.
+const stripSlugs = [
+  "whatsapp",
+  "instagram",
+  "shopify",
+  "mercadopago",
+  "googlecalendar",
+  "gmail",
+  "stripe",
+  "hubspot",
+  "notion",
+  "claude",
+  "n8n",
+  "make",
+];
 
 export default function Hero({ lang }: { lang: Lang }) {
   const t = copy[lang].hero;
@@ -40,9 +56,8 @@ export default function Hero({ lang }: { lang: Lang }) {
   const reduceMotion = useReducedMotion();
 
   const { scrollY } = useScroll();
-  // watermark lags far behind the scroll; the photo only slightly — depth
+  // watermark lags far behind the scroll — depth without imagery
   const watermarkY = useTransform(scrollY, [0, 900], [0, 230]);
-  const photoY = useTransform(scrollY, [0, 900], [0, 70]);
 
   useEffect(() => {
     const start = () => setEntered(true);
@@ -83,53 +98,39 @@ export default function Hero({ lang }: { lang: Lang }) {
         </div>
       </motion.div>
 
-      {/* ——— layers 2 + 3 ——— */}
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 md:block">
-        {/* focal photo — center-right, overlapping the watermark */}
-        <div className="order-2 mx-auto mt-12 w-[86%] max-w-[460px] md:absolute md:left-[48%] md:top-1/2 md:mt-0 md:w-[45vw] md:max-w-[650px] md:-translate-x-1/4 md:-translate-y-1/2">
-          <motion.div style={{ y: reduceMotion ? 0 : photoY }}>
-            <div className="hero-enter" style={{ "--enter-delay": ENTER.photo } as React.CSSProperties}>
-              <div className="hero-float">
-                <Image
-                  src={manos}
-                  alt={t.photoAlt}
-                  priority
-                  placeholder="blur"
-                  sizes="(max-width: 768px) 86vw, 46vw"
-                  className="rounded-2xl shadow-[0_40px_90px_-40px_rgba(0,0,0,0.35)]"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
+      {/* ——— layer 2: centered promise ——— */}
+      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center px-6 pb-16 pt-28 text-center">
+        <p
+          className="tag hero-enter mb-8"
+          style={{ "--enter-delay": ENTER.tag } as React.CSSProperties}
+        >
+          {t.tag}
+        </p>
 
-        {/* headline — left, above the photo where they meet */}
-        <div className="relative z-20 order-1 pt-28 md:absolute md:left-6 md:top-1/2 md:max-w-[470px] md:-translate-y-1/2 md:pt-0">
-          <p
-            className="tag hero-enter mb-7 md:hidden"
+        <h1 className="display text-[clamp(42px,7vw,88px)] leading-[1.04] text-ink">
+          <span
+            className="hero-enter block"
             style={{ "--enter-delay": ENTER.line1 } as React.CSSProperties}
           >
-            {t.tag}
-          </p>
-          <h1 className="display text-[clamp(36px,3.4vw,50px)] leading-[1.08] text-ink">
-            <span className="hero-enter block" style={{ "--enter-delay": ENTER.line1 } as React.CSSProperties}>
-              {t.line1}
-            </span>
-            <span className="hero-enter block" style={{ "--enter-delay": ENTER.line2 } as React.CSSProperties}>
-              <em className="text-gradient">{t.line2}</em>
-            </span>
-          </h1>
-          <p
-            className="hero-enter mt-6 max-w-sm text-[15px] leading-relaxed text-stone"
-            style={{ "--enter-delay": ENTER.support } as React.CSSProperties}
+            {t.line1}
+          </span>
+          <span
+            className="hero-enter block"
+            style={{ "--enter-delay": ENTER.line2 } as React.CSSProperties}
           >
-            {t.support}
-          </p>
-        </div>
+            <em className="text-gradient">{t.line2}</em>
+          </span>
+        </h1>
 
-        {/* CTA — anchored bottom-right on desktop, in flow on mobile */}
+        <p
+          className="hero-enter mt-8 max-w-xl text-[16px] leading-relaxed text-stone md:text-[17px]"
+          style={{ "--enter-delay": ENTER.support } as React.CSSProperties}
+        >
+          {t.support}
+        </p>
+
         <div
-          className="hero-enter order-3 mb-14 mt-12 flex flex-col items-center gap-4 md:absolute md:bottom-12 md:right-6 md:mb-0 md:mt-0 md:items-end"
+          className="hero-enter mt-11 flex flex-col items-center gap-4"
           style={{ "--enter-delay": ENTER.cta } as React.CSSProperties}
         >
           <LiquidButton href="#contacto" className="text-accent">
@@ -137,13 +138,30 @@ export default function Hero({ lang }: { lang: Lang }) {
           </LiquidButton>
           <p className="tag !text-[10px]">{t.ctaNote}</p>
         </div>
+      </div>
 
-        {/* quiet signature, bottom-left */}
-        <div
-          className="hero-enter hidden md:absolute md:bottom-14 md:left-6 md:block"
-          style={{ "--enter-delay": ENTER.cta } as React.CSSProperties}
-        >
-          <p className="tag">{t.tag}</p>
+      {/* ——— layer 3: trust strip — the tools we install on ——— */}
+      <div
+        className="hero-enter relative z-10 pb-12"
+        style={{ "--enter-delay": ENTER.strip } as React.CSSProperties}
+      >
+        <p className="tag mb-7 text-center !text-[10px]">{t.stripLabel}</p>
+        <div className="marquee mx-auto max-w-5xl">
+          <div className="marquee-track">
+            {[...stripSlugs, ...stripSlugs].map((slug, i) => (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
+                key={`${slug}-${i}`}
+                src={`https://cdn.simpleicons.org/${slug}/9c9c94`}
+                alt=""
+                aria-hidden="true"
+                width={26}
+                height={26}
+                loading="lazy"
+                className="mx-7 inline-block h-[26px] w-[26px] opacity-70 md:mx-9"
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

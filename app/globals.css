@@ -232,20 +232,42 @@ button,
   transform: none;
 }
 
-/* continuous life — barely there */
-@keyframes hero-float {
+/* ————— hero trust strip: infinite logo marquee ————— */
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+}
+
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
   from {
-    transform: translateY(0);
+    transform: translateX(0);
   }
   to {
-    transform: translateY(-4px);
+    transform: translateX(-50%);
   }
 }
 
-.hero-float {
-  animation: hero-float 7s ease-in-out infinite alternate;
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
 }
 
+/* continuous life — barely there */
 @keyframes hero-drift {
   from {
     transform: translateX(0.4%);
@@ -266,7 +288,6 @@ button,
     transform: none;
     transition: none;
   }
-  .hero-float,
   .hero-drift {
     animation: none;
   }
