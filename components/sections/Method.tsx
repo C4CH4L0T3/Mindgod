@@ -38,9 +38,13 @@ const techSlugs = [
   "asana",
 ];
 
-// monocromo claro: legible sobre obsidiana (los logos negros desaparecerían)
-const techImages = techSlugs.map(
-  (slug) => `https://cdn.simpleicons.org/${slug}/c9c9c1`
+// A todo color de marca — reconocimiento instantáneo. Las marcas cuyo logo
+// es negro (invisible sobre obsidiana) van en gris claro.
+const darkBrands = new Set(["x", "tiktok", "notion"]);
+const techImages = techSlugs.map((slug) =>
+  darkBrands.has(slug)
+    ? `https://cdn.simpleicons.org/${slug}/e8e8e2`
+    : `https://cdn.simpleicons.org/${slug}`
 );
 
 /* un solo acento disciplinado: los números en zafiro, el resto en tinta */
