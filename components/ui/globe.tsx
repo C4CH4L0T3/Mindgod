@@ -24,7 +24,8 @@ export default function Globe({ className }: { className?: string }) {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    let phi = 4.2; // arranca mirando a América
+    // arranca con Medellín de frente: phi = π - (long·π/180 - π/2)
+    let phi = 6.03;
     let width = canvas.offsetWidth;
     const onResize = () => {
       width = canvas.offsetWidth;
@@ -36,7 +37,8 @@ export default function Globe({ className }: { className?: string }) {
       width: width * 2,
       height: width * 2,
       phi,
-      theta: 0.2,
+      // cámara al nivel del ecuador: Medellín (6°N) queda en la zona visible
+      theta: 0.1,
       dark: 1,
       diffuse: 1.2,
       mapSamples: 14000,
@@ -58,7 +60,7 @@ export default function Globe({ className }: { className?: string }) {
     let raf = 0;
     const loop = () => {
       if (!reduce && pointerInteracting.current === null) {
-        phi += 0.0035;
+        phi += 0.0022; // lento: que Medellín se quede un buen rato en escena
       }
       globe.update({
         phi: phi + pointerMovement.current,

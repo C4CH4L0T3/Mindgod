@@ -151,7 +151,7 @@ export default function Hero({ lang }: { lang: Lang }) {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 z-0 flex justify-center"
       >
-        <div className="hero-bg-enter h-[min(120vw,940px)] w-[min(120vw,940px)] translate-y-[60%] opacity-95 [mask-image:linear-gradient(to_top,black_78%,transparent_100%)]">
+        <div className="hero-bg-enter h-[min(120vw,940px)] w-[min(120vw,940px)] translate-y-[47%] opacity-95 [mask-image:linear-gradient(to_top,black_72%,transparent_98%)]">
           <Globe className="h-full w-full" />
         </div>
       </div>
