@@ -31,7 +31,7 @@ export default function Faq({ lang }: { lang: Lang }) {
                   </span>
                   <Plus
                     size={18}
-                    className="shrink-0 text-violet transition-transform duration-300 group-open:rotate-45"
+                    className="shrink-0 text-accent transition-transform duration-300 group-open:rotate-45"
                   />
                 </summary>
                 <p className="pb-7 pr-10 text-[15px] leading-relaxed text-stone">

@@ -72,9 +72,7 @@ export default function Contact({ lang }: { lang: Lang }) {
               <p className="mt-7 text-center text-[15px] leading-relaxed text-stone">
                 {t.sub}
               </p>
-              <p className="tag mt-4 text-center !text-[10px] !text-amber">
-                {t.capacity}
-              </p>
+              <p className="tag mt-4 text-center !text-[10px]">{t.capacity}</p>
             </Reveal>
 
             <Reveal delay={150}>

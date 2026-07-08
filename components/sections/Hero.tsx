@@ -81,16 +81,12 @@ export default function Hero({ lang }: { lang: Lang }) {
         entered ? "hero-in" : ""
       }`}
     >
-      {/* ——— layer 0: aurora — color ambiental que respira ——— */}
+      {/* ——— layer 0: profundidad ambiental — apenas perceptible ——— */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
-        <span className="aurora-blob left-[6%] top-[16%] h-[36vw] w-[36vw] bg-accent/20" />
+        <span className="aurora-blob left-[8%] top-[18%] h-[34vw] w-[34vw] bg-accent/[0.08]" />
         <span
-          className="aurora-blob right-[4%] top-[28%] h-[32vw] w-[32vw] bg-violet/20"
-          style={{ animationDelay: "-4s" }}
-        />
-        <span
-          className="aurora-blob bottom-[6%] left-[28%] h-[30vw] w-[30vw] bg-amber/15"
-          style={{ animationDelay: "-8s" }}
+          className="aurora-blob right-[6%] bottom-[14%] h-[30vw] w-[30vw] bg-violet/[0.07]"
+          style={{ animationDelay: "-6s" }}
         />
       </div>
 
@@ -151,7 +147,7 @@ export default function Hero({ lang }: { lang: Lang }) {
           >
             {t.cta}
           </a>
-          <p className="tag !text-[10px] !text-amber">{t.ctaNote}</p>
+          <p className="tag !text-[10px]">{t.ctaNote}</p>
         </div>
       </div>
 
@@ -167,13 +163,13 @@ export default function Hero({ lang }: { lang: Lang }) {
               /* eslint-disable-next-line @next/next/no-img-element */
               <img
                 key={`${slug}-${i}`}
-                src={`https://cdn.simpleicons.org/${slug}`}
+                src={`https://cdn.simpleicons.org/${slug}/9c9c94`}
                 alt=""
                 aria-hidden="true"
                 width={26}
                 height={26}
                 loading="lazy"
-                className="mx-7 inline-block h-[26px] w-[26px] opacity-90 md:mx-9"
+                className="mx-7 inline-block h-[26px] w-[26px] opacity-70 transition-opacity hover:opacity-100 md:mx-9"
               />
             ))}
           </div>

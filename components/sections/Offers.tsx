@@ -22,35 +22,33 @@ import { copy, type Lang } from "@/lib/copy";
  *   4. Terminal: el sistema visto por dentro.
  */
 
-/* identidad de color por sistema:
-   esmeralda = punto de partida (dinero, "adelante")
-   violeta   = buque insignia (premium, IA)
-   azul      = afinación continua (confianza, estabilidad) */
+/* restricción premium: las cartas son tinta/papel; SOLO el buque insignia
+   lleva el acento de la casa (glow zafiro + CTA de gradiente). Un punto
+   focal por pantalla — el resto calla. */
 const orbitalMeta = [
-  { icon: Bot, accent: "#10b981", impact: 85 },
-  { icon: Database, accent: "#7c3aed", impact: 100, featured: true },
-  { icon: ShieldCheck, accent: "#0071e3", impact: 90 },
+  { icon: Bot, accent: "#3f3f46", impact: 85 },
+  { icon: Database, accent: "#1d4ed8", impact: 100, featured: true },
+  { icon: ShieldCheck, accent: "#71717a", impact: 90 },
 ];
 
-/* clases literales por carta (Tailwind necesita verlas completas) */
 const cardStyles = [
   {
-    card: "border border-emerald/40 bg-emerald/[0.04]",
-    check: "text-emerald",
-    tag: "!text-emerald",
-    cta: "border border-emerald text-emerald hover:bg-emerald/10",
+    card: "border border-black/15 bg-paper",
+    check: "text-ink",
+    tag: "",
+    cta: "border border-black/20 text-ink hover:border-ink",
   },
   {
-    card: "border-2 border-violet bg-violet/[0.05] shadow-[0_24px_60px_-30px_rgba(124,58,237,0.45)]",
-    check: "text-violet",
-    tag: "!text-violet",
+    card: "border-2 border-ink bg-paper shadow-[0_28px_70px_-30px_rgba(29,78,216,0.4)]",
+    check: "text-accent",
+    tag: "!text-accent",
     cta: "btn-gradient",
   },
   {
-    card: "border border-accent/40 bg-accent/[0.04]",
-    check: "text-accent",
-    tag: "!text-accent",
-    cta: "border border-accent text-accent hover:bg-accent/10",
+    card: "border border-black/15 bg-paper",
+    check: "text-ink",
+    tag: "",
+    cta: "border border-black/20 text-ink hover:border-ink",
   },
 ];
 
@@ -104,7 +102,7 @@ export default function Offers({ lang }: { lang: Lang }) {
                   <div className="flex items-center justify-between gap-3">
                     <span className={`tag !text-[10px] ${s.tag}`}>{item.tag}</span>
                     {featured && (
-                      <span className="whitespace-nowrap rounded-full border border-violet px-2.5 py-0.5 font-mono text-[9px] tracking-[0.2em] text-violet">
+                      <span className="whitespace-nowrap rounded-full border border-accent px-2.5 py-0.5 font-mono text-[9px] tracking-[0.2em] text-accent">
                         {t.orbitalLabels.featured}
                       </span>
                     )}

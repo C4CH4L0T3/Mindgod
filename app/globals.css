@@ -7,20 +7,17 @@
   --color-hairline: rgba(0, 0, 0, 0.08);
   --color-border: rgba(0, 0, 0, 0.1);
   --color-background: #fafaf8;
-  /* ————— sistema de color psicológico —————
-     Cada color tiene UN trabajo emocional (no decoración):
-     azul     = confianza (B2B: reduce ansiedad, credibilidad)
-     violeta  = premium / innovación (categoría IA)
-     esmeralda= seguridad, dinero, "adelante" (garantía, calificar)
-     ámbar    = urgencia honesta (cupos, escasez)
-     rosa/naranja = pérdida (aversión a la pérdida: las fugas duelen) */
-  --color-accent: #0071e3;
-  --color-violet: #7c3aed;
-  --color-magenta: #e11d90;
-  --color-emerald: #10b981;
-  --color-amber: #f59e0b;
-  --color-rose: #f43f5e;
-  --color-wa: #16a34a;
+  /* ————— paleta premium: escasez de color = señal de valor —————
+     Base tinta/papel + UNA familia de acento y dos señales funcionales,
+     todas profundas (los tonos joya se perciben caros; los saturados, baratos):
+     zafiro→violeta profundo = la firma (confianza + premium, categoría IA)
+     esmeralda profunda      = seguridad (garantía, calificar, WhatsApp)
+     oxblood                 = pérdida (las fugas duelen, sin gritar) */
+  --color-accent: #1d4ed8;
+  --color-violet: #6d28d9;
+  --color-emerald: #047857;
+  --color-rose: #9f1239;
+  --color-wa: #15803d;
   /* metallic scale — graphite → steel → silver → chrome */
   --color-graphite: #171717;
   --color-steel: #525252;
@@ -47,7 +44,7 @@ body {
 }
 
 ::selection {
-  background: #7c3aed;
+  background: #1d4ed8;
   color: #fafaf8;
 }
 
@@ -83,15 +80,15 @@ button,
   }
 }
 
-/* aurora — un barrido de color vivo atravesando el texto clave */
+/* tinta con destello de zafiro — el texto clave sigue siendo oscuro;
+   el color aparece como un reflejo que lo cruza (metal precioso, no neón) */
 .text-gradient {
   background-image: linear-gradient(
     100deg,
-    #0071e3,
-    #7c3aed 30%,
-    #e11d90 52%,
-    #f59e0b 74%,
-    #0071e3
+    #0a0a0a,
+    #1d4ed8 42%,
+    #6d28d9 55%,
+    #0a0a0a 78%
   );
   background-size: 250% 250%;
   -webkit-background-clip: text;
@@ -100,26 +97,26 @@ button,
   animation: gradient-shift 8s ease-in-out infinite;
 }
 
-/* CTA principal — gradiente aislado del resto de la página (efecto von
-   Restorff: lo distinto es lo que se recuerda y se clickea) */
+/* CTA principal — la única pieza de color pleno por pantalla (aislamiento
+   von Restorff): gradiente profundo noche→zafiro→violeta con glow discreto */
 .btn-gradient {
-  background-image: linear-gradient(120deg, #0071e3, #7c3aed 55%, #e11d90);
+  background-image: linear-gradient(120deg, #0b1120, #1d4ed8 55%, #6d28d9);
   background-size: 200% 200%;
-  animation: gradient-shift 6s ease-in-out infinite;
+  animation: gradient-shift 7s ease-in-out infinite;
   color: #fff;
   box-shadow:
-    0 10px 30px -8px rgba(124, 58, 237, 0.55),
-    0 4px 12px rgba(0, 113, 227, 0.25);
+    0 10px 30px -10px rgba(29, 78, 216, 0.45),
+    0 2px 8px rgba(11, 17, 32, 0.25);
   transition:
     transform 0.25s cubic-bezier(0.23, 1, 0.32, 1),
     box-shadow 0.25s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .btn-gradient:hover {
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-2px);
   box-shadow:
-    0 16px 40px -10px rgba(124, 58, 237, 0.65),
-    0 6px 16px rgba(0, 113, 227, 0.3);
+    0 16px 40px -12px rgba(29, 78, 216, 0.55),
+    0 4px 12px rgba(11, 17, 32, 0.3);
 }
 
 .btn-gradient:active {
@@ -181,7 +178,7 @@ button,
 }
 
 :focus-visible {
-  outline: 2px solid #0071e3;
+  outline: 2px solid #1d4ed8;
   outline-offset: 3px;
 }
 

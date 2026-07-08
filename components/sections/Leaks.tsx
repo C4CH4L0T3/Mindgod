@@ -6,9 +6,6 @@ import { copy, type Lang } from "@/lib/copy";
  * Reemplaza al viejo StatsBar de cifras count-up: sin métricas reales de
  * clientes no publicamos números. Cuando existan, este strip los recupera.
  */
-/* pérdida en colores cálidos: rosa → naranja → ámbar (aversión a la pérdida) */
-const leakColors = ["#f43f5e", "#f97316", "#f59e0b"];
-
 export default function Leaks({ lang }: { lang: Lang }) {
   const t = copy[lang].leaks;
 
@@ -21,18 +18,12 @@ export default function Leaks({ lang }: { lang: Lang }) {
             className={`flex flex-col gap-3 px-6 py-12 md:px-10 ${
               i > 0 ? "border-t border-black/10 md:border-l md:border-t-0" : ""
             }`}
-            style={{ boxShadow: `inset 0 3px 0 ${leakColors[i]}` }}
           >
-            <span
-              className="tag !text-[10px]"
-              style={{ color: leakColors[i] }}
-            >
+            {/* una sola señal de pérdida: oxblood, profunda — duele sin gritar */}
+            <span className="tag !text-[10px] !text-rose">
               {String(i + 1).padStart(2, "0")} · {t.tag}
             </span>
-            <span
-              className="display text-2xl md:text-[26px]"
-              style={{ color: leakColors[i] }}
-            >
+            <span className="display text-2xl text-ink md:text-[26px]">
               {item.title}
             </span>
             <span className="text-[14px] leading-relaxed text-stone">

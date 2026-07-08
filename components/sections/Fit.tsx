@@ -24,7 +24,7 @@ export default function Fit({ lang }: { lang: Lang }) {
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
           <Reveal delay={100}>
-            <div className="h-full rounded-2xl border-2 border-emerald bg-emerald/[0.05] p-8 md:p-10">
+            <div className="h-full rounded-2xl border-2 border-ink bg-paper p-8 md:p-10">
               <h3 className="text-xl font-semibold tracking-[-0.01em] text-ink">
                 {t.forTitle}
               </h3>

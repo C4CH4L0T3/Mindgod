@@ -41,8 +41,8 @@ const techImages = techSlugs.map(
   (slug) => `https://cdn.simpleicons.org/${slug}`
 );
 
-/* progresión emocional: confianza → premium → energía → resultado */
-const stepColors = ["#0071e3", "#7c3aed", "#e11d90", "#10b981"];
+/* un solo acento disciplinado: los números en zafiro, el resto en tinta */
+const stepColors = ["#1d4ed8", "#1d4ed8", "#1d4ed8", "#1d4ed8"];
 
 export default function Method({ lang }: { lang: Lang }) {
   const t = copy[lang].method;
