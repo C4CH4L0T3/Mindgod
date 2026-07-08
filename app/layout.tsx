@@ -25,7 +25,7 @@ const instrument = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mindgod.vercel.app"),
-  title: "MindGod — De la mano a la máquina",
+  title: "MindGod — Del humano a la máquina",
   description:
     "Agencia de inteligencia artificial en Medellín. CRM a medida, páginas que venden y automatización con IA para que ningún cliente se quede sin respuesta — y tú recuperes tus horas.",
   icons: {

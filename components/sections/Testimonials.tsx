@@ -38,7 +38,7 @@ export default function Testimonials() {
               <em className="text-gradient">Resultados reales.</em>
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-stone">
-              Empresas de Medellín que ya pasaron de la mano a la máquina.
+              Empresas de Medellín que ya pasaron del humano a la máquina.
             </p>
           </div>
         </Reveal>

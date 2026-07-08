@@ -125,7 +125,7 @@ export const copy: Record<Lang, Copy> = {
     intro: {
       born: "Nacimos 🪐 para",
       words: ["Crear", "Optimizar", "Transformar"],
-      tagline: "De la mano a la máquina",
+      tagline: "Del humano a la máquina",
     },
     hero: {
       tag: "Socio de IA · Medellín",
@@ -164,7 +164,7 @@ export const copy: Record<Lang, Copy> = {
       titleA: "No vendemos servicios.",
       titleB: "Instalamos sistemas.",
       subtitle:
-        "Tres formas de pasar de la mano a la máquina — según dónde estés.",
+        "Tres formas de pasar del humano a la máquina — según dónde estés.",
       orbitalHint: "Toca un sistema para explorarlo",
       orbitalLabels: {
         featured: "BUQUE INSIGNIA",
@@ -256,13 +256,13 @@ export const copy: Record<Lang, Copy> = {
           "✔ Leads capturados, calificados y asignados.",
           "ℹ Cada lead respondido en menos de 60 segundos.",
         ],
-        done: "Listo. De la mano a la máquina.",
+        done: "Listo. Del humano a la máquina.",
       },
     },
     method: {
       tag: "Nuestro método",
       titleA: "El Método",
-      titleB: "Mano → Máquina™.",
+      titleB: "Humano → Máquina™.",
       subtitle: "Cuatro fases. Un sistema instalado sin detener tu negocio.",
       steps: [
         {
@@ -419,7 +419,7 @@ export const copy: Record<Lang, Copy> = {
         { label: "Contacto", href: "#contacto" },
       ],
       location: "© 2026 · Medellín, Colombia",
-      tagline: "De la mano a la máquina",
+      tagline: "Del humano a la máquina",
     },
   },
   en: {
@@ -439,7 +439,7 @@ export const copy: Record<Lang, Copy> = {
     intro: {
       born: "Born 🪐 to",
       words: ["Create", "Optimize", "Transform"],
-      tagline: "From hand to machine",
+      tagline: "From human to machine",
     },
     hero: {
       tag: "AI Partner · Medellín",
@@ -476,7 +476,7 @@ export const copy: Record<Lang, Copy> = {
       titleA: "We don't sell services.",
       titleB: "We install systems.",
       subtitle:
-        "Three ways to go from hand to machine — depending on where you are.",
+        "Three ways to go from human to machine — depending on where you are.",
       orbitalHint: "Tap a system to explore it",
       orbitalLabels: {
         featured: "FLAGSHIP",
@@ -568,14 +568,14 @@ export const copy: Record<Lang, Copy> = {
           "✔ Leads captured, qualified, and assigned.",
           "ℹ Every lead answered in under 60 seconds.",
         ],
-        done: "Done. From hand to machine.",
+        done: "Done. From human to machine.",
       },
     },
     // Step names stay in Spanish in both languages — they're the named
     // mechanism, not generic labels.
     method: {
       tag: "Our method",
-      titleA: "The Mano → Máquina",
+      titleA: "The Humano → Máquina",
       titleB: "Method™.",
       subtitle: "Four phases. One system, installed without stopping your business.",
       steps: [
@@ -732,7 +732,7 @@ export const copy: Record<Lang, Copy> = {
         { label: "Contact", href: "#contacto" },
       ],
       location: "© 2026 · Medellín, Colombia",
-      tagline: "From hand to machine",
+      tagline: "From human to machine",
     },
   },
 };
