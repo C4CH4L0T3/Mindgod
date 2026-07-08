@@ -130,10 +130,10 @@ export const copy: Record<Lang, Copy> = {
     hero: {
       tag: "Socio de IA · Medellín",
       live: "Sistema en línea · responde en <60 s",
-      line1: "Vendes bien a mano.",
-      line2: "Por eso pierdes plata.",
+      line1: "Sigues atrapado en tu negocio.",
+      line2: "Tu competencia ya lo automatizó.",
       support:
-        "Instalamos sitio, CRM y agentes de IA como un solo sistema. Cada lead respondido en segundos.",
+        "No te va a reemplazar la IA — te va a reemplazar el dueño que la usó primero y hoy trabaja la mitad ganando el doble.",
       cta: "Aplica a tu Radiografía",
       // TODO: reemplazar "Cupos limitados" con la capacidad real mensual
       // (ej. "8 radiografías al mes") — urgencia honesta o ninguna.
@@ -444,10 +444,10 @@ export const copy: Record<Lang, Copy> = {
     hero: {
       tag: "AI Partner · Medellín",
       live: "System online · replies in <60s",
-      line1: "You sell well by hand.",
-      line2: "That's why you lose money.",
+      line1: "You're still trapped in your business.",
+      line2: "Your competition already automated theirs.",
       support:
-        "We install your site, CRM, and AI agents as one system. Every lead answered in seconds.",
+        "AI won't replace you — the owner who used it first will. He works half the hours and earns double.",
       cta: "Apply for your Radiografía",
       // TODO: replace "Limited spots" with real monthly capacity
       ctaNote: "30 min · Free · Limited spots",
