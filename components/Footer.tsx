@@ -5,7 +5,7 @@ export default function Footer({ lang }: { lang: Lang }) {
   const t = copy[lang].footer;
 
   return (
-    <footer className="border-t border-black/10 bg-paper">
+    <footer className="border-t border-white/10 bg-paper">
       {/* el planeta, con Medellín marcada en zafiro — arrástralo */}
       <div className="relative mx-auto flex max-w-6xl justify-center overflow-hidden px-6 pt-16">
         <div className="relative h-[260px] w-[260px] sm:h-[320px] sm:w-[320px] [mask-image:linear-gradient(to_bottom,black_55%,transparent_96%)]">
@@ -40,7 +40,7 @@ export default function Footer({ lang }: { lang: Lang }) {
             <a href="https://instagram.com/..." ...>Instagram</a> */}
       </div>
 
-      <div className="border-t border-black/[0.06] py-6 text-center">
+      <div className="border-t border-white/[0.06] py-6 text-center">
         <span className="tag !text-[10px] opacity-70">{t.tagline}</span>
       </div>
     </footer>

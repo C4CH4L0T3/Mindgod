@@ -37,13 +37,13 @@ export default function Globe({ className }: { className?: string }) {
       height: width * 2,
       phi,
       theta: 0.2,
-      dark: 0,
+      dark: 1,
       diffuse: 1.2,
       mapSamples: 14000,
-      mapBrightness: 5,
-      baseColor: [0.94, 0.94, 0.93],
-      markerColor: [29 / 255, 78 / 255, 216 / 255],
-      glowColor: [0.92, 0.92, 0.9],
+      mapBrightness: 6,
+      baseColor: [0.25, 0.25, 0.27],
+      markerColor: [59 / 255, 130 / 255, 246 / 255],
+      glowColor: [0.05, 0.05, 0.07],
       markers: [{ location: MEDELLIN, size: 0.09 }],
       // desde Medellín hacia el mundo
       arcs: [
@@ -52,7 +52,7 @@ export default function Globe({ className }: { className?: string }) {
         { from: MEDELLIN, to: [25.7617, -80.1918] }, // Miami
         { from: MEDELLIN, to: [40.4168, -3.7038] }, // Madrid
       ],
-      arcColor: [29 / 255, 78 / 255, 216 / 255],
+      arcColor: [59 / 255, 130 / 255, 246 / 255],
     });
 
     let raf = 0;

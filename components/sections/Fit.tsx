@@ -12,7 +12,7 @@ export default function Fit({ lang }: { lang: Lang }) {
   const t = copy[lang].fit;
 
   return (
-    <section id="filtro" className="scroll-mt-14 border-y border-black/10 py-32 md:py-44">
+    <section id="filtro" className="scroll-mt-14 border-y border-white/10 py-32 md:py-44">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="tag mb-6">{t.tag}</p>
@@ -51,7 +51,7 @@ export default function Fit({ lang }: { lang: Lang }) {
 
           <Reveal delay={200} className="h-full">
             <TiltCard className="h-full">
-            <div className="h-full rounded-2xl border border-black/15 bg-paper p-8 md:p-10">
+            <div className="h-full rounded-2xl border border-white/12 bg-paper p-8 md:p-10">
               <h3 className="text-xl font-semibold tracking-[-0.01em] text-stone">
                 {t.againstTitle}
               </h3>

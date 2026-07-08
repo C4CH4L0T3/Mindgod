@@ -1,23 +1,24 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-paper: #fafaf8;
-  --color-ink: #0a0a0a;
-  --color-stone: #6e6e66;
-  --color-hairline: rgba(0, 0, 0, 0.08);
-  --color-border: rgba(0, 0, 0, 0.1);
-  --color-background: #fafaf8;
+  /* dark premium: "paper" ahora es obsidiana cálida; "ink" es hueso */
+  --color-paper: #0b0b0a;
+  --color-ink: #f4f4f0;
+  --color-stone: #a3a399;
+  --color-hairline: rgba(255, 255, 255, 0.08);
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-background: #0b0b0a;
   /* ————— paleta premium: escasez de color = señal de valor —————
-     Base tinta/papel + UNA familia de acento y dos señales funcionales,
-     todas profundas (los tonos joya se perciben caros; los saturados, baratos):
-     zafiro→violeta profundo = la firma (confianza + premium, categoría IA)
-     esmeralda profunda      = seguridad (garantía, calificar, WhatsApp)
-     oxblood                 = pérdida (las fugas duelen, sin gritar) */
-  --color-accent: #1d4ed8;
-  --color-violet: #6d28d9;
-  --color-emerald: #047857;
-  --color-rose: #9f1239;
-  --color-wa: #15803d;
+     Sobre obsidiana los tonos joya suben un punto de luminancia para
+     mantener contraste sin volverse neón:
+     zafiro→violeta = la firma (confianza + premium, categoría IA)
+     esmeralda      = seguridad (garantía, calificar, WhatsApp)
+     oxblood claro  = pérdida (las fugas duelen, sin gritar) */
+  --color-accent: #3b82f6;
+  --color-violet: #8b5cf6;
+  --color-emerald: #10b981;
+  --color-rose: #fb7185;
+  --color-wa: #16a34a;
   /* metallic scale — graphite → steel → silver → chrome */
   --color-graphite: #171717;
   --color-steel: #525252;
@@ -30,7 +31,8 @@
 }
 
 html {
-  background-color: #fafaf8;
+  background-color: #0b0b0a;
+  color-scheme: dark;
 }
 
 /* fallback nativo cuando Lenis no corre (reduced motion lo apaga) */
@@ -41,8 +43,8 @@ html {
 }
 
 body {
-  background-color: #fafaf8;
-  color: #0a0a0a;
+  background-color: #0b0b0a;
+  color: #f4f4f0;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -50,8 +52,8 @@ body {
 }
 
 ::selection {
-  background: #1d4ed8;
-  color: #fafaf8;
+  background: #3b82f6;
+  color: #0b0b0a;
 }
 
 button,
@@ -86,15 +88,15 @@ button,
   }
 }
 
-/* tinta con destello de zafiro — el texto clave sigue siendo oscuro;
+/* hueso con destello de zafiro — el texto clave sigue siendo claro;
    el color aparece como un reflejo que lo cruza (metal precioso, no neón) */
 .text-gradient {
   background-image: linear-gradient(
     100deg,
-    #0a0a0a,
-    #1d4ed8 42%,
-    #6d28d9 55%,
-    #0a0a0a 78%
+    #f4f4f0,
+    #60a5fa 42%,
+    #a78bfa 55%,
+    #f4f4f0 78%
   );
   background-size: 250% 250%;
   -webkit-background-clip: text;
@@ -106,7 +108,7 @@ button,
 /* CTA principal — la única pieza de color pleno por pantalla (aislamiento
    von Restorff): gradiente profundo noche→zafiro→violeta con glow discreto */
 .btn-gradient {
-  background-image: linear-gradient(120deg, #0b1120, #1d4ed8 55%, #6d28d9);
+  background-image: linear-gradient(120deg, #172554, #2563eb 55%, #7c3aed);
   background-size: 200% 200%;
   animation: gradient-shift 7s ease-in-out infinite;
   color: #fff;
@@ -184,7 +186,7 @@ button,
 }
 
 :focus-visible {
-  outline: 2px solid #1d4ed8;
+  outline: 2px solid #3b82f6;
   outline-offset: 3px;
 }
 
@@ -194,7 +196,7 @@ button,
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #6e6e66;
+  color: #8f8f86;
 }
 
 /* ————— editorial display voice ————— */
@@ -219,8 +221,8 @@ button,
   transition: opacity 0.35s ease;
   background: radial-gradient(
     300px circle at var(--gx, 50%) var(--gy, 50%),
-    rgba(29, 78, 216, 0.1),
-    rgba(109, 40, 217, 0.05) 45%,
+    rgba(96, 165, 250, 0.14),
+    rgba(167, 139, 250, 0.07) 45%,
     transparent 70%
   );
 }
@@ -355,28 +357,28 @@ button,
   width: 100%;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 0;
   padding: 14px 0;
   font-size: 16px;
-  color: #0a0a0a;
+  color: #f4f4f0;
   outline: none;
   transition: border-color 0.3s ease;
   appearance: none;
 }
 
 .field::placeholder {
-  color: #9c9c94;
+  color: #75756d;
 }
 
 .field:focus {
-  border-bottom-color: #0a0a0a;
+  border-bottom-color: #f4f4f0;
   outline: none;
 }
 
 .field option {
-  background: #fafaf8;
-  color: #0a0a0a;
+  background: #141412;
+  color: #f4f4f0;
 }
 
 /* ————— hero: choreographed entrance ————— */

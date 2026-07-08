@@ -147,10 +147,10 @@ export default function RadialOrbitalTimeline({
           style={{ perspective: "1000px" }}
         >
           {/* core — the single objective everything orbits around */}
-          <div className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-neutral-950 via-neutral-600 to-neutral-300">
-            <div className="absolute h-20 w-20 animate-ping rounded-full border border-black/20 opacity-70"></div>
+          <div className="absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-neutral-100 via-neutral-500 to-neutral-800">
+            <div className="absolute h-20 w-20 animate-ping rounded-full border border-white/25 opacity-70"></div>
             <div
-              className="absolute h-24 w-24 animate-ping rounded-full border border-black/10 opacity-50"
+              className="absolute h-24 w-24 animate-ping rounded-full border border-white/10 opacity-50"
               style={{ animationDelay: "0.5s" }}
             ></div>
             <div className="h-7 w-7 rounded-full bg-paper/90"></div>
@@ -158,7 +158,7 @@ export default function RadialOrbitalTimeline({
 
           {/* orbit ring */}
           <div
-            className="absolute rounded-full border border-black/10"
+            className="absolute rounded-full border border-white/10"
             style={{ width: radius * 2, height: radius * 2 }}
           ></div>
 
@@ -235,7 +235,7 @@ export default function RadialOrbitalTimeline({
                 </div>
 
                 {isExpanded && (
-                  <div className="absolute left-1/2 top-24 w-72 -translate-x-1/2 cursor-default rounded-xl border border-black/15 bg-paper/95 shadow-xl shadow-black/10 backdrop-blur-lg">
+                  <div className="absolute left-1/2 top-24 w-72 -translate-x-1/2 cursor-default rounded-xl border border-white/15 bg-paper/95 shadow-xl shadow-black/10 backdrop-blur-lg">
                     <div
                       className="absolute -top-3 left-1/2 h-3 w-px -translate-x-1/2"
                       style={{ backgroundColor: item.accent }}
@@ -265,7 +265,7 @@ export default function RadialOrbitalTimeline({
                     <div className="p-5 pt-3 text-xs leading-relaxed text-stone">
                       <p>{item.content}</p>
 
-                      <div className="mt-4 border-t border-black/10 pt-3">
+                      <div className="mt-4 border-t border-white/10 pt-3">
                         <div className="mb-1 flex items-center justify-between text-[11px]">
                           <span className="flex items-center text-stone">
                             <Zap size={10} className="mr-1" />
@@ -278,7 +278,7 @@ export default function RadialOrbitalTimeline({
                             {item.impact}%
                           </span>
                         </div>
-                        <div className="h-1 w-full overflow-hidden rounded-full bg-black/10">
+                        <div className="h-1 w-full overflow-hidden rounded-full bg-white/15">
                           <div
                             className="h-full rounded-full"
                             style={{
@@ -290,7 +290,7 @@ export default function RadialOrbitalTimeline({
                       </div>
 
                       {item.relatedIds.length > 0 && (
-                        <div className="mt-4 border-t border-black/10 pt-3">
+                        <div className="mt-4 border-t border-white/10 pt-3">
                           <div className="mb-2 flex items-center">
                             <LinkIcon size={10} className="mr-1 text-stone" />
                             <h4 className="font-mono text-[10px] uppercase tracking-[0.16em] text-stone">
@@ -306,7 +306,7 @@ export default function RadialOrbitalTimeline({
                                 <button
                                   key={relatedId}
                                   type="button"
-                                  className="flex h-6 items-center border border-black/20 bg-transparent px-2 text-[11px] text-ink/80 transition-all hover:bg-black/5 hover:text-ink"
+                                  className="flex h-6 items-center border border-white/25 bg-transparent px-2 text-[11px] text-ink/80 transition-all hover:bg-white/10 hover:text-ink"
                                   onClick={(e) => {
                                     e.stopPropagation();
                                     toggleItem(relatedId);

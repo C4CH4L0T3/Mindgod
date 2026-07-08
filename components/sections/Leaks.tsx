@@ -10,13 +10,13 @@ export default function Leaks({ lang }: { lang: Lang }) {
   const t = copy[lang].leaks;
 
   return (
-    <div className="border-y border-black/10">
+    <div className="border-y border-white/10">
       <div className="mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-3">
         {t.items.map((item, i) => (
           <div
             key={item.title}
             className={`flex flex-col gap-3 px-6 py-12 md:px-10 ${
-              i > 0 ? "border-t border-black/10 md:border-l md:border-t-0" : ""
+              i > 0 ? "border-t border-white/10 md:border-l md:border-t-0" : ""
             }`}
           >
             {/* una sola señal de pérdida: oxblood, profunda — duele sin gritar */}

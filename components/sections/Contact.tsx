@@ -43,7 +43,7 @@ export default function Contact({ lang }: { lang: Lang }) {
           spread: 75,
           startVelocity: 32,
           origin: { y: 0.75 },
-          colors: ["#1d4ed8", "#6d28d9", "#047857", "#fafaf8"],
+          colors: ["#3b82f6", "#8b5cf6", "#10b981", "#f4f4f0"],
         });
       });
     }
@@ -55,7 +55,7 @@ export default function Contact({ lang }: { lang: Lang }) {
         <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14">
           {/* the machine, awake and waiting */}
           <Reveal className="order-last lg:order-first">
-            <div className="relative h-[340px] overflow-hidden rounded-2xl bg-black/[0.96] sm:h-[440px] lg:h-full lg:min-h-[620px]">
+            <div className="relative h-[340px] overflow-hidden rounded-2xl border border-white/10 bg-black/[0.96] sm:h-[440px] lg:h-full lg:min-h-[620px]">
               <Spotlight
                 className="-top-40 left-0 md:-top-20 md:left-60"
                 fill="white"
@@ -115,7 +115,7 @@ export default function Contact({ lang }: { lang: Lang }) {
                   value={form.bottleneck}
                   onChange={handleChange}
                   className="field cursor-pointer"
-                  style={{ color: form.bottleneck ? "#0a0a0a" : "#9c9c94" }}
+                  style={{ color: form.bottleneck ? "#f4f4f0" : "#75756d" }}
                 >
                   <option value="" disabled>
                     {t.bottleneckLabel}

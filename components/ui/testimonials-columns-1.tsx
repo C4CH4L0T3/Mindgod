@@ -10,7 +10,7 @@ export interface Testimonial {
   role: string;
 }
 
-const ACCENTS = ["#0a0a0a", "#737373", "#a3a3a3"];
+const ACCENTS = ["#f4f4f0", "#737373", "#a3a3a3"];
 
 export const TestimonialsColumn = (props: {
   className?: string;
@@ -38,7 +38,7 @@ export const TestimonialsColumn = (props: {
                 const accent = ACCENTS[i % ACCENTS.length];
                 return (
                   <div
-                    className="hover-lift w-full max-w-xs rounded-2xl border border-black/10 bg-paper p-8 shadow-lg shadow-black/5"
+                    className="hover-lift w-full max-w-xs rounded-2xl border border-white/10 bg-paper p-8 shadow-lg shadow-black/5"
                     style={{ borderTop: `3px solid ${accent}` }}
                     key={i}
                   >

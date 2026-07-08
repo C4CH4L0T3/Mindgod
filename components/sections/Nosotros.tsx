@@ -30,7 +30,7 @@ export default function Nosotros({ lang }: { lang: Lang }) {
           {/* el fundador da la cara */}
           <Reveal delay={120} className="h-full">
             <TiltCard className="h-full">
-            <div className="flex h-full flex-col rounded-2xl border border-black/15 bg-paper p-8 md:p-10">
+            <div className="flex h-full flex-col rounded-2xl border border-white/12 bg-paper p-8 md:p-10">
               <p className="tag mb-8">{t.founder.tag}</p>
               <div className="flex items-center gap-5">
                 {/* TODO: foto real del fundador — reemplazar este placeholder
@@ -55,7 +55,7 @@ export default function Nosotros({ lang }: { lang: Lang }) {
           {/* cero humo */}
           <Reveal delay={220} className="h-full">
             <TiltCard className="h-full">
-            <div className="flex h-full flex-col rounded-2xl border border-black/15 bg-paper p-8 md:p-10">
+            <div className="flex h-full flex-col rounded-2xl border border-white/12 bg-paper p-8 md:p-10">
               <p className="tag mb-8">{t.honest.tag}</p>
               <h3 className="display text-[clamp(22px,2.4vw,32px)] leading-tight text-ink">
                 {t.honest.title}
@@ -66,7 +66,7 @@ export default function Nosotros({ lang }: { lang: Lang }) {
               <div className="mt-auto flex items-center gap-8 pt-8">
                 {t.marks.map((mark, i) => (
                   <span key={mark} className="flex items-center gap-8">
-                    {i > 0 && <span className="h-3 w-px bg-black/20" />}
+                    {i > 0 && <span className="h-3 w-px bg-white/25" />}
                     <span className="tag">{mark}</span>
                   </span>
                 ))}

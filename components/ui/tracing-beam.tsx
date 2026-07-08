@@ -23,7 +23,7 @@ export default function TracingBeam({ children }: { children: ReactNode }) {
         aria-hidden="true"
         className="absolute -left-6 top-0 hidden h-full lg:block xl:-left-10"
       >
-        <div className="h-full w-px bg-black/10" />
+        <div className="h-full w-px bg-white/12" />
         <motion.div
           style={{ scaleY: progress }}
           className="absolute inset-0 w-px origin-top bg-gradient-to-b from-accent via-violet to-emerald"

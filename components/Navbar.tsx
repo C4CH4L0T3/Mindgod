@@ -23,7 +23,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
         scrolled
-          ? "border-b border-black/8 bg-paper/70 backdrop-blur-xl"
+          ? "border-b border-white/10 bg-paper/70 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -92,7 +92,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
       </div>
 
       <div
-        className={`grid overflow-hidden border-b border-black/8 bg-paper/90 backdrop-blur-xl transition-[grid-template-rows] duration-400 md:hidden ${
+        className={`grid overflow-hidden border-b border-white/10 bg-paper/90 backdrop-blur-xl transition-[grid-template-rows] duration-400 md:hidden ${
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr] border-b-0"
         }`}
       >

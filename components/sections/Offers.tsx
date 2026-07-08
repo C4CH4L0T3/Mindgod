@@ -27,17 +27,17 @@ import { copy, type Lang } from "@/lib/copy";
    lleva el acento de la casa (glow zafiro + CTA de gradiente). Un punto
    focal por pantalla — el resto calla. */
 const orbitalMeta = [
-  { icon: Bot, accent: "#3f3f46", impact: 85 },
-  { icon: Database, accent: "#1d4ed8", impact: 100, featured: true },
+  { icon: Bot, accent: "#a1a1aa", impact: 85 },
+  { icon: Database, accent: "#3b82f6", impact: 100, featured: true },
   { icon: ShieldCheck, accent: "#71717a", impact: 90 },
 ];
 
 const cardStyles = [
   {
-    card: "border border-black/15 bg-paper",
+    card: "border border-white/12 bg-paper",
     check: "text-ink",
     tag: "",
-    cta: "border border-black/20 text-ink hover:border-ink",
+    cta: "border border-white/25 text-ink hover:border-ink",
   },
   {
     card: "border-2 border-ink bg-paper shadow-[0_28px_70px_-30px_rgba(29,78,216,0.4)]",
@@ -46,10 +46,10 @@ const cardStyles = [
     cta: "btn-gradient",
   },
   {
-    card: "border border-black/15 bg-paper",
+    card: "border border-white/12 bg-paper",
     check: "text-ink",
     tag: "",
-    cta: "border border-black/20 text-ink hover:border-ink",
+    cta: "border border-white/25 text-ink hover:border-ink",
   },
 ];
 
@@ -132,7 +132,7 @@ export default function Offers({ lang }: { lang: Lang }) {
                     ))}
                   </ul>
 
-                  <div className="mt-6 flex flex-col gap-3 border-t border-black/10 pt-5 text-[13px] leading-relaxed">
+                  <div className="mt-6 flex flex-col gap-3 border-t border-white/10 pt-5 text-[13px] leading-relaxed">
                     <p className="text-ink">{item.forWho}</p>
                     <p className="text-stone">{item.notForWho}</p>
                   </div>
@@ -190,12 +190,12 @@ export default function Offers({ lang }: { lang: Lang }) {
           </Reveal>
 
           <Reveal delay={120} className="md:col-span-7">
-            <Terminal className="max-w-none font-mono text-ink shadow-[0_1px_0_rgba(0,0,0,0.04),0_24px_60px_-30px_rgba(0,0,0,0.18)]">
+            <Terminal className="max-w-none font-mono text-ink shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_24px_60px_-30px_rgba(59,130,246,0.25)]">
               <TypingAnimation>{t.inside.cmd}</TypingAnimation>
               {t.inside.lines.map((line) => (
                 <AnimatedSpan
                   key={line}
-                  className={line.startsWith("✔") ? "text-green-700" : "text-stone"}
+                  className={line.startsWith("✔") ? "text-green-500" : "text-stone"}
                 >
                   {line}
                 </AnimatedSpan>

@@ -14,7 +14,7 @@ export default function Faq({ lang }: { lang: Lang }) {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="scroll-mt-14 border-t border-black/10 py-32 md:py-44">
+    <section id="faq" className="scroll-mt-14 border-t border-white/10 py-32 md:py-44">
       <div className="mx-auto max-w-3xl px-6">
         <Reveal>
           <p className="tag mb-6">{t.tag}</p>
@@ -30,7 +30,7 @@ export default function Faq({ lang }: { lang: Lang }) {
             {t.items.map((item, i) => {
               const isOpen = open === i;
               return (
-                <div key={item.q} className="border-b border-black/10">
+                <div key={item.q} className="border-b border-white/10">
                   <button
                     type="button"
                     aria-expanded={isOpen}

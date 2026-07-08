@@ -153,7 +153,7 @@ export default function Hero({ lang }: { lang: Lang }) {
           <div className="hero-bg-enter">
             <span
               className="hero-drift display block select-none whitespace-nowrap text-[27vw] leading-none tracking-[-0.03em] md:text-[21.5vw]"
-              style={{ color: "rgba(10, 10, 10, 0.05)" }}
+              style={{ color: "rgba(255, 255, 255, 0.055)" }}
             >
               MindGod
             </span>
@@ -164,7 +164,7 @@ export default function Hero({ lang }: { lang: Lang }) {
       {/* ——— layer 2: centered promise ——— */}
       <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center px-6 pb-16 pt-28 text-center">
         <div
-          className="hero-enter mb-6 inline-flex items-center gap-2.5 rounded-full border border-black/10 bg-paper/70 px-4 py-1.5 backdrop-blur"
+          className="hero-enter mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-paper/70 px-4 py-1.5 backdrop-blur"
           style={{ "--enter-delay": ENTER.live } as React.CSSProperties}
         >
           <span className="relative flex h-1.5 w-1.5">

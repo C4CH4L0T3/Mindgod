@@ -38,12 +38,13 @@ const techSlugs = [
   "asana",
 ];
 
+// monocromo claro: legible sobre obsidiana (los logos negros desaparecerían)
 const techImages = techSlugs.map(
-  (slug) => `https://cdn.simpleicons.org/${slug}`
+  (slug) => `https://cdn.simpleicons.org/${slug}/c9c9c1`
 );
 
 /* un solo acento disciplinado: los números en zafiro, el resto en tinta */
-const stepColors = ["#1d4ed8", "#1d4ed8", "#1d4ed8", "#1d4ed8"];
+const stepColors = ["#3b82f6", "#3b82f6", "#3b82f6", "#3b82f6"];
 
 export default function Method({ lang }: { lang: Lang }) {
   const t = copy[lang].method;
