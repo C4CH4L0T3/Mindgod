@@ -37,6 +37,7 @@ export default function StickyCta({ lang }: { lang: Lang }) {
     >
       <a
         href="#contacto"
+        data-cta="sticky-mobile"
         className="btn-gradient flex w-full items-center justify-center rounded-full py-3.5 text-[15px] font-medium"
       >
         {t.cta}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { preconnect } from "react-dom";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geist = Geist({
@@ -32,9 +33,9 @@ export const metadata: Metadata = {
     icon: "/images/logo.png",
     apple: "/images/logo.png",
   },
-  openGraph: {
-    images: "/images/logo.png",
-  },
+  // La imagen OG vive en app/opengraph-image.tsx (y app/en/…): una carta
+  // diseñada con la promesa — lo que se ve al compartir el link por WhatsApp.
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({
@@ -52,6 +53,7 @@ export default function RootLayout({
     >
       <body className="min-h-full antialiased bg-paper text-ink">
         {children}
+        <Analytics />
       </body>
     </html>
   );

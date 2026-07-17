@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 import Reveal from "@/components/Reveal";
 import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
@@ -21,9 +22,20 @@ export default function Contact({ lang }: { lang: Lang }) {
   };
 
   // The form IS the qualification; the application lands directly in
-  // WhatsApp with the answers prefilled — nothing stored, nothing lost.
+  // WhatsApp with the answers prefilled — and a copy hits /api/lead first,
+  // so the lead survives even if the visitor never taps send.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    track("lead_submit", { bottleneck: form.bottleneck, lang });
+    // fire-and-forget: keepalive hace que sobreviva al salto a WhatsApp
+    fetch("/api/lead", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ ...form, lang }),
+      keepalive: true,
+    }).catch(() => {});
+
     const lines = [
       `${t.wa.greeting} ${form.name.trim()}.`,
       form.business.trim() && `${t.wa.business}: ${form.business.trim()}.`,

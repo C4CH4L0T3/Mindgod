@@ -41,7 +41,7 @@ export default function Intro({ lang }: { lang: Lang }) {
   // Hold the brand on screen, then lift the curtain
   useEffect(() => {
     if (phase !== "brand") return;
-    const timeout = setTimeout(() => setPhase("done"), 1300);
+    const timeout = setTimeout(() => setPhase("done"), 1000);
     return () => clearTimeout(timeout);
   }, [phase]);
 
@@ -91,13 +91,15 @@ export default function Intro({ lang }: { lang: Lang }) {
                 {t.born}{" "}
                 {/* own line on phones so the layout never reflows while typing */}
                 <span className="mt-1 block min-h-[1.3em] sm:mt-0 sm:inline sm:min-h-0">
+                  {/* tempo apretado: el teatro recibe, pero el visitante de
+                      Instagram no espera — cada décima antes del hero cuenta */}
                   <Typewriter
                     text={t.words}
                     loop={false}
-                    speed={55}
-                    initialDelay={250}
-                    waitTime={650}
-                    deleteSpeed={28}
+                    speed={40}
+                    initialDelay={150}
+                    waitTime={420}
+                    deleteSpeed={18}
                     cursorChar="_"
                     cursorClassName="ml-1 text-stone"
                     className="text-gradient italic"
