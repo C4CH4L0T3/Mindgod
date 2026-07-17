@@ -88,17 +88,20 @@ export interface Copy {
     tag: string;
     titleA: string;
     titleB: string;
-    clientName: string;
-    clientHandle: string;
-    clientUrl: string;
-    clientDesc: string;
-    summary: string;
-    facts: string[];
-    shotsNote: string;
-    shots: { src: string; alt: string }[];
-    /* quote vacío = no se muestra; NUNCA inventar las palabras del cliente */
-    quote: string;
-    quoteAuthor: string;
+    cases: {
+      name: string;
+      handle: string;
+      url: string;
+      desc: string;
+      frameLabel: string;
+      summary: string;
+      facts: string[];
+      shotsNote: string;
+      shots: { src: string; alt: string }[];
+      /* quote vacío = no se muestra; NUNCA inventar las palabras del cliente */
+      quote: string;
+      quoteAuthor: string;
+    }[];
     ctaLead: string;
     cta: string;
   };
@@ -365,47 +368,85 @@ export const copy: Record<Lang, Copy> = {
       marks: ["Medellín · Colombia", "IA aplicada al negocio real"],
     },
     /*
-     * El primer caso real — la continuación directa del bloque "Sin humo":
-     * dijimos que los resultados hablarían cuando existieran. Ya existe uno.
-     * Capturas del producto en producción con datos ilustrativos (nombres y
-     * cifras cambiados para proteger la información de la agencia).
+     * Los casos reales — la continuación directa del bloque "Sin humo":
+     * dijimos que los resultados hablarían cuando existieran. Ya existen.
+     * Cada captura dice la verdad al pie: datos cambiados (Puebleriando,
+     * producción con clientes reales) o datos de demostración (StormShield).
      */
     caseStudy: {
-      tag: "Caso real",
+      tag: "Casos reales",
       titleA: "Prometimos publicar solo lo real.",
-      titleB: "Este es el primero.",
-      clientName: "Puebleriando",
-      clientHandle: "@puebleriando",
-      clientUrl: "https://www.instagram.com/puebleriando",
-      clientDesc: "Agencia de viajes",
-      summary:
-        "Le instalamos a Puebleriando un CRM hecho a la medida de su operación: clientes, viajes, pagos y calendario en un solo panel. Pagado una sola vez — sin mensualidades de software de por vida.",
-      facts: [
-        "Salidas, regresos, pagos vencidos y check-ins de la semana — de un vistazo.",
-        "Cada cliente con su viaje, su saldo y su historial en una sola ficha.",
-        "Viajes activos con fechas, aerolíneas y estado de pago en tiempo real.",
-        "Pago único: el sistema quedó suyo. Cero mensualidades.",
+      titleB: "Van dos, y contando.",
+      cases: [
+        {
+          name: "Puebleriando",
+          handle: "@puebleriando",
+          url: "https://www.instagram.com/puebleriando",
+          desc: "Agencia de viajes",
+          frameLabel: "PUEBLERIANDO CRM · POWERED BY MINDGOD",
+          summary:
+            "Le instalamos a Puebleriando un CRM hecho a la medida de su operación: clientes, viajes, pagos y calendario en un solo panel. Pagado una sola vez — sin mensualidades de software de por vida.",
+          facts: [
+            "Salidas, regresos, pagos vencidos y check-ins de la semana — de un vistazo.",
+            "Cada cliente con su viaje, su saldo y su historial en una sola ficha.",
+            "Viajes activos con fechas, aerolíneas y estado de pago en tiempo real.",
+            "Pago único: el sistema quedó suyo. Cero mensualidades.",
+          ],
+          shotsNote:
+            "Producto real, en producción. Nombres y cifras cambiados para proteger los datos de la agencia.",
+          shots: [
+            {
+              src: "/images/casos/puebleriando-panel.png",
+              alt: "Panel principal del CRM de Puebleriando: salidas, pagos vencidos, regresos y finanzas del año",
+            },
+            {
+              src: "/images/casos/puebleriando-clientes.png",
+              alt: "Vista de clientes del CRM: cada cliente con su viaje, estado y saldo",
+            },
+            {
+              src: "/images/casos/puebleriando-viajes.png",
+              alt: "Viajes activos del CRM: destinos, fechas de salida y regreso, estado de pago",
+            },
+          ],
+          // TODO: palabras TEXTUALES del cliente, con su permiso — hasta
+          // entonces el bloque de cita no se muestra. Nunca redactarlas.
+          quote: "",
+          quoteAuthor: "",
+        },
+        {
+          name: "StormShield Roofing",
+          handle: "@stormshield_roofing_",
+          url: "https://www.instagram.com/stormshield_roofing_",
+          desc: "Techos residenciales · Estados Unidos",
+          frameLabel: "STORMSHIELD ROOFING CRM · BY MINDGOD",
+          summary:
+            "StormShield vende proyectos de renovación de techos de miles de dólares y emplea a decenas de personas cada mes. Nos escogió para construir su CRM a la medida: de lead a instalación en un solo sistema.",
+          facts: [
+            "Pipeline visual de leads: del primer contacto a la inspección y el cierre.",
+            "Cada obra con su cuadrilla, sus fechas y su estado de pago.",
+            "Presupuestos, agenda de instalaciones, facturación y reportes — sin salir del sistema.",
+            "Hecho desde Medellín para una operación en Estados Unidos.",
+          ],
+          shotsNote: "Producto real — capturas con datos de demostración.",
+          shots: [
+            {
+              src: "/images/casos/stormshield-panel.png",
+              alt: "Dashboard del CRM de StormShield Roofing: leads, obras en curso, valor del pipeline e ingresos",
+            },
+            {
+              src: "/images/casos/stormshield-leads.png",
+              alt: "Pipeline de leads del CRM: tarjetas por etapa, de nuevo contacto a inspección agendada",
+            },
+            {
+              src: "/images/casos/stormshield-crew.png",
+              alt: "Gestión de cuadrillas del CRM: cada miembro con sus obras activas y disponibilidad",
+            },
+          ],
+          // TODO: palabras TEXTUALES del cliente, con su permiso.
+          quote: "",
+          quoteAuthor: "",
+        },
       ],
-      shotsNote:
-        "Producto real, en producción. Nombres y cifras cambiados para proteger los datos de la agencia.",
-      shots: [
-        {
-          src: "/images/casos/puebleriando-panel.png",
-          alt: "Panel principal del CRM de Puebleriando: salidas, pagos vencidos, regresos y finanzas del año",
-        },
-        {
-          src: "/images/casos/puebleriando-clientes.png",
-          alt: "Vista de clientes del CRM: cada cliente con su viaje, estado y saldo",
-        },
-        {
-          src: "/images/casos/puebleriando-viajes.png",
-          alt: "Viajes activos del CRM: destinos, fechas de salida y regreso, estado de pago",
-        },
-      ],
-      // TODO: palabras TEXTUALES del cliente, con su permiso — hasta entonces
-      // el bloque de cita no se muestra. Nunca redactarlas por él.
-      quote: "",
-      quoteAuthor: "",
       ctaLead: "¿Tu negocio necesita el suyo?",
       cta: "Aplica a tu Radiografía",
     },
@@ -729,39 +770,77 @@ export const copy: Record<Lang, Copy> = {
     caseStudy: {
       tag: "Real work",
       titleA: "We promised to publish only what's real.",
-      titleB: "Here's the first one.",
-      clientName: "Puebleriando",
-      clientHandle: "@puebleriando",
-      clientUrl: "https://www.instagram.com/puebleriando",
-      clientDesc: "Travel agency",
-      summary:
-        "We installed a CRM built around Puebleriando's operation: clients, trips, payments, and calendar in a single panel. Paid for once — no software subscription, ever.",
-      facts: [
-        "The week's departures, returns, overdue payments, and check-ins — at a glance.",
-        "Every client with their trip, balance, and history on a single card.",
-        "Active trips with dates, airlines, and payment status in real time.",
-        "One-time payment: the system is theirs. Zero monthly fees.",
+      titleB: "Two, and counting.",
+      cases: [
+        {
+          name: "Puebleriando",
+          handle: "@puebleriando",
+          url: "https://www.instagram.com/puebleriando",
+          desc: "Travel agency",
+          frameLabel: "PUEBLERIANDO CRM · POWERED BY MINDGOD",
+          summary:
+            "We installed a CRM built around Puebleriando's operation: clients, trips, payments, and calendar in a single panel. Paid for once — no software subscription, ever.",
+          facts: [
+            "The week's departures, returns, overdue payments, and check-ins — at a glance.",
+            "Every client with their trip, balance, and history on a single card.",
+            "Active trips with dates, airlines, and payment status in real time.",
+            "One-time payment: the system is theirs. Zero monthly fees.",
+          ],
+          shotsNote:
+            "Real product, in production. Names and figures changed to protect the agency's data.",
+          shots: [
+            {
+              src: "/images/casos/puebleriando-panel.png",
+              alt: "Puebleriando CRM dashboard: departures, overdue payments, returns, and yearly finances",
+            },
+            {
+              src: "/images/casos/puebleriando-clientes.png",
+              alt: "CRM clients view: every client with their trip, status, and balance",
+            },
+            {
+              src: "/images/casos/puebleriando-viajes.png",
+              alt: "CRM active trips: destinations, departure and return dates, payment status",
+            },
+          ],
+          // TODO: the client's VERBATIM words, with permission — the quote
+          // block stays hidden until then. Never write them for him.
+          quote: "",
+          quoteAuthor: "",
+        },
+        {
+          name: "StormShield Roofing",
+          handle: "@stormshield_roofing_",
+          url: "https://www.instagram.com/stormshield_roofing_",
+          desc: "Residential roofing · United States",
+          frameLabel: "STORMSHIELD ROOFING CRM · BY MINDGOD",
+          summary:
+            "StormShield sells roof-renovation projects worth thousands of dollars and employs dozens of people every month. They chose us to build their custom CRM: lead to installation in one system.",
+          facts: [
+            "A visual lead pipeline: first contact to inspection to close.",
+            "Every job with its crew, dates, and payment status.",
+            "Estimates, install scheduling, invoicing, and reports — without leaving the system.",
+            "Built from Medellín for a U.S. operation.",
+          ],
+          shotsNote: "Real product — screenshots use demo data.",
+          shots: [
+            {
+              src: "/images/casos/stormshield-panel.png",
+              alt: "StormShield Roofing CRM dashboard: leads, jobs in progress, pipeline value, and revenue",
+            },
+            {
+              src: "/images/casos/stormshield-leads.png",
+              alt: "CRM lead pipeline: cards by stage, from new contact to scheduled inspection",
+            },
+            {
+              src: "/images/casos/stormshield-crew.png",
+              alt: "CRM crew management: every member with their active jobs and availability",
+            },
+          ],
+          // TODO: the client's VERBATIM words, with permission.
+          quote: "",
+          quoteAuthor: "",
+        },
       ],
-      shotsNote:
-        "Real product, in production. Names and figures changed to protect the agency's data.",
-      shots: [
-        {
-          src: "/images/casos/puebleriando-panel.png",
-          alt: "Puebleriando CRM dashboard: departures, overdue payments, returns, and yearly finances",
-        },
-        {
-          src: "/images/casos/puebleriando-clientes.png",
-          alt: "CRM clients view: every client with their trip, status, and balance",
-        },
-        {
-          src: "/images/casos/puebleriando-viajes.png",
-          alt: "CRM active trips: destinations, departure and return dates, payment status",
-        },
-      ],
-      // TODO: the client's VERBATIM words, with permission — the quote block
-      // stays hidden until then. Never write them for him.
-      quote: "",
-      quoteAuthor: "",
       ctaLead: "Does your business need its own?",
       cta: "Apply for your Radiografía",
     },
