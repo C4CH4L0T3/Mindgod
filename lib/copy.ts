@@ -84,6 +84,24 @@ export interface Copy {
     honest: { tag: string; title: string; body: string };
     marks: string[];
   };
+  caseStudy: {
+    tag: string;
+    titleA: string;
+    titleB: string;
+    clientName: string;
+    clientHandle: string;
+    clientUrl: string;
+    clientDesc: string;
+    summary: string;
+    facts: string[];
+    shotsNote: string;
+    shots: { src: string; alt: string }[];
+    /* quote vacío = no se muestra; NUNCA inventar las palabras del cliente */
+    quote: string;
+    quoteAuthor: string;
+    ctaLead: string;
+    cta: string;
+  };
   faq: {
     tag: string;
     titleA: string;
@@ -119,6 +137,7 @@ export const copy: Record<Lang, Copy> = {
         { label: "Sistemas", href: "#sistemas" },
         { label: "Método", href: "#metodo" },
         { label: "Nosotros", href: "#nosotros" },
+        { label: "Caso real", href: "#caso" },
       ],
       cta: "Aplicar",
     },
@@ -135,9 +154,10 @@ export const copy: Record<Lang, Copy> = {
       support:
         "No te va a reemplazar la IA — te va a reemplazar el dueño que la usó primero y hoy trabaja la mitad ganando el doble.",
       cta: "Aplica a tu Radiografía",
-      // TODO: reemplazar "Cupos limitados" con la capacidad real mensual
-      // (ej. "8 radiografías al mes") — urgencia honesta o ninguna.
-      ctaNote: "30 min · Sin costo · Cupos limitados",
+      // Urgencia honesta o ninguna: la escasez real es que las hace el
+      // fundador en persona. TODO: cuando exista capacidad mensual definida
+      // (ej. "8 radiografías al mes"), ese número reemplaza esta línea.
+      ctaNote: "30 min · Sin costo · Directo con el fundador",
       stripLabel: "Instalamos sobre las herramientas que ya usas",
     },
     // TODO: cuando existan métricas reales de clientes (leads respondidos,
@@ -344,6 +364,51 @@ export const copy: Record<Lang, Copy> = {
       },
       marks: ["Medellín · Colombia", "IA aplicada al negocio real"],
     },
+    /*
+     * El primer caso real — la continuación directa del bloque "Sin humo":
+     * dijimos que los resultados hablarían cuando existieran. Ya existe uno.
+     * Capturas del producto en producción con datos ilustrativos (nombres y
+     * cifras cambiados para proteger la información de la agencia).
+     */
+    caseStudy: {
+      tag: "Caso real",
+      titleA: "Prometimos publicar solo lo real.",
+      titleB: "Este es el primero.",
+      clientName: "Puebleriando",
+      clientHandle: "@puebleriando",
+      clientUrl: "https://www.instagram.com/puebleriando",
+      clientDesc: "Agencia de viajes",
+      summary:
+        "Le instalamos a Puebleriando un CRM hecho a la medida de su operación: clientes, viajes, pagos y calendario en un solo panel. Pagado una sola vez — sin mensualidades de software de por vida.",
+      facts: [
+        "Salidas, regresos, pagos vencidos y check-ins de la semana — de un vistazo.",
+        "Cada cliente con su viaje, su saldo y su historial en una sola ficha.",
+        "Viajes activos con fechas, aerolíneas y estado de pago en tiempo real.",
+        "Pago único: el sistema quedó suyo. Cero mensualidades.",
+      ],
+      shotsNote:
+        "Producto real, en producción. Nombres y cifras cambiados para proteger los datos de la agencia.",
+      shots: [
+        {
+          src: "/images/casos/puebleriando-panel.png",
+          alt: "Panel principal del CRM de Puebleriando: salidas, pagos vencidos, regresos y finanzas del año",
+        },
+        {
+          src: "/images/casos/puebleriando-clientes.png",
+          alt: "Vista de clientes del CRM: cada cliente con su viaje, estado y saldo",
+        },
+        {
+          src: "/images/casos/puebleriando-viajes.png",
+          alt: "Viajes activos del CRM: destinos, fechas de salida y regreso, estado de pago",
+        },
+      ],
+      // TODO: palabras TEXTUALES del cliente, con su permiso — hasta entonces
+      // el bloque de cita no se muestra. Nunca redactarlas por él.
+      quote: "",
+      quoteAuthor: "",
+      ctaLead: "¿Tu negocio necesita el suyo?",
+      cta: "Aplica a tu Radiografía",
+    },
     faq: {
       tag: "Preguntas directas",
       titleA: "Lo que preguntarías",
@@ -385,8 +450,9 @@ export const copy: Record<Lang, Copy> = {
       tag: "Último paso",
       title: "Aplica.",
       sub: "Tu Radiografía: 30 minutos con el fundador. Sales sabiendo exactamente dónde pierdes tiempo y ventas — trabajes con nosotros o no.",
-      // TODO: capacidad real mensual (ej. "8 radiografías al mes").
-      capacity: "Cupos limitados por mes",
+      // La escasez verdadera: no hay equipo de ventas detrás, hay una agenda.
+      // TODO: cuando exista capacidad mensual definida, aquí va el número.
+      capacity: "Las hace el fundador en persona — por eso son pocas al mes",
       namePlaceholder: "Nombre completo",
       businessPlaceholder: "Tu negocio (ej. inmobiliaria, clínica, tienda)",
       bottleneckLabel: "¿Dónde pierdes más hoy?",
@@ -415,6 +481,7 @@ export const copy: Record<Lang, Copy> = {
         { label: "Sistemas", href: "#sistemas" },
         { label: "Método", href: "#metodo" },
         { label: "Nosotros", href: "#nosotros" },
+        { label: "Caso real", href: "#caso" },
         { label: "FAQ", href: "#faq" },
         { label: "Contacto", href: "#contacto" },
       ],
@@ -433,6 +500,7 @@ export const copy: Record<Lang, Copy> = {
         { label: "Systems", href: "#sistemas" },
         { label: "Method", href: "#metodo" },
         { label: "About", href: "#nosotros" },
+        { label: "Real work", href: "#caso" },
       ],
       cta: "Apply",
     },
@@ -449,8 +517,9 @@ export const copy: Record<Lang, Copy> = {
       support:
         "AI won't replace you — the owner who used it first will. He works half the hours and earns double.",
       cta: "Apply for your Radiografía",
-      // TODO: replace "Limited spots" with real monthly capacity
-      ctaNote: "30 min · Free · Limited spots",
+      // Honest urgency or none: the real scarcity is the founder doing every
+      // call himself. TODO: swap in the real monthly capacity when defined.
+      ctaNote: "30 min · Free · Straight with the founder",
       stripLabel: "We install on the tools you already use",
     },
     // TODO: swap back to real numbers once real client metrics exist.
@@ -657,6 +726,45 @@ export const copy: Record<Lang, Copy> = {
       },
       marks: ["Medellín · Colombia", "AI applied to real business"],
     },
+    caseStudy: {
+      tag: "Real work",
+      titleA: "We promised to publish only what's real.",
+      titleB: "Here's the first one.",
+      clientName: "Puebleriando",
+      clientHandle: "@puebleriando",
+      clientUrl: "https://www.instagram.com/puebleriando",
+      clientDesc: "Travel agency",
+      summary:
+        "We installed a CRM built around Puebleriando's operation: clients, trips, payments, and calendar in a single panel. Paid for once — no software subscription, ever.",
+      facts: [
+        "The week's departures, returns, overdue payments, and check-ins — at a glance.",
+        "Every client with their trip, balance, and history on a single card.",
+        "Active trips with dates, airlines, and payment status in real time.",
+        "One-time payment: the system is theirs. Zero monthly fees.",
+      ],
+      shotsNote:
+        "Real product, in production. Names and figures changed to protect the agency's data.",
+      shots: [
+        {
+          src: "/images/casos/puebleriando-panel.png",
+          alt: "Puebleriando CRM dashboard: departures, overdue payments, returns, and yearly finances",
+        },
+        {
+          src: "/images/casos/puebleriando-clientes.png",
+          alt: "CRM clients view: every client with their trip, status, and balance",
+        },
+        {
+          src: "/images/casos/puebleriando-viajes.png",
+          alt: "CRM active trips: destinations, departure and return dates, payment status",
+        },
+      ],
+      // TODO: the client's VERBATIM words, with permission — the quote block
+      // stays hidden until then. Never write them for him.
+      quote: "",
+      quoteAuthor: "",
+      ctaLead: "Does your business need its own?",
+      cta: "Apply for your Radiografía",
+    },
     faq: {
       tag: "Straight questions",
       titleA: "What you'd ask",
@@ -698,8 +806,9 @@ export const copy: Record<Lang, Copy> = {
       tag: "Last step",
       title: "Apply.",
       sub: "Your Radiografía: 30 minutes with the founder. You leave knowing exactly where you're losing time and sales — whether you work with us or not.",
-      // TODO: real monthly capacity (e.g. "8 radiografías a month").
-      capacity: "Limited spots per month",
+      // The true scarcity: there's no sales team behind this, just a calendar.
+      // TODO: swap in the real monthly capacity when defined.
+      capacity: "The founder runs every one himself — that's why there are few each month",
       namePlaceholder: "Full name",
       businessPlaceholder: "Your business (e.g. real estate, clinic, store)",
       bottleneckLabel: "Where do you lose the most today?",
@@ -728,6 +837,7 @@ export const copy: Record<Lang, Copy> = {
         { label: "Systems", href: "#sistemas" },
         { label: "Method", href: "#metodo" },
         { label: "About", href: "#nosotros" },
+        { label: "Real work", href: "#caso" },
         { label: "FAQ", href: "#faq" },
         { label: "Contact", href: "#contacto" },
       ],
