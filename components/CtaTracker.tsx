@@ -16,7 +16,7 @@ export default function CtaTracker({ lang }: { lang: Lang }) {
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
-      const anchor = target?.closest<HTMLAnchorElement>('a[href="#contacto"]');
+      const anchor = target?.closest<HTMLAnchorElement>('a[href$="#contacto"]');
       if (!anchor) return;
       const placement =
         anchor.dataset.cta ??

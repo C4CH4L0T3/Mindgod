@@ -2,6 +2,10 @@ import { copy, type Lang } from "@/lib/copy";
 
 export default function Footer({ lang }: { lang: Lang }) {
   const t = copy[lang].footer;
+  // los anchors "#..." viven en la home; desde subpáginas ("/referidos")
+  // necesitan la ruta base del idioma por delante
+  const base = lang === "es" ? "/" : "/en";
+  const resolve = (href: string) => (href.startsWith("#") ? base + href : href);
 
   return (
     <footer className="border-t border-white/10 bg-paper">
@@ -17,7 +21,7 @@ export default function Footer({ lang }: { lang: Lang }) {
           {t.links.map((l) => (
             <a
               key={l.href}
-              href={l.href}
+              href={resolve(l.href)}
               className="text-[13px] text-stone transition-colors duration-300 hover:text-ink"
             >
               {l.label}

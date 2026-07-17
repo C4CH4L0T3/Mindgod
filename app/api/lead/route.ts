@@ -12,6 +12,7 @@
  */
 
 type Lead = {
+  type?: unknown;
   name?: unknown;
   business?: unknown;
   bottleneck?: unknown;
@@ -27,6 +28,9 @@ export async function POST(req: Request) {
   if (!name) return new Response(null, { status: 400 });
 
   const lead = {
+    // "lead" = aplicación a Radiografía; "referral" = programa de referidos
+    // (name es quien refiere, business es el negocio referido)
+    type: asText(body?.type, 20) === "referral" ? "referral" : "lead",
     name,
     business: asText(body?.business),
     bottleneck: asText(body?.bottleneck),

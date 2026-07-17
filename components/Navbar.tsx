@@ -1,15 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { copy, type Lang } from "@/lib/copy";
 
 export default function Navbar({ lang }: { lang: Lang }) {
   const t = copy[lang].nav;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname() ?? "/";
 
-  // switching language reloads the page on purpose: it's a different route
-  const langHref = lang === "es" ? "/en" : "/";
+  // los anchors "#..." viven en la home; desde subpáginas ("/referidos")
+  // necesitan la ruta base del idioma por delante
+  const base = lang === "es" ? "/" : "/en";
+  const resolve = (href: string) => (href.startsWith("#") ? base + href : href);
+
+  // switching language reloads the page on purpose: it's a different route —
+  // and it lands on the SAME page in the other language
+  const langHref =
+    lang === "es"
+      ? "/en" + (pathname === "/" ? "" : pathname)
+      : pathname.replace(/^\/en/, "") || "/";
   const langLabel = lang === "es" ? "EN" : "ES";
 
   useEffect(() => {
@@ -29,7 +40,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
     >
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
         <a
-          href="#inicio"
+          href={resolve("#inicio")}
           className="text-[15px] font-semibold tracking-[-0.02em] text-ink"
         >
           MindGod
@@ -39,7 +50,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
           {t.links.map((l) => (
             <a
               key={l.href}
-              href={l.href}
+              href={resolve(l.href)}
               className="text-[13px] text-stone transition-colors duration-300 hover:text-ink"
             >
               {l.label}
@@ -56,7 +67,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
             {langLabel}
           </a>
           <a
-            href="#contacto"
+            href={resolve("#contacto")}
             className="btn-gradient inline-flex rounded-full px-4.5 py-1.5 text-[13px] font-medium"
           >
             {t.cta}
@@ -101,7 +112,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
             {[...t.links, { label: t.cta, href: "#contacto" }].map((l) => (
               <a
                 key={l.href}
-                href={l.href}
+                href={resolve(l.href)}
                 onClick={() => setOpen(false)}
                 className="py-2.5 text-[15px] text-stone transition-colors hover:text-ink"
               >

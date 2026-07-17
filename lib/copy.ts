@@ -125,6 +125,33 @@ export interface Copy {
     wa: { greeting: string; business: string; bottleneck: string; closing: string };
     spline: { tag: string; titleA: string; titleB: string };
   };
+  referrals: {
+    meta: { title: string; description: string };
+    tag: string;
+    titleA: string;
+    titleB: string;
+    support: string;
+    steps: { number: string; title: string; body: string }[];
+    deal: { tag: string; title: string; items: string[] };
+    fit: {
+      forTitle: string;
+      forItems: string[];
+      againstTitle: string;
+      againstItems: string[];
+    };
+    form: {
+      tag: string;
+      title: string;
+      sub: string;
+      namePlaceholder: string;
+      businessPlaceholder: string;
+      bottleneckLabel: string;
+      bottleneckOptions: string[];
+      cta: string;
+      note: string;
+      wa: { greeting: string; referral: string; bottleneck: string; closing: string };
+    };
+  };
   footer: { links: NavLink[]; location: string; tagline: string };
 }
 
@@ -517,6 +544,87 @@ export const copy: Record<Lang, Copy> = {
         titleB: "despierta.",
       },
     },
+    /*
+     * Programa de referidos — página propia ("/referidos"). El trato es
+     * simple y se cumple: 20% de la primera venta, pagado cuando el cliente
+     * paga. Mismas reglas de la casa: claro, por escrito, sin humo.
+     */
+    referrals: {
+      meta: {
+        title: "Programa de Referidos — Gana el 20% de la venta · MindGod",
+        description:
+          "¿Conoces un negocio que pierde ventas por operar a mano? Preséntanoslo. Si compra su sistema, el 20% de esa venta es tuyo. Claro y por escrito.",
+      },
+      tag: "Programa de referidos",
+      titleA: "Refiere un negocio.",
+      titleB: "Llévate el 20% de la venta.",
+      support:
+        "Tú conoces al dueño; nosotros hacemos el resto. Si nos presentas una empresa que necesita dejar de operar a mano y termina comprando su sistema, el 20% de esa venta es tuyo. No tienes que vender nada — solo abrir la puerta.",
+      steps: [
+        {
+          number: "01",
+          title: "Preséntanos",
+          body: "Cuéntanos qué negocio conoces y dónde pierde más. Desde el primer mensaje queda registrado a tu nombre — te lo confirmamos por WhatsApp.",
+        },
+        {
+          number: "02",
+          title: "Nosotros vendemos",
+          body: "Hacemos la Radiografía y todo el proceso comercial. Tú no persigues a nadie: la venta es trabajo nuestro.",
+        },
+        {
+          number: "03",
+          title: "Cobras el 20%",
+          body: "Si tu referido compra, te transferimos el 20% de la venta. Nos pagan, te pagamos — así de simple.",
+        },
+      ],
+      deal: {
+        tag: "El trato",
+        title: "Claro y por escrito.",
+        items: [
+          "20% del valor de la primera venta: el sistema que el cliente compra e instalamos.",
+          "Te pagamos cuando el cliente paga. Si paga por partes, cobras por partes.",
+          "Tu referido queda registrado a tu nombre desde el primer mensaje — con confirmación.",
+          "Sin límite: refiere todos los negocios que quieras.",
+          "Solo cuenta un negocio que no esté ya en conversación con nosotros.",
+        ],
+      },
+      fit: {
+        forTitle: "Un buen referido…",
+        forItems: [
+          "Ya vende y le llegan clientes cada semana.",
+          "Pierde ventas por demoras, olvidos o falta de manos.",
+          "Conoces al dueño o a quien decide — puedes presentarnos.",
+        ],
+        againstTitle: "No cuenta…",
+        againstItems: [
+          "Un negocio que todavía no tiene clientes.",
+          "Alguien que solo busca “una página bonita”.",
+          "Una empresa que ya está hablando con nosotros.",
+        ],
+      },
+      form: {
+        tag: "Refiere ahora",
+        title: "Preséntanos.",
+        sub: "Dos minutos. Se abre WhatsApp con tu referido listo — lo envías tú y te confirmamos el registro a tu nombre.",
+        namePlaceholder: "Tu nombre",
+        businessPlaceholder: "El negocio que refieres (nombre, ciudad o Instagram)",
+        bottleneckLabel: "¿Dónde pierde más ese negocio?",
+        bottleneckOptions: [
+          "Leads sin respuesta",
+          "Seguimiento de ventas",
+          "Horas en tareas manuales",
+          "No estoy seguro — ustedes lo verán en la Radiografía",
+        ],
+        cta: "Referir por WhatsApp",
+        note: "Tú envías el mensaje, sin compromiso. Si tu referido compra, el 20% es tuyo.",
+        wa: {
+          greeting: "Hola, soy",
+          referral: "Quiero referir a",
+          bottleneck: "Donde más pierde",
+          closing: "Vengo por el programa de referidos (20% de la venta).",
+        },
+      },
+    },
     footer: {
       links: [
         { label: "Sistemas", href: "#sistemas" },
@@ -525,6 +633,7 @@ export const copy: Record<Lang, Copy> = {
         { label: "Caso real", href: "#caso" },
         { label: "FAQ", href: "#faq" },
         { label: "Contacto", href: "#contacto" },
+        { label: "Referidos", href: "/referidos" },
       ],
       location: "© 2026 · Medellín, Colombia",
       tagline: "Del humano a la máquina",
@@ -911,6 +1020,82 @@ export const copy: Record<Lang, Copy> = {
         titleB: "awake.",
       },
     },
+    referrals: {
+      meta: {
+        title: "Referral Program — Earn 20% of the sale · MindGod",
+        description:
+          "Know a business losing sales to manual work? Introduce us. If they buy their system, 20% of that sale is yours. Clear terms, in writing.",
+      },
+      tag: "Referral program",
+      titleA: "Refer a business.",
+      titleB: "Keep 20% of the sale.",
+      support:
+        "You know the owner; we do the rest. Introduce us to a company that needs to stop running by hand, and if they end up buying their system, 20% of that sale is yours. You don't sell anything — you just open the door.",
+      steps: [
+        {
+          number: "01",
+          title: "Introduce us",
+          body: "Tell us which business you know and where it leaks the most. From the first message it's registered under your name — we confirm it on WhatsApp.",
+        },
+        {
+          number: "02",
+          title: "We sell",
+          body: "We run the Radiografía and the whole sales process. You chase nobody: selling is our job.",
+        },
+        {
+          number: "03",
+          title: "You collect 20%",
+          body: "If your referral buys, we transfer you 20% of the sale. We get paid, you get paid — that simple.",
+        },
+      ],
+      deal: {
+        tag: "The deal",
+        title: "Clear, and in writing.",
+        items: [
+          "20% of the first sale: the system the client buys and we install.",
+          "We pay you when the client pays. If they pay in parts, you collect in parts.",
+          "Your referral is registered under your name from the first message — with confirmation.",
+          "No cap: refer as many businesses as you want.",
+          "Only businesses not already in conversation with us count.",
+        ],
+      },
+      fit: {
+        forTitle: "A good referral…",
+        forItems: [
+          "Already sells, with clients reaching out every week.",
+          "Loses sales to slow replies, missed follow-ups, or too few hands.",
+          "You know the owner or the decision-maker — you can introduce us.",
+        ],
+        againstTitle: "Doesn't count…",
+        againstItems: [
+          "A business with no clients yet.",
+          "Someone just shopping for “a pretty website”.",
+          "A company already talking to us.",
+        ],
+      },
+      form: {
+        tag: "Refer now",
+        title: "Introduce us.",
+        sub: "Two minutes. WhatsApp opens with your referral ready — you hit send and we confirm it under your name.",
+        namePlaceholder: "Your name",
+        businessPlaceholder: "The business you're referring (name, city, or Instagram)",
+        bottleneckLabel: "Where does that business lose the most?",
+        bottleneckOptions: [
+          "Unanswered leads",
+          "Sales follow-up",
+          "Hours on manual tasks",
+          "Not sure — that's what the Radiografía is for",
+        ],
+        cta: "Refer via WhatsApp",
+        note: "You send the message, no strings. If your referral buys, 20% is yours.",
+        wa: {
+          greeting: "Hi, I'm",
+          referral: "I want to refer",
+          bottleneck: "Where they lose the most",
+          closing: "I'm here for the referral program (20% of the sale).",
+        },
+      },
+    },
     footer: {
       links: [
         { label: "Systems", href: "#sistemas" },
@@ -919,6 +1104,7 @@ export const copy: Record<Lang, Copy> = {
         { label: "Real work", href: "#caso" },
         { label: "FAQ", href: "#faq" },
         { label: "Contact", href: "#contacto" },
+        { label: "Referrals", href: "/en/referidos" },
       ],
       location: "© 2026 · Medellín, Colombia",
       tagline: "From human to machine",
