@@ -3,8 +3,9 @@ import { IconCloud } from "@/components/ui/icon-cloud";
 import TracingBeam from "@/components/ui/tracing-beam";
 import { copy, type Lang } from "@/lib/copy";
 
-// Herramientas que más usan los negocios en Colombia: ventas por WhatsApp y
-// redes, pagos con Mercado Pago/PayPal, ecosistema Google, CRM y automatización.
+// Herramientas que más usan los negocios de servicios en EE. UU.: ventas por
+// WhatsApp y redes, pagos con Stripe/QuickBooks/PayPal, ecosistema Google,
+// CRM y automatización.
 const techSlugs = [
   "whatsapp",
   "instagram",
@@ -21,7 +22,7 @@ const techSlugs = [
   "shopify",
   "woocommerce",
   "wordpress",
-  "mercadopago",
+  "quickbooks",
   "stripe",
   "paypal",
   "hubspot",

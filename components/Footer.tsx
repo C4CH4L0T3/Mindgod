@@ -4,7 +4,7 @@ export default function Footer({ lang }: { lang: Lang }) {
   const t = copy[lang].footer;
   // los anchors "#..." viven en la home; desde subpáginas ("/referidos")
   // necesitan la ruta base del idioma por delante
-  const base = lang === "es" ? "/" : "/en";
+  const base = lang === "en" ? "/" : "/es";
   const resolve = (href: string) => (href.startsWith("#") ? base + href : href);
 
   return (

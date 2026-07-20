@@ -1,12 +1,16 @@
 /*
  * Diccionario bilingüe — todo el copy del sitio vive aquí.
  *
- * ES es el idioma primario (ruta "/"); EN vive en "/en".
+ * EN es el idioma primario (ruta "/"); ES vive en "/es".
  * Traducimos intención, no palabra por palabra: cada versión debe leerse
  * como si se hubiera escrito en ese idioma.
+ *
+ * Cliente objetivo: dueño de negocio de servicios en EE. UU. (techos, HVAC,
+ * contratistas, transporte, restaurantes) — muchos bilingües. Piensa en
+ * dólares por trabajo perdido, no en features.
  */
 
-export type Lang = "es" | "en";
+export type Lang = "en" | "es";
 
 type NavLink = { label: string; href: string };
 
@@ -156,11 +160,486 @@ export interface Copy {
 }
 
 export const copy: Record<Lang, Copy> = {
+  en: {
+    meta: {
+      title: "MindGod — Websites & AI Sales Systems for Service Businesses",
+      description:
+        "We build websites that sell — and install CRM + AI agents around them as one system: every lead answered in seconds, every follow-up done, your hours back. Apply for your X-Ray.",
+    },
+    nav: {
+      links: [
+        { label: "Systems", href: "#sistemas" },
+        { label: "Method", href: "#metodo" },
+        { label: "About", href: "#nosotros" },
+        { label: "Real work", href: "#caso" },
+      ],
+      cta: "Apply",
+    },
+    intro: {
+      born: "Born 🪐 to",
+      words: ["Create", "Optimize", "Transform"],
+      tagline: "From human to machine",
+    },
+    hero: {
+      tag: "Websites & AI Systems for Service Businesses",
+      live: "System online · replies in <60s",
+      line1: "You're still trapped in your business.",
+      line2: "Your competitor already automated his.",
+      support:
+        "AI won't replace you. The owner who used it first will — he works half the hours and closes twice the jobs.",
+      cta: "Apply for your X-Ray",
+      // Honest urgency or none: the real scarcity is the founder doing every
+      // call himself. TODO: swap in the real monthly capacity when defined.
+      ctaNote: "30 min · Free · Straight with the founder",
+      stripLabel: "We install on the tools you already use",
+    },
+    // TODO: swap back to real numbers once real client metrics exist.
+    leaks: {
+      tag: "The three leaks",
+      items: [
+        {
+          title: "Unanswered leads",
+          body: "A lead kept waiting for hours buys from whoever answered in seconds. Run the math on one lost job.",
+        },
+        {
+          title: "Forgotten follow-ups",
+          body: "Jobs close in the follow-up — the one nobody has time to do.",
+        },
+        {
+          title: "Hours lost to data entry",
+          body: "Every night retyping jobs between WhatsApp, spreadsheets, and invoices is a night nobody's selling.",
+        },
+      ],
+    },
+    offers: {
+      tag: "What we install",
+      titleA: "We don't sell services.",
+      titleB: "We install systems.",
+      subtitle:
+        "Three ways to go from human to machine — depending on where you are.",
+      orbitalHint: "Tap a system to explore it",
+      orbitalLabels: {
+        featured: "FLAGSHIP",
+        impact: "Impact level",
+        related: "Connected systems",
+        cta: "Apply",
+      },
+      items: [
+        {
+          name: "The First Piece",
+          tag: "The starting point",
+          orbital:
+            "Your first automation: the front desk. AI answers, qualifies, and books over WhatsApp — in seconds, around the clock.",
+          outcome: "No lead ever waits again.",
+          includes: [
+            "An AI agent on your WhatsApp, trained on your business",
+            "Answer and qualification in under 60 seconds",
+            "Booking wired to your calendar",
+            "A simple panel: what came in, what got booked, what slipped",
+          ],
+          forWho: "For businesses losing jobs to slow replies.",
+          notForWho:
+            "Not for “trying out AI” without real leads to answer.",
+          priceAnchor:
+            "Add up what ONE job lost to a slow reply is worth. That's the cost of not having it — every week.",
+          // TODO: real price. Until then it's quoted in the X-Ray.
+          price: "Investment: defined in your X-Ray.",
+        },
+        {
+          name: "The Full System",
+          tag: "Built around you",
+          orbital:
+            "A website that sells + a custom CRM + AI agents — installed as one sales machine, with your team trained.",
+          outcome: "Your whole sales operation, running on its own.",
+          includes: [
+            "A website designed to sell, wired to your pipeline",
+            "A CRM shaped to how you actually sell",
+            "AI agents: front desk, follow-up, and reminders",
+            "Automatic weekly reports",
+            "Team trained, launch support included",
+          ],
+          forWho:
+            "For businesses with real demand drowning in manual follow-up.",
+          notForWho:
+            "Not for businesses without lead flow yet, or anyone shopping for “a pretty website”.",
+          priceAnchor:
+            "Before the price, run the numbers: what did last month's unanswered leads and dropped follow-ups cost you? The system costs less.",
+          // TODO: real flagship price.
+          price: "Investment: defined in your X-Ray.",
+        },
+        {
+          name: "Tuning Partner",
+          tag: "Post-install only",
+          orbital:
+            "Monthly measurement, adjustments, and new automations on your installed system. What doesn't produce gets changed.",
+          outcome: "The system gets better every month.",
+          includes: [
+            "Monthly review against your X-Ray",
+            "Tuning and new automations included",
+            "A clear report: what produced, what got tuned",
+            "Priority support",
+          ],
+          forWho:
+            "For owners with a MindGod system installed who want it improving on its own.",
+          notForWho:
+            "Not sold separately: no install, nothing to tune.",
+          priceAnchor:
+            "An untuned system decays; a tuned one compounds. The difference pays the retainer.",
+          // TODO: real monthly price.
+          price: "Monthly: defined in your X-Ray.",
+        },
+      ],
+      cardCta: "Apply for your X-Ray",
+      guarantee: {
+        tag: "Guarantee",
+        title: "The 60-second guarantee.",
+        body: "If a lead writes in and your system doesn't answer in under 60 seconds, we tune it for free until it does. We guarantee what we control: speed, delivery, and uptime. We won't promise you revenue — promises like that come from people who don't plan to stick around and measure.",
+      },
+      inside: {
+        tag: "What it looks like inside",
+        titleA: "While you sell,",
+        titleB: "the machine works.",
+        body: "Every system we deliver runs on its own: it captures, answers, organizes, and reports — without anyone touching a key.",
+        cmd: "> mindgod deploy --full-system",
+        lines: [
+          "✔ CRM configured to fit your operation.",
+          "✔ Website wired to the sales pipeline.",
+          "✔ AI agents trained on your processes.",
+          "✔ Leads captured, qualified, and assigned.",
+          "ℹ Every lead answered in under 60 seconds.",
+        ],
+        done: "Done. From human to machine.",
+      },
+    },
+    method: {
+      tag: "Our method",
+      titleA: "The Human → Machine",
+      titleB: "Method™.",
+      subtitle: "Four phases. One system, installed without stopping your business.",
+      steps: [
+        {
+          number: "01",
+          title: "X-Ray",
+          body: "We map where your business leaks money and hours: unanswered leads, dropped follow-ups, data typed in three times. You leave with the leak list — whether you hire us or not.",
+        },
+        {
+          number: "02",
+          title: "Blueprint",
+          body: "We design the system that plugs those leaks — and nothing else. No templates, no modules you'll never use.",
+        },
+        {
+          number: "03",
+          // TODO: replace with the real delivery window when defined.
+          title: "Installation",
+          body: "We build, connect, and test everything while you keep selling. Weeks, not months.",
+        },
+        {
+          number: "04",
+          title: "Tuning",
+          body: "We measure every month against the leaks in your X-Ray. Whatever doesn't produce gets adjusted or cut.",
+        },
+      ],
+      tools: {
+        tag: "With what you already use",
+        titleA: "We plug into",
+        titleB: "your existing tools.",
+        body: "WhatsApp, Stripe, QuickBooks, the Google ecosystem… We don't make you switch tools: we connect the ones you already use so they work together, on their own.",
+      },
+    },
+    fit: {
+      tag: "An honest filter",
+      titleA: "We don't work with everyone.",
+      titleB: "That's good for you.",
+      forTitle: "This is for you if…",
+      forItems: [
+        "Your business already sells and leads come in every week.",
+        "You're losing jobs to slow replies, missed follow-ups, or too few hands.",
+        "You want a system you own — not a lifetime dependency on an agency.",
+        "You can give your X-Ray two hours and a serious decision.",
+      ],
+      againstTitle: "It's not for you if…",
+      againstItems: [
+        "You don't have clients or lead flow yet.",
+        "You're shopping for the cheapest option, not the one that recovers the most dollars.",
+        "You want “a pretty website” without changing how you operate.",
+        "You expect magic overnight.",
+      ],
+      close: "Saw yourself in the first list? The X-Ray is yours.",
+      closeCta: "Apply now",
+    },
+    about: {
+      tag: "Who we are",
+      statement: [
+        { text: "Built from Medellín", style: "ink" },
+        {
+          text: " — your time zone, senior work, none of the US-agency price tag. Big-corporation technology belongs to ",
+        },
+        { text: "your business", style: "em" },
+        {
+          text: " too. You know it better than anyone; ",
+        },
+        { text: "we make it unstoppable", style: "ink" },
+        { text: "." },
+      ],
+      founder: {
+        tag: "The founder",
+        // TODO: real founder photo (public/images/founder.jpg)
+        name: "Emmanuel",
+        role: "Founder · MindGod",
+        note: "“I started MindGod because I kept watching good businesses lose jobs to things a machine solves in seconds. On your X-Ray call you talk to me — not a sales rep.”",
+      },
+      honest: {
+        tag: "No smoke",
+        title: "Zero fake testimonials.",
+        body: "We're a new studio with old-school standards: we don't publish testimonials that don't exist or numbers we didn't measure. We publish the method, guarantee it in writing, and let results speak when they exist — with first and last names.",
+      },
+      marks: ["Medellín · Colombia", "Serving businesses across the US"],
+    },
+    /*
+     * Los casos reales — la continuación directa del bloque "Sin humo":
+     * dijimos que los resultados hablarían cuando existieran. Ya existen.
+     * StormShield va primero: es el espejo del cliente objetivo (servicios,
+     * EE. UU., miles de dólares por trabajo).
+     */
+    caseStudy: {
+      tag: "Real work",
+      titleA: "We promised to publish only what's real.",
+      titleB: "Two, and counting.",
+      cases: [
+        {
+          name: "StormShield Roofing",
+          handle: "@stormshield_roofing_",
+          url: "https://www.instagram.com/stormshield_roofing_",
+          desc: "Residential roofing · United States",
+          frameLabel: "STORMSHIELD ROOFING CRM · BY MINDGOD",
+          summary:
+            "StormShield is a US roofing company selling renovations worth thousands of dollars per job, putting dozens of people to work every month. They chose us to build their custom CRM: from lead to installed roof in one system.",
+          facts: [
+            "A visual lead pipeline: first contact to inspection to close.",
+            "Every job with its crew, dates, and payment status.",
+            "Estimates, install scheduling, invoicing, and reports — without leaving the system.",
+            "Built from Medellín for a US operation — same hours, senior work.",
+          ],
+          shotsNote: "Real product — screenshots use demo data.",
+          shots: [
+            {
+              src: "/images/casos/stormshield-panel.png",
+              alt: "StormShield Roofing CRM dashboard: leads, jobs in progress, pipeline value, and revenue",
+            },
+            {
+              src: "/images/casos/stormshield-leads.png",
+              alt: "CRM lead pipeline: cards by stage, from new contact to scheduled inspection",
+            },
+            {
+              src: "/images/casos/stormshield-crew.png",
+              alt: "CRM crew management: every member with their active jobs and availability",
+            },
+          ],
+          // TODO: the client's VERBATIM words, with permission — the quote
+          // block stays hidden until then. Never write them for him.
+          quote: "",
+          quoteAuthor: "",
+        },
+        {
+          name: "Puebleriando",
+          handle: "@puebleriando",
+          url: "https://www.instagram.com/puebleriando",
+          desc: "Travel agency",
+          frameLabel: "PUEBLERIANDO CRM · POWERED BY MINDGOD",
+          summary:
+            "We built Puebleriando a custom CRM around their operation: clients, trips, payments, and calendar in one panel. Paid for once, owned forever — no monthly software fees for life.",
+          facts: [
+            "The week's departures, returns, overdue payments, and check-ins — at a glance.",
+            "Every client with their trip, balance, and history on a single card.",
+            "Active trips with dates, airlines, and payment status in real time.",
+            "One payment: the system is theirs. Zero monthly fees, for life.",
+          ],
+          shotsNote:
+            "Real product, in production. Names and figures changed to protect the agency's data.",
+          shots: [
+            {
+              src: "/images/casos/puebleriando-panel.png",
+              alt: "Puebleriando CRM dashboard: departures, overdue payments, returns, and yearly finances",
+            },
+            {
+              src: "/images/casos/puebleriando-clientes.png",
+              alt: "CRM clients view: every client with their trip, status, and balance",
+            },
+            {
+              src: "/images/casos/puebleriando-viajes.png",
+              alt: "CRM active trips: destinations, departure and return dates, payment status",
+            },
+          ],
+          // TODO: the client's VERBATIM words, with permission.
+          quote: "",
+          quoteAuthor: "",
+        },
+      ],
+      ctaLead: "Does your business need its own?",
+      cta: "Apply for your X-Ray",
+    },
+    faq: {
+      tag: "Straight questions",
+      titleA: "What you'd ask",
+      titleB: "before texting us.",
+      items: [
+        {
+          q: "How much does it cost?",
+          // TODO: real prices/ranges when defined.
+          a: "Less than the problem. Every system is quoted off your X-Ray: first we measure what running on manual costs you, then you see the price next to that number. No hidden fees, no forced monthlies — Tuning is optional and only exists after an install.",
+        },
+        {
+          q: "How fast is it up and running?",
+          // TODO: real delivery window when defined.
+          a: "Weeks, not months. The exact timeline comes out of the Blueprint and goes in writing — and the delivery date is part of what we guarantee.",
+        },
+        {
+          q: "I know nothing about technology.",
+          a: "Perfect: you don't have to. We deliver everything built and tested, train your team, and talk like humans — not like a SaaS demo. If something isn't clear, that's our problem, not yours.",
+        },
+        {
+          q: "What if the system doesn't work?",
+          a: "We guarantee what we control: if a lead writes in and the system doesn't answer in under 60 seconds, we tune it for free until it does. What we won't promise is revenue — that promise comes from people who don't plan to stay and measure.",
+        },
+        {
+          q: "Do I have to switch tools?",
+          a: "No. We plug into what you already use — WhatsApp, your calendar, Stripe, QuickBooks, even your spreadsheet. The system adapts to how you work, not the other way around.",
+        },
+        {
+          q: "Why not a cheaper freelancer?",
+          a: "You can — and you'll get a page that just sits there. We build websites with a sales system behind them: CRM, AI agents, a written guarantee, monthly measurement. Cheap gets expensive when every lost lead is a paying job.",
+        },
+        {
+          q: "Will the AI sound like a robot to my customers?",
+          a: "We train it on your tone and your real answers, and anything delicate can always hand off to a human. Your customers notice exactly one thing: they get answered instantly now.",
+        },
+      ],
+    },
+    contact: {
+      tag: "Last step",
+      title: "Apply.",
+      sub: "Your X-Ray: 30 minutes with the founder. You leave knowing exactly where you're losing time and jobs — whether you work with us or not.",
+      // The true scarcity: there's no sales team behind this, just a calendar.
+      // TODO: swap in the real monthly capacity when defined.
+      capacity: "The founder runs every one himself — that's why there are few each month",
+      namePlaceholder: "Full name",
+      businessPlaceholder: "Your business (e.g. roofing, HVAC, trucking)",
+      bottleneckLabel: "Where do you lose the most today?",
+      bottleneckOptions: [
+        "Unanswered leads",
+        "Sales follow-up",
+        "Hours on manual tasks",
+        "Not sure — that's what the X-Ray is for",
+      ],
+      cta: "Apply via WhatsApp",
+      note: "WhatsApp opens with your application ready — you hit send, no commitment.",
+      wa: {
+        greeting: "Hi, I'm",
+        business: "My business",
+        bottleneck: "My biggest leak",
+        closing: "I want to apply for the 30-minute X-Ray.",
+      },
+      spline: {
+        tag: "On call 24/7",
+        titleA: "The machine is already",
+        titleB: "awake.",
+      },
+    },
+    referrals: {
+      meta: {
+        title: "Referral Program — Earn 20% of the sale · MindGod",
+        description:
+          "Know a business losing sales to manual work? Introduce us. If they buy their system, 20% of that sale is yours. Clear terms, in writing.",
+      },
+      tag: "Referral program",
+      titleA: "Refer a business.",
+      titleB: "Keep 20% of the sale.",
+      support:
+        "You know the owner; we do the rest. Introduce us to a company that needs to stop running by hand, and if they end up buying their system, 20% of that sale is yours. You don't sell anything — you just open the door.",
+      steps: [
+        {
+          number: "01",
+          title: "Introduce us",
+          body: "Tell us which business you know and where it leaks the most. From the first message it's registered under your name — we confirm it on WhatsApp.",
+        },
+        {
+          number: "02",
+          title: "We sell",
+          body: "We run the X-Ray and the whole sales process. You chase nobody: selling is our job.",
+        },
+        {
+          number: "03",
+          title: "You collect 20%",
+          body: "If your referral buys, we transfer you 20% of the sale. We get paid, you get paid — that simple.",
+        },
+      ],
+      deal: {
+        tag: "The deal",
+        title: "Clear, and in writing.",
+        items: [
+          "20% of the first sale: the system the client buys and we install.",
+          "We pay you when the client pays. If they pay in parts, you collect in parts.",
+          "Your referral is registered under your name from the first message — with confirmation.",
+          "No cap: refer as many businesses as you want.",
+          "Only businesses not already in conversation with us count.",
+        ],
+      },
+      fit: {
+        forTitle: "A good referral…",
+        forItems: [
+          "Already sells, with leads coming in every week.",
+          "Loses jobs to slow replies, missed follow-ups, or too few hands.",
+          "You know the owner or the decision-maker — you can introduce us.",
+        ],
+        againstTitle: "Doesn't count…",
+        againstItems: [
+          "A business with no clients yet.",
+          "Someone just shopping for “a pretty website”.",
+          "A company already talking to us.",
+        ],
+      },
+      form: {
+        tag: "Refer now",
+        title: "Introduce us.",
+        sub: "Two minutes. WhatsApp opens with your referral ready — you hit send and we confirm it under your name.",
+        namePlaceholder: "Your name",
+        businessPlaceholder: "The business you're referring (name, city, or Instagram)",
+        bottleneckLabel: "Where does that business lose the most?",
+        bottleneckOptions: [
+          "Unanswered leads",
+          "Sales follow-up",
+          "Hours on manual tasks",
+          "Not sure — you'll see it in the X-Ray",
+        ],
+        cta: "Refer via WhatsApp",
+        note: "You send the message, no strings. If your referral buys, 20% is yours.",
+        wa: {
+          greeting: "Hi, I'm",
+          referral: "I want to refer",
+          bottleneck: "Where they lose the most",
+          closing: "I'm here for the referral program (20% of the sale).",
+        },
+      },
+    },
+    footer: {
+      links: [
+        { label: "Systems", href: "#sistemas" },
+        { label: "Method", href: "#metodo" },
+        { label: "About", href: "#nosotros" },
+        { label: "Real work", href: "#caso" },
+        { label: "FAQ", href: "#faq" },
+        { label: "Contact", href: "#contacto" },
+        { label: "Referrals", href: "/referidos" },
+      ],
+      location: "© 2026 · Medellín, Colombia",
+      tagline: "From human to machine",
+    },
+  },
   es: {
     meta: {
-      title: "MindGod — Sistemas de venta autónomos con IA · Medellín",
+      title: "MindGod — Sitios web y sistemas de venta con IA para negocios de servicios",
       description:
-        "Instalamos sitio, CRM y agentes de IA como un solo sistema: cada lead respondido en segundos, cada venta con seguimiento y tus horas de vuelta. Aplica a tu Radiografía.",
+        "Hacemos sitios web que venden — e instalamos CRM y agentes de IA alrededor como un solo sistema: cada lead respondido en segundos, cada seguimiento hecho y tus horas de vuelta. Aplica a tu Radiografía.",
     },
     nav: {
       links: [
@@ -177,12 +656,12 @@ export const copy: Record<Lang, Copy> = {
       tagline: "Del humano a la máquina",
     },
     hero: {
-      tag: "Socio de IA · Medellín",
+      tag: "Sitios web y sistemas de IA para negocios de servicios",
       live: "Sistema en línea · responde en <60 s",
       line1: "Sigues atrapado en tu negocio.",
-      line2: "Tu competencia ya lo automatizó.",
+      line2: "Tu competencia ya automatizó el suyo.",
       support:
-        "No te va a reemplazar la IA — te va a reemplazar el dueño que la usó primero y hoy trabaja la mitad ganando el doble.",
+        "No te va a reemplazar la IA — te va a reemplazar el dueño que la usó primero y hoy trabaja la mitad cerrando el doble de trabajos.",
       cta: "Aplica a tu Radiografía",
       // Urgencia honesta o ninguna: la escasez real es que las hace el
       // fundador en persona. TODO: cuando exista capacidad mensual definida
@@ -197,15 +676,15 @@ export const copy: Record<Lang, Copy> = {
       items: [
         {
           title: "Leads sin respuesta",
-          body: "Un lead que espera horas compra donde le respondieron en segundos.",
+          body: "Un lead que espera horas compra donde le respondieron en segundos. Haz la cuenta de UN trabajo perdido.",
         },
         {
           title: "Seguimientos olvidados",
-          body: "Las ventas se cierran en el seguimiento — el que nadie tiene tiempo de hacer.",
+          body: "Los trabajos se cierran en el seguimiento — el que nadie tiene tiempo de hacer.",
         },
         {
           title: "Horas digitadas",
-          body: "Cada hora copiando datos entre WhatsApp, Excel y facturas es una hora en la que nadie vende.",
+          body: "Cada noche copiando trabajos entre WhatsApp, Excel y facturas es una noche en la que nadie vende.",
         },
       ],
     },
@@ -235,11 +714,11 @@ export const copy: Record<Lang, Copy> = {
             "Agenda conectada a tu calendario",
             "Panel simple: qué llegó, qué se agendó, qué se perdió",
           ],
-          forWho: "Para negocios que pierden leads por demora en responder.",
+          forWho: "Para negocios que pierden trabajos por demorarse en responder.",
           notForWho:
             "No es para quien quiere “probar la IA” sin leads reales que atender.",
           priceAnchor:
-            "Suma lo que vale un solo cliente que se fue por no recibir respuesta. Eso cuesta no tenerla — cada semana.",
+            "Suma lo que vale UN trabajo que se fue por responder tarde. Eso cuesta no tenerla — cada semana.",
           // TODO: precio real. Mientras tanto, se define en la Radiografía.
           price: "Inversión: se define en tu Radiografía.",
         },
@@ -247,10 +726,10 @@ export const copy: Record<Lang, Copy> = {
           name: "El Sistema Completo",
           tag: "Hecho para ti",
           orbital:
-            "Sitio que convierte + CRM a tu medida + agentes de IA — instalados como una sola máquina de ventas, con tu equipo entrenado.",
+            "Sitio web que vende + CRM a tu medida + agentes de IA — instalados como una sola máquina de ventas, con tu equipo entrenado.",
           outcome: "Tu operación comercial completa, corriendo sola.",
           includes: [
-            "Sitio diseñado para convertir, conectado al pipeline",
+            "Sitio web diseñado para vender, conectado al pipeline",
             "CRM a la medida de tu forma de vender",
             "Agentes de IA: recepción, seguimiento y recordatorios",
             "Reportes automáticos cada semana",
@@ -261,7 +740,7 @@ export const copy: Record<Lang, Copy> = {
           notForWho:
             "No es para quien aún no tiene flujo de clientes, ni para quien busca “una página bonita”.",
           priceAnchor:
-            "Antes del precio, haz la cuenta: ¿cuánto vale un mes de leads sin respuesta y seguimientos caídos? El sistema cuesta menos.",
+            "Antes del precio, haz la cuenta: ¿cuánto te costó el mes pasado en leads sin respuesta y seguimientos caídos? El sistema cuesta menos.",
           // TODO: precio real del buque insignia.
           price: "Inversión: se define en tu Radiografía.",
         },
@@ -301,7 +780,7 @@ export const copy: Record<Lang, Copy> = {
         cmd: "> mindgod deploy --sistema completo",
         lines: [
           "✔ CRM configurado a tu medida.",
-          "✔ Sitio conectado al pipeline de ventas.",
+          "✔ Sitio web conectado al pipeline de ventas.",
           "✔ Agentes de IA entrenados con tus procesos.",
           "✔ Leads capturados, calificados y asignados.",
           "ℹ Cada lead respondido en menos de 60 segundos.",
@@ -318,7 +797,7 @@ export const copy: Record<Lang, Copy> = {
         {
           number: "01",
           title: "Radiografía",
-          body: "Mapeamos dónde tu negocio pierde plata y horas: leads sin respuesta, seguimientos caídos, datos digitados tres veces. Sales con la lista de fugas — trabajes con nosotros o no.",
+          body: "Mapeamos dónde tu negocio pierde dólares y horas: leads sin respuesta, seguimientos caídos, datos digitados tres veces. Sales con la lista de fugas — trabajes con nosotros o no.",
         },
         {
           number: "02",
@@ -342,7 +821,7 @@ export const copy: Record<Lang, Copy> = {
         tag: "Con lo que ya usas",
         titleA: "Nos conectamos",
         titleB: "a tus herramientas.",
-        body: "WhatsApp, Mercado Pago, Shopify, el ecosistema de Google… No te obligamos a cambiar de herramientas: conectamos las que ya usas para que trabajen juntas, solas.",
+        body: "WhatsApp, Stripe, QuickBooks, el ecosistema de Google… No te obligamos a cambiar de herramientas: conectamos las que ya usas para que trabajen juntas, solas.",
       },
     },
     fit: {
@@ -352,14 +831,14 @@ export const copy: Record<Lang, Copy> = {
       forTitle: "Es para ti si…",
       forItems: [
         "Tu negocio ya vende y te llegan clientes cada semana.",
-        "Pierdes ventas por demoras, olvidos o falta de manos.",
+        "Pierdes trabajos por demoras, olvidos o falta de manos.",
         "Quieres un sistema que quede tuyo — no depender de una agencia para siempre.",
         "Puedes dedicarle dos horas a tu Radiografía y a decidir en serio.",
       ],
       againstTitle: "No es para ti si…",
       againstItems: [
         "Todavía no tienes clientes ni flujo de leads.",
-        "Buscas la opción más barata, no la que recupera más plata.",
+        "Buscas la opción más barata, no la que recupera más dólares.",
         "Quieres “una página bonita” sin cambiar cómo operas.",
         "Esperas resultados mágicos de un día para otro.",
       ],
@@ -369,13 +848,13 @@ export const copy: Record<Lang, Copy> = {
     about: {
       tag: "Quiénes somos",
       statement: [
-        { text: "Nacimos en Medellín", style: "ink" },
+        { text: "Trabajamos desde Medellín", style: "ink" },
         {
-          text: " con una idea fija: la tecnología de las grandes corporaciones también es para ",
+          text: " — tu mismo huso horario, trabajo senior y sin precios de agencia gringa. La tecnología de las grandes corporaciones también es para ",
         },
         { text: "tu negocio", style: "em" },
         {
-          text: " — sin jerga, sin enredos y sin costos de corporación. Tú lo conoces mejor que nadie; ",
+          text: ". Tú lo conoces mejor que nadie; ",
         },
         { text: "nosotros lo hacemos imparable", style: "ink" },
         { text: "." },
@@ -385,20 +864,21 @@ export const copy: Record<Lang, Copy> = {
         // TODO: foto real del fundador (public/images/founder.jpg)
         name: "Emmanuel",
         role: "Fundador · MindGod",
-        note: "“Monté MindGod porque veía negocios buenos perder ventas por cosas que una máquina resuelve en segundos. En tu Radiografía hablas conmigo — no con un vendedor.”",
+        note: "“Monté MindGod porque veía negocios buenos perder trabajos por cosas que una máquina resuelve en segundos. En tu Radiografía hablas conmigo — no con un vendedor.”",
       },
       honest: {
         tag: "Sin humo",
         title: "Cero testimonios inventados.",
         body: "Somos un estudio nuevo con estándares viejos: no publicamos testimonios que no existen ni cifras que no medimos. Publicamos el método, lo garantizamos por escrito y dejamos que los resultados hablen cuando existan — con nombre y apellido.",
       },
-      marks: ["Medellín · Colombia", "IA aplicada al negocio real"],
+      marks: ["Medellín · Colombia", "Sirviendo negocios en todo EE. UU."],
     },
     /*
      * Los casos reales — la continuación directa del bloque "Sin humo":
      * dijimos que los resultados hablarían cuando existieran. Ya existen.
-     * Cada captura dice la verdad al pie: datos cambiados (Puebleriando,
-     * producción con clientes reales) o datos de demostración (StormShield).
+     * StormShield primero: el espejo del cliente objetivo. Cada captura dice
+     * la verdad al pie: datos cambiados (Puebleriando, producción con
+     * clientes reales) o datos de demostración (StormShield).
      */
     caseStudy: {
       tag: "Casos reales",
@@ -406,18 +886,52 @@ export const copy: Record<Lang, Copy> = {
       titleB: "Van dos, y contando.",
       cases: [
         {
+          name: "StormShield Roofing",
+          handle: "@stormshield_roofing_",
+          url: "https://www.instagram.com/stormshield_roofing_",
+          desc: "Techos residenciales · Estados Unidos",
+          frameLabel: "STORMSHIELD ROOFING CRM · BY MINDGOD",
+          summary:
+            "StormShield es una empresa de techos en Estados Unidos que vende renovaciones de miles de dólares por trabajo y emplea a decenas de personas cada mes. Nos escogió para construir su CRM a la medida: de lead a techo instalado en un solo sistema.",
+          facts: [
+            "Pipeline visual de leads: del primer contacto a la inspección y el cierre.",
+            "Cada obra con su cuadrilla, sus fechas y su estado de pago.",
+            "Presupuestos, agenda de instalaciones, facturación y reportes — sin salir del sistema.",
+            "Hecho desde Medellín para una operación en Estados Unidos — mismo horario, trabajo senior.",
+          ],
+          shotsNote: "Producto real — capturas con datos de demostración.",
+          shots: [
+            {
+              src: "/images/casos/stormshield-panel.png",
+              alt: "Dashboard del CRM de StormShield Roofing: leads, obras en curso, valor del pipeline e ingresos",
+            },
+            {
+              src: "/images/casos/stormshield-leads.png",
+              alt: "Pipeline de leads del CRM: tarjetas por etapa, de nuevo contacto a inspección agendada",
+            },
+            {
+              src: "/images/casos/stormshield-crew.png",
+              alt: "Gestión de cuadrillas del CRM: cada miembro con sus obras activas y disponibilidad",
+            },
+          ],
+          // TODO: palabras TEXTUALES del cliente, con su permiso — hasta
+          // entonces el bloque de cita no se muestra. Nunca redactarlas.
+          quote: "",
+          quoteAuthor: "",
+        },
+        {
           name: "Puebleriando",
           handle: "@puebleriando",
           url: "https://www.instagram.com/puebleriando",
           desc: "Agencia de viajes",
           frameLabel: "PUEBLERIANDO CRM · POWERED BY MINDGOD",
           summary:
-            "Le instalamos a Puebleriando un CRM hecho a la medida de su operación: clientes, viajes, pagos y calendario en un solo panel. Pagado una sola vez — sin mensualidades de software de por vida.",
+            "Le instalamos a Puebleriando un CRM hecho a la medida de su operación: clientes, viajes, pagos y calendario en un solo panel. Pagado una sola vez, suyo para siempre — cero mensualidades de software de por vida.",
           facts: [
             "Salidas, regresos, pagos vencidos y check-ins de la semana — de un vistazo.",
             "Cada cliente con su viaje, su saldo y su historial en una sola ficha.",
             "Viajes activos con fechas, aerolíneas y estado de pago en tiempo real.",
-            "Pago único: el sistema quedó suyo. Cero mensualidades.",
+            "Pago único: el sistema quedó suyo. Cero mensualidades, de por vida.",
           ],
           shotsNote:
             "Producto real, en producción. Nombres y cifras cambiados para proteger los datos de la agencia.",
@@ -433,40 +947,6 @@ export const copy: Record<Lang, Copy> = {
             {
               src: "/images/casos/puebleriando-viajes.png",
               alt: "Viajes activos del CRM: destinos, fechas de salida y regreso, estado de pago",
-            },
-          ],
-          // TODO: palabras TEXTUALES del cliente, con su permiso — hasta
-          // entonces el bloque de cita no se muestra. Nunca redactarlas.
-          quote: "",
-          quoteAuthor: "",
-        },
-        {
-          name: "StormShield Roofing",
-          handle: "@stormshield_roofing_",
-          url: "https://www.instagram.com/stormshield_roofing_",
-          desc: "Techos residenciales · Estados Unidos",
-          frameLabel: "STORMSHIELD ROOFING CRM · BY MINDGOD",
-          summary:
-            "StormShield vende proyectos de renovación de techos de miles de dólares y emplea a decenas de personas cada mes. Nos escogió para construir su CRM a la medida: de lead a instalación en un solo sistema.",
-          facts: [
-            "Pipeline visual de leads: del primer contacto a la inspección y el cierre.",
-            "Cada obra con su cuadrilla, sus fechas y su estado de pago.",
-            "Presupuestos, agenda de instalaciones, facturación y reportes — sin salir del sistema.",
-            "Hecho desde Medellín para una operación en Estados Unidos.",
-          ],
-          shotsNote: "Producto real — capturas con datos de demostración.",
-          shots: [
-            {
-              src: "/images/casos/stormshield-panel.png",
-              alt: "Dashboard del CRM de StormShield Roofing: leads, obras en curso, valor del pipeline e ingresos",
-            },
-            {
-              src: "/images/casos/stormshield-leads.png",
-              alt: "Pipeline de leads del CRM: tarjetas por etapa, de nuevo contacto a inspección agendada",
-            },
-            {
-              src: "/images/casos/stormshield-crew.png",
-              alt: "Gestión de cuadrillas del CRM: cada miembro con sus obras activas y disponibilidad",
             },
           ],
           // TODO: palabras TEXTUALES del cliente, con su permiso.
@@ -485,7 +965,7 @@ export const copy: Record<Lang, Copy> = {
         {
           q: "¿Cuánto cuesta?",
           // TODO: cuando existan precios/rangos reales, ponerlos aquí.
-          a: "Menos que el problema. Cada sistema se cotiza sobre tu Radiografía: primero medimos cuánto te cuesta operar a mano y contra eso ves el precio. Sin costos ocultos y sin mensualidades obligatorias — la Afinación es opcional y solo existe después de instalar.",
+          a: "Menos que el problema. Cada sistema se cotiza sobre tu Radiografía: primero medimos cuánto te cuesta operar a mano y contra ese número ves el precio. Sin costos ocultos y sin mensualidades obligatorias — la Afinación es opcional y solo existe después de instalar.",
         },
         {
           q: "¿En cuánto tiempo está funcionando?",
@@ -502,11 +982,11 @@ export const copy: Record<Lang, Copy> = {
         },
         {
           q: "¿Tengo que cambiar mis herramientas?",
-          a: "No. Nos conectamos a lo que ya usas — WhatsApp, tu calendario, Mercado Pago, Shopify, hasta tu Excel. El sistema se adapta a tu forma de trabajar, no al revés.",
+          a: "No. Nos conectamos a lo que ya usas — WhatsApp, tu calendario, Stripe, QuickBooks, hasta tu Excel. El sistema se adapta a tu forma de trabajar, no al revés.",
         },
         {
           q: "¿Por qué no un freelancer más barato?",
-          a: "Puedes — y te hará una página o un bot sueltos. Nosotros instalamos un sistema completo, con garantía por escrito y medición mensual. Lo barato sale caro cuando cada lead perdido vale plata.",
+          a: "Puedes — y te hará una página que se queda quieta. Nosotros hacemos sitios web con un sistema de ventas detrás: CRM, agentes de IA, garantía por escrito y medición mensual. Lo barato sale caro cuando cada lead perdido es un trabajo pagado.",
         },
         {
           q: "¿La IA va a sonar como robot con mis clientes?",
@@ -517,12 +997,12 @@ export const copy: Record<Lang, Copy> = {
     contact: {
       tag: "Último paso",
       title: "Aplica.",
-      sub: "Tu Radiografía: 30 minutos con el fundador. Sales sabiendo exactamente dónde pierdes tiempo y ventas — trabajes con nosotros o no.",
+      sub: "Tu Radiografía: 30 minutos con el fundador. Sales sabiendo exactamente dónde pierdes tiempo y trabajos — trabajes con nosotros o no.",
       // La escasez verdadera: no hay equipo de ventas detrás, hay una agenda.
       // TODO: cuando exista capacidad mensual definida, aquí va el número.
       capacity: "Las hace el fundador en persona — por eso son pocas al mes",
       namePlaceholder: "Nombre completo",
-      businessPlaceholder: "Tu negocio (ej. inmobiliaria, clínica, tienda)",
+      businessPlaceholder: "Tu negocio (ej. techos, HVAC, transporte)",
       bottleneckLabel: "¿Dónde pierdes más hoy?",
       bottleneckOptions: [
         "Leads sin respuesta",
@@ -545,7 +1025,7 @@ export const copy: Record<Lang, Copy> = {
       },
     },
     /*
-     * Programa de referidos — página propia ("/referidos"). El trato es
+     * Programa de referidos — página propia ("/es/referidos"). El trato es
      * simple y se cumple: 20% de la primera venta, pagado cuando el cliente
      * paga. Mismas reglas de la casa: claro, por escrito, sin humo.
      */
@@ -592,7 +1072,7 @@ export const copy: Record<Lang, Copy> = {
         forTitle: "Un buen referido…",
         forItems: [
           "Ya vende y le llegan clientes cada semana.",
-          "Pierde ventas por demoras, olvidos o falta de manos.",
+          "Pierde trabajos por demoras, olvidos o falta de manos.",
           "Conoces al dueño o a quien decide — puedes presentarnos.",
         ],
         againstTitle: "No cuenta…",
@@ -633,481 +1113,10 @@ export const copy: Record<Lang, Copy> = {
         { label: "Caso real", href: "#caso" },
         { label: "FAQ", href: "#faq" },
         { label: "Contacto", href: "#contacto" },
-        { label: "Referidos", href: "/referidos" },
+        { label: "Referidos", href: "/es/referidos" },
       ],
       location: "© 2026 · Medellín, Colombia",
       tagline: "Del humano a la máquina",
-    },
-  },
-  en: {
-    meta: {
-      title: "MindGod — Autonomous AI revenue systems · Medellín",
-      description:
-        "We install your site, CRM, and AI agents as one system: every lead answered in seconds, every sale followed up, your hours back. Apply for your Radiografía.",
-    },
-    nav: {
-      links: [
-        { label: "Systems", href: "#sistemas" },
-        { label: "Method", href: "#metodo" },
-        { label: "About", href: "#nosotros" },
-        { label: "Real work", href: "#caso" },
-      ],
-      cta: "Apply",
-    },
-    intro: {
-      born: "Born 🪐 to",
-      words: ["Create", "Optimize", "Transform"],
-      tagline: "From human to machine",
-    },
-    hero: {
-      tag: "AI Partner · Medellín",
-      live: "System online · replies in <60s",
-      line1: "You're still trapped in your business.",
-      line2: "Your competition already automated theirs.",
-      support:
-        "AI won't replace you — the owner who used it first will. He works half the hours and earns double.",
-      cta: "Apply for your Radiografía",
-      // Honest urgency or none: the real scarcity is the founder doing every
-      // call himself. TODO: swap in the real monthly capacity when defined.
-      ctaNote: "30 min · Free · Straight with the founder",
-      stripLabel: "We install on the tools you already use",
-    },
-    // TODO: swap back to real numbers once real client metrics exist.
-    leaks: {
-      tag: "The three leaks",
-      items: [
-        {
-          title: "Unanswered leads",
-          body: "A lead kept waiting for hours buys from whoever answered in seconds.",
-        },
-        {
-          title: "Forgotten follow-ups",
-          body: "Sales close in the follow-up — the one nobody has time to do.",
-        },
-        {
-          title: "Hours of typing",
-          body: "Every hour copying data between WhatsApp, spreadsheets, and invoices is an hour nobody sells.",
-        },
-      ],
-    },
-    offers: {
-      tag: "What we install",
-      titleA: "We don't sell services.",
-      titleB: "We install systems.",
-      subtitle:
-        "Three ways to go from human to machine — depending on where you are.",
-      orbitalHint: "Tap a system to explore it",
-      orbitalLabels: {
-        featured: "FLAGSHIP",
-        impact: "Impact level",
-        related: "Connected systems",
-        cta: "Apply",
-      },
-      items: [
-        {
-          name: "La Primera Pieza",
-          tag: "The starting point",
-          orbital:
-            "Your first automation: reception. AI answers, qualifies, and books over WhatsApp — in seconds, around the clock.",
-          outcome: "No lead ever waits again.",
-          includes: [
-            "AI agent on your WhatsApp, trained on your business",
-            "Answer and qualification in under 60 seconds",
-            "Booking wired to your calendar",
-            "A simple panel: what came in, what got booked, what slipped",
-          ],
-          forWho: "For businesses losing leads to slow replies.",
-          notForWho:
-            "Not for “trying out AI” without real leads to attend to.",
-          priceAnchor:
-            "Add up what one client who walked away over a slow reply is worth. That's the cost of not having it — every week.",
-          // TODO: real price. Until then it's quoted in the Radiografía.
-          price: "Investment: defined in your Radiografía.",
-        },
-        {
-          name: "El Sistema Completo",
-          tag: "Built around you",
-          orbital:
-            "Converting site + custom CRM + AI agents — installed as one sales machine, with your team trained.",
-          outcome: "Your entire sales operation, running on its own.",
-          includes: [
-            "A site designed to convert, wired to the pipeline",
-            "A CRM shaped to how you actually sell",
-            "AI agents: reception, follow-up, and reminders",
-            "Automatic weekly reports",
-            "Team trained, launch support included",
-          ],
-          forWho:
-            "For businesses with real demand drowning in manual follow-up.",
-          notForWho:
-            "Not for businesses without client flow yet, or anyone shopping for “a pretty website”.",
-          priceAnchor:
-            "Before the price, run the math: what does one month of unanswered leads and dropped follow-ups cost you? The system costs less.",
-          // TODO: real flagship price.
-          price: "Investment: defined in your Radiografía.",
-        },
-        {
-          name: "Socio de Afinación",
-          tag: "Post-install only",
-          orbital:
-            "Monthly measurement, tuning, and new automations on your installed system. What doesn't produce gets changed.",
-          outcome: "The system gets better every month.",
-          includes: [
-            "Monthly review against your Radiografía",
-            "Tuning and new automations included",
-            "A clear report: what produced, what got tuned",
-            "Priority support",
-          ],
-          forWho:
-            "For owners with a MindGod system installed who want it improving on its own.",
-          notForWho:
-            "Not sold separately: without an install there's nothing to tune.",
-          priceAnchor:
-            "An untuned system decays; a tuned one compounds. The difference pays the retainer.",
-          // TODO: real monthly price.
-          price: "Monthly: defined in your Radiografía.",
-        },
-      ],
-      cardCta: "Apply for your Radiografía",
-      guarantee: {
-        tag: "Guarantee",
-        title: "The 60-second guarantee.",
-        body: "If a lead writes and your system doesn't answer in under 60 seconds, we tune it for free until it does. We guarantee what we control: speed, delivery, and uptime. We won't promise you revenue — promises like that come from people who don't plan to stick around and measure.",
-      },
-      inside: {
-        tag: "What it looks like inside",
-        titleA: "While you sell,",
-        titleB: "the machine works.",
-        body: "Every system we deliver runs on its own: it captures, answers, organizes, and reports — without anyone touching a key.",
-        cmd: "> mindgod deploy --system complete",
-        lines: [
-          "✔ CRM configured to fit you.",
-          "✔ Site wired to the sales pipeline.",
-          "✔ AI agents trained on your processes.",
-          "✔ Leads captured, qualified, and assigned.",
-          "ℹ Every lead answered in under 60 seconds.",
-        ],
-        done: "Done. From human to machine.",
-      },
-    },
-    // Step names stay in Spanish in both languages — they're the named
-    // mechanism, not generic labels.
-    method: {
-      tag: "Our method",
-      titleA: "The Humano → Máquina",
-      titleB: "Method™.",
-      subtitle: "Four phases. One system, installed without stopping your business.",
-      steps: [
-        {
-          number: "01",
-          title: "Radiografía",
-          body: "We map where your business leaks money and hours: unanswered leads, dropped follow-ups, data typed three times. You leave with the leak list — whether you hire us or not.",
-        },
-        {
-          number: "02",
-          title: "Plano",
-          body: "We design the system that plugs those leaks — and nothing else. No templates, no modules you'll never use.",
-        },
-        {
-          number: "03",
-          // TODO: replace with the real delivery window when defined.
-          title: "Instalación",
-          body: "We build, connect, and test everything while you keep selling. Weeks, not months.",
-        },
-        {
-          number: "04",
-          title: "Afinación",
-          body: "We measure every month against the leaks in your Radiografía. Whatever doesn't produce gets tuned or cut.",
-        },
-      ],
-      tools: {
-        tag: "With what you already use",
-        titleA: "We plug into",
-        titleB: "your existing tools.",
-        body: "WhatsApp, Mercado Pago, Shopify, the Google ecosystem… We don't force a switch: we connect the tools you already use so they work together, on their own.",
-      },
-    },
-    fit: {
-      tag: "An honest filter",
-      titleA: "We don't work with everyone.",
-      titleB: "That's good for you.",
-      forTitle: "This is for you if…",
-      forItems: [
-        "Your business already sells and clients reach out every week.",
-        "You lose sales to slow replies, missed follow-ups, or too few hands.",
-        "You want a system you own — not a lifetime dependency on an agency.",
-        "You can give your Radiografía two hours and a serious decision.",
-      ],
-      againstTitle: "It's not for you if…",
-      againstItems: [
-        "You don't have clients or lead flow yet.",
-        "You're shopping for the cheapest option, not the one that recovers the most money.",
-        "You want “a pretty website” without changing how you operate.",
-        "You expect magic overnight.",
-      ],
-      close: "Saw yourself in the first list? The Radiografía is yours.",
-      closeCta: "Apply now",
-    },
-    about: {
-      tag: "Who we are",
-      statement: [
-        { text: "Born in Medellín", style: "ink" },
-        {
-          text: " with one fixed idea: big-corporation technology belongs to ",
-        },
-        { text: "your business", style: "em" },
-        {
-          text: " too — no jargon, no tangles, no corporate price tag. You know it better than anyone; ",
-        },
-        { text: "we make it unstoppable", style: "ink" },
-        { text: "." },
-      ],
-      founder: {
-        tag: "The founder",
-        // TODO: real founder photo (public/images/founder.jpg)
-        name: "Emmanuel",
-        role: "Founder · MindGod",
-        note: "“I started MindGod because I kept watching good businesses lose sales to things a machine solves in seconds. On your Radiografía call you talk to me — not to a salesperson.”",
-      },
-      honest: {
-        tag: "No smoke",
-        title: "Zero invented testimonials.",
-        body: "We're a new studio with old-school standards: we don't publish testimonials that don't exist or numbers we didn't measure. We publish the method, guarantee it in writing, and let results speak when they exist — with first and last names.",
-      },
-      marks: ["Medellín · Colombia", "AI applied to real business"],
-    },
-    caseStudy: {
-      tag: "Real work",
-      titleA: "We promised to publish only what's real.",
-      titleB: "Two, and counting.",
-      cases: [
-        {
-          name: "Puebleriando",
-          handle: "@puebleriando",
-          url: "https://www.instagram.com/puebleriando",
-          desc: "Travel agency",
-          frameLabel: "PUEBLERIANDO CRM · POWERED BY MINDGOD",
-          summary:
-            "We installed a CRM built around Puebleriando's operation: clients, trips, payments, and calendar in a single panel. Paid for once — no software subscription, ever.",
-          facts: [
-            "The week's departures, returns, overdue payments, and check-ins — at a glance.",
-            "Every client with their trip, balance, and history on a single card.",
-            "Active trips with dates, airlines, and payment status in real time.",
-            "One-time payment: the system is theirs. Zero monthly fees.",
-          ],
-          shotsNote:
-            "Real product, in production. Names and figures changed to protect the agency's data.",
-          shots: [
-            {
-              src: "/images/casos/puebleriando-panel.png",
-              alt: "Puebleriando CRM dashboard: departures, overdue payments, returns, and yearly finances",
-            },
-            {
-              src: "/images/casos/puebleriando-clientes.png",
-              alt: "CRM clients view: every client with their trip, status, and balance",
-            },
-            {
-              src: "/images/casos/puebleriando-viajes.png",
-              alt: "CRM active trips: destinations, departure and return dates, payment status",
-            },
-          ],
-          // TODO: the client's VERBATIM words, with permission — the quote
-          // block stays hidden until then. Never write them for him.
-          quote: "",
-          quoteAuthor: "",
-        },
-        {
-          name: "StormShield Roofing",
-          handle: "@stormshield_roofing_",
-          url: "https://www.instagram.com/stormshield_roofing_",
-          desc: "Residential roofing · United States",
-          frameLabel: "STORMSHIELD ROOFING CRM · BY MINDGOD",
-          summary:
-            "StormShield sells roof-renovation projects worth thousands of dollars and employs dozens of people every month. They chose us to build their custom CRM: lead to installation in one system.",
-          facts: [
-            "A visual lead pipeline: first contact to inspection to close.",
-            "Every job with its crew, dates, and payment status.",
-            "Estimates, install scheduling, invoicing, and reports — without leaving the system.",
-            "Built from Medellín for a U.S. operation.",
-          ],
-          shotsNote: "Real product — screenshots use demo data.",
-          shots: [
-            {
-              src: "/images/casos/stormshield-panel.png",
-              alt: "StormShield Roofing CRM dashboard: leads, jobs in progress, pipeline value, and revenue",
-            },
-            {
-              src: "/images/casos/stormshield-leads.png",
-              alt: "CRM lead pipeline: cards by stage, from new contact to scheduled inspection",
-            },
-            {
-              src: "/images/casos/stormshield-crew.png",
-              alt: "CRM crew management: every member with their active jobs and availability",
-            },
-          ],
-          // TODO: the client's VERBATIM words, with permission.
-          quote: "",
-          quoteAuthor: "",
-        },
-      ],
-      ctaLead: "Does your business need its own?",
-      cta: "Apply for your Radiografía",
-    },
-    faq: {
-      tag: "Straight questions",
-      titleA: "What you'd ask",
-      titleB: "before writing to us.",
-      items: [
-        {
-          q: "How much does it cost?",
-          // TODO: real prices/ranges when defined.
-          a: "Less than the problem. Every system is quoted off your Radiografía: first we measure what running by hand costs you, and you see the price against that. No hidden fees, no forced retainers — Afinación is optional and only exists after an install.",
-        },
-        {
-          q: "How fast is it up and running?",
-          // TODO: real delivery window when defined.
-          a: "Weeks, not months. The exact timeline comes out of the Plano and goes in writing — and the delivery date is part of what we guarantee.",
-        },
-        {
-          q: "I know nothing about technology.",
-          a: "Perfect: you don't have to. We deliver everything built and tested, train your team, and speak plainly. If something isn't clear, that's our problem, not yours.",
-        },
-        {
-          q: "What if the system doesn't work?",
-          a: "We guarantee what we control: if a lead writes and the system doesn't answer in under 60 seconds, we tune it for free until it does. What we won't promise is revenue — that promise comes from people who don't plan to stay and measure.",
-        },
-        {
-          q: "Do I have to switch tools?",
-          a: "No. We plug into what you already use — WhatsApp, your calendar, Mercado Pago, Shopify, even your spreadsheet. The system adapts to how you work, not the other way around.",
-        },
-        {
-          q: "Why not a cheaper freelancer?",
-          a: "You can — and you'll get a standalone page or bot. We install a complete system, with a written guarantee and monthly measurement. Cheap gets expensive when every lost lead is worth money.",
-        },
-        {
-          q: "Will the AI sound like a robot to my clients?",
-          a: "We train it on your tone and your real answers, and anything delicate can always hand off to a human. Your clients notice exactly one thing: they get answered instantly now.",
-        },
-      ],
-    },
-    contact: {
-      tag: "Last step",
-      title: "Apply.",
-      sub: "Your Radiografía: 30 minutes with the founder. You leave knowing exactly where you're losing time and sales — whether you work with us or not.",
-      // The true scarcity: there's no sales team behind this, just a calendar.
-      // TODO: swap in the real monthly capacity when defined.
-      capacity: "The founder runs every one himself — that's why there are few each month",
-      namePlaceholder: "Full name",
-      businessPlaceholder: "Your business (e.g. real estate, clinic, store)",
-      bottleneckLabel: "Where do you lose the most today?",
-      bottleneckOptions: [
-        "Unanswered leads",
-        "Sales follow-up",
-        "Hours on manual tasks",
-        "Not sure — that's what the Radiografía is for",
-      ],
-      cta: "Apply via WhatsApp",
-      note: "WhatsApp opens with your application ready — you hit send, no commitment.",
-      wa: {
-        greeting: "Hi, I'm",
-        business: "My business",
-        bottleneck: "My biggest leak",
-        closing: "I want to apply for the 30-minute Radiografía.",
-      },
-      spline: {
-        tag: "On call 24/7",
-        titleA: "The machine is already",
-        titleB: "awake.",
-      },
-    },
-    referrals: {
-      meta: {
-        title: "Referral Program — Earn 20% of the sale · MindGod",
-        description:
-          "Know a business losing sales to manual work? Introduce us. If they buy their system, 20% of that sale is yours. Clear terms, in writing.",
-      },
-      tag: "Referral program",
-      titleA: "Refer a business.",
-      titleB: "Keep 20% of the sale.",
-      support:
-        "You know the owner; we do the rest. Introduce us to a company that needs to stop running by hand, and if they end up buying their system, 20% of that sale is yours. You don't sell anything — you just open the door.",
-      steps: [
-        {
-          number: "01",
-          title: "Introduce us",
-          body: "Tell us which business you know and where it leaks the most. From the first message it's registered under your name — we confirm it on WhatsApp.",
-        },
-        {
-          number: "02",
-          title: "We sell",
-          body: "We run the Radiografía and the whole sales process. You chase nobody: selling is our job.",
-        },
-        {
-          number: "03",
-          title: "You collect 20%",
-          body: "If your referral buys, we transfer you 20% of the sale. We get paid, you get paid — that simple.",
-        },
-      ],
-      deal: {
-        tag: "The deal",
-        title: "Clear, and in writing.",
-        items: [
-          "20% of the first sale: the system the client buys and we install.",
-          "We pay you when the client pays. If they pay in parts, you collect in parts.",
-          "Your referral is registered under your name from the first message — with confirmation.",
-          "No cap: refer as many businesses as you want.",
-          "Only businesses not already in conversation with us count.",
-        ],
-      },
-      fit: {
-        forTitle: "A good referral…",
-        forItems: [
-          "Already sells, with clients reaching out every week.",
-          "Loses sales to slow replies, missed follow-ups, or too few hands.",
-          "You know the owner or the decision-maker — you can introduce us.",
-        ],
-        againstTitle: "Doesn't count…",
-        againstItems: [
-          "A business with no clients yet.",
-          "Someone just shopping for “a pretty website”.",
-          "A company already talking to us.",
-        ],
-      },
-      form: {
-        tag: "Refer now",
-        title: "Introduce us.",
-        sub: "Two minutes. WhatsApp opens with your referral ready — you hit send and we confirm it under your name.",
-        namePlaceholder: "Your name",
-        businessPlaceholder: "The business you're referring (name, city, or Instagram)",
-        bottleneckLabel: "Where does that business lose the most?",
-        bottleneckOptions: [
-          "Unanswered leads",
-          "Sales follow-up",
-          "Hours on manual tasks",
-          "Not sure — that's what the Radiografía is for",
-        ],
-        cta: "Refer via WhatsApp",
-        note: "You send the message, no strings. If your referral buys, 20% is yours.",
-        wa: {
-          greeting: "Hi, I'm",
-          referral: "I want to refer",
-          bottleneck: "Where they lose the most",
-          closing: "I'm here for the referral program (20% of the sale).",
-        },
-      },
-    },
-    footer: {
-      links: [
-        { label: "Systems", href: "#sistemas" },
-        { label: "Method", href: "#metodo" },
-        { label: "About", href: "#nosotros" },
-        { label: "Real work", href: "#caso" },
-        { label: "FAQ", href: "#faq" },
-        { label: "Contact", href: "#contacto" },
-        { label: "Referrals", href: "/en/referidos" },
-      ],
-      location: "© 2026 · Medellín, Colombia",
-      tagline: "From human to machine",
     },
   },
 };

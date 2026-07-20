@@ -3,18 +3,18 @@ import ReferralsPage from "@/components/ReferralsPage";
 import { copy } from "@/lib/copy";
 
 export const metadata: Metadata = {
-  title: copy.es.referrals.meta.title,
-  description: copy.es.referrals.meta.description,
+  title: copy.en.referrals.meta.title,
+  description: copy.en.referrals.meta.description,
   alternates: {
     canonical: "/referidos",
     languages: {
-      es: "/referidos",
-      en: "/en/referidos",
+      en: "/referidos",
+      es: "/es/referidos",
       "x-default": "/referidos",
     },
   },
 };
 
-export default function Referidos() {
-  return <ReferralsPage lang="es" />;
+export default function Referrals() {
+  return <ReferralsPage lang="en" />;
 }

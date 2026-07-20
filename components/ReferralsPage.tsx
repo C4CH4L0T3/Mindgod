@@ -10,7 +10,7 @@ import TiltCard from "@/components/ui/tilt-card";
 import { copy, type Lang } from "@/lib/copy";
 
 /*
- * Programa de referidos — "/referidos" y "/en/referidos".
+ * Programa de referidos — "/referidos" y "/es/referidos".
  *
  * La página cuenta un solo trato: presentas un negocio, nosotros vendemos,
  * tú cobras el 20%. Mismo escenario que la home (starfield, tags, display)

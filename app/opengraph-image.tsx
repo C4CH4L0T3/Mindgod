@@ -1,10 +1,10 @@
 import { ogCard, ogSize } from "@/lib/og-card";
 
 export const alt =
-  "MindGod — Del humano a la máquina. Sistemas de venta autónomos con IA, Medellín.";
+  "MindGod — From human to machine. Autonomous AI sales systems for service businesses.";
 export const size = ogSize;
 export const contentType = "image/png";
 
 export default function Image() {
-  return ogCard("es");
+  return ogCard("en");
 }

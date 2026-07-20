@@ -34,7 +34,7 @@ export async function POST(req: Request) {
     name,
     business: asText(body?.business),
     bottleneck: asText(body?.bottleneck),
-    lang: asText(body?.lang, 5) || "es",
+    lang: asText(body?.lang, 5) || "en",
     at: new Date().toISOString(),
   };
 

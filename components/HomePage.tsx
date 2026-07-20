@@ -18,7 +18,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import Starfield from "@/components/Starfield";
 import type { Lang } from "@/lib/copy";
 
-/* Una sola página, dos idiomas: "/" (es) y "/en" montan este árbol. */
+/* Una sola página, dos idiomas: "/" (en) y "/es" montan este árbol. */
 export default function HomePage({ lang }: { lang: Lang }) {
   return (
     <>

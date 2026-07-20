@@ -41,7 +41,7 @@ const stripSlugs = [
   "whatsapp",
   "instagram",
   "shopify",
-  "mercadopago",
+  "quickbooks",
   "googlecalendar",
   "gmail",
   "stripe",

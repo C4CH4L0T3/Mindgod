@@ -12,16 +12,16 @@ export default function Navbar({ lang }: { lang: Lang }) {
 
   // los anchors "#..." viven en la home; desde subpáginas ("/referidos")
   // necesitan la ruta base del idioma por delante
-  const base = lang === "es" ? "/" : "/en";
+  const base = lang === "en" ? "/" : "/es";
   const resolve = (href: string) => (href.startsWith("#") ? base + href : href);
 
   // switching language reloads the page on purpose: it's a different route —
   // and it lands on the SAME page in the other language
   const langHref =
-    lang === "es"
-      ? "/en" + (pathname === "/" ? "" : pathname)
-      : pathname.replace(/^\/en/, "") || "/";
-  const langLabel = lang === "es" ? "EN" : "ES";
+    lang === "en"
+      ? "/es" + (pathname === "/" ? "" : pathname)
+      : pathname.replace(/^\/es/, "") || "/";
+  const langLabel = lang === "en" ? "ES" : "EN";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);

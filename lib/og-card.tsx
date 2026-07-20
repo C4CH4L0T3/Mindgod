@@ -15,17 +15,17 @@ const texts: Record<
   Lang,
   { badge: string; tagline: string; promise: string; place: string }
 > = {
-  es: {
-    badge: "SISTEMA EN LÍNEA · RESPONDE EN <60 S",
-    tagline: "Del humano a la máquina",
-    promise: "Sitio, CRM y agentes de IA instalados como un solo sistema de ventas.",
-    place: "MEDELLÍN · COLOMBIA",
-  },
   en: {
     badge: "SYSTEM ONLINE · REPLIES IN <60 S",
     tagline: "From human to machine",
-    promise: "Site, CRM, and AI agents installed as one sales system.",
-    place: "MEDELLÍN · COLOMBIA",
+    promise: "Websites that sell — with CRM and AI agents installed as one sales system.",
+    place: "MEDELLÍN · SERVING THE US",
+  },
+  es: {
+    badge: "SISTEMA EN LÍNEA · RESPONDE EN <60 S",
+    tagline: "Del humano a la máquina",
+    promise: "Sitios web que venden — con CRM y agentes de IA instalados como un solo sistema.",
+    place: "MEDELLÍN · SIRVIENDO EE. UU.",
   },
 };
 

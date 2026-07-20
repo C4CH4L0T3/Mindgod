@@ -3,14 +3,14 @@ import HomePage from "@/components/HomePage";
 import { copy } from "@/lib/copy";
 
 export const metadata: Metadata = {
-  title: copy.es.meta.title,
-  description: copy.es.meta.description,
+  title: copy.en.meta.title,
+  description: copy.en.meta.description,
   alternates: {
     canonical: "/",
-    languages: { es: "/", en: "/en", "x-default": "/" },
+    languages: { en: "/", es: "/es", "x-default": "/" },
   },
 };
 
 export default function Home() {
-  return <HomePage lang="es" />;
+  return <HomePage lang="en" />;
 }
