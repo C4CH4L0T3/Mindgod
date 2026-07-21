@@ -1,7 +1,7 @@
 import { ogCard, ogSize } from "@/lib/og-card";
 
 export const alt =
-  "MindGod — From human to machine. Autonomous AI sales systems for service businesses.";
+  "MindGod — From human to machine. Websites and AI sales systems for service businesses.";
 export const size = ogSize;
 export const contentType = "image/png";
 
